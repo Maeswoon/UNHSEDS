@@ -1,0 +1,884 @@
+Number of used processors (NPROC): 8.
+Number of partitions for one processor (NPART): 8.
+Total Physical Memory = 31.89 Gb, Available Physical Memory = 26.49 Gb
+Mesh generation started:	8.11.2017	15:25:47
+-----------------------------------------------------------------------
+Allocating meshes:
+	CPU count: 8
+	MESH 0:
+		Sub-meshes count: 8
+-----------------------------------------------------------------------
+Base mesh dimensions were changed from (76, 33, 32) to (76, 32, 32)
+Current CPU = 0 sec
+-----------------------------------------------------------------------
+Geometries initialization:
+
+Geometry database loading ...OK
+-----------------------------------------------------------------------
+Loading mesh settings (global/local)...
+-----------------------------------------------------------------------
+Number of geometries: 1
+Geometry(0):
+	Fluid..
+	1 Body.
+	1 Real body.
+	Tolerance=3.32058e-005.
+	24 Face(s).
+		24 of b-spline type.
+	14306 Triangle(s).
+	0 Face(s) that have no ref faces
+	17 Plane surface(s).
+	2 Cylinder surface(s).
+	1 Cone surface(s).
+	2 Torus surface(s).
+	2 Revolved surface(s).
+	46 Edge(s).
+		46 of b-spline type.
+	Geometry reading: 0.016 s.
+	22 Reference Face(s).
+	12754 Reference Triangles.
+	GeometryRef reading: 0.006 s.
+Last Geometry:
+	Solid.
+	Making hash and connectivity for geometry 0...
+		CBodyGeom:
+		Hash size: {76, 32, 32}.
+		Mesh size: {76, 32, 32}.
+		Hashing triangles...Ok.
+		Making triangles connectivity...Ok. (0.049 s).
+		Neighbour triangles: 100.00 % (good connect) - 0.00 % (bad connect). Min: 3. Max: 3.
+		Done.
+		CBodyGeomRef:
+		Hashing triangles...Ok.
+		Making triangles connectivity...Ok. (0.046 s).
+		Neighbour triangles: Min: 1. Max: 3.
+		Done.
+	0.062 s.
+Geometries reading and preparing has taken 0.090 s.
+
+Mapped triangles:
+Hashing geometries triangles
+	Triangles num=14306
+	Triangles box={-0.5  ,0.045011  ,-0.0224259  ,0.0439857  ,-0.0383428  ,0.0383428  }
+		3d-hash size is 440516 bytes
+		Making triangles connectivity...Ok. (0.034 s).
+		Neighbour triangles: 100.00 % (good connect) - 0.00 % (bad connect). Min: 3. Max: 3.
+Hashing peculiar surfaces triangles
+Mapped triangles processed in 0.049 s.
+-----------------------------------------------------------------------
+
+Current CPU = 0 sec
+Flow Simulation 2016  x64 / 3422 / MESHER ver. efd_15_0.3357_07.12.2015 
+
+Project: C:\Users\rdw1006\Documents\SEDS\1\1.xmlconfig
+Computer name:	MECH121
+Operating system:	Windows 8 (or higher)  (Build 9200)
+
+SOLIDWORKS 2016 SP3.0
+
+-----------------------------------------------------------------------
+Mesh dimensions:
+				I[0 ]=76
+				I[1 ]=32
+				I[2 ]=32
+Solver refinement level	I[47]=0
+
+Comp. domain size:
+				a[0  ]=-0.832058
+				a[1  ]=0.244246
+				a[2  ]=-0.221661
+				a[3  ]=0.243221
+				a[4  ]=-0.237578
+				a[5  ]=0.237578
+Wall thickness		a[231]=0
+Gap size			a[232]=1
+
+Fluid calculated			1
+Solid calculated			0
+-----------------------------------------------------------------------
+MESH: distribute base bricks among sub-meshes...
+	Base bricks count               77824
+	Sub-meshes  count               8
+	Base bricks count per sub-mesh  9728 (+0)
+	Sub-mesh 0: 9728 base brick(s), range [0, 9]-[0, 31]-[0, 31]
+	Sub-mesh 1: 9728 base brick(s), range [9, 18]-[0, 31]-[0, 31]
+	Sub-mesh 2: 9728 base brick(s), range [19, 28]-[0, 31]-[0, 31]
+	Sub-mesh 3: 9728 base brick(s), range [28, 37]-[0, 31]-[0, 31]
+	Sub-mesh 4: 9728 base brick(s), range [38, 47]-[0, 31]-[0, 31]
+	Sub-mesh 5: 9728 base brick(s), range [47, 56]-[0, 31]-[0, 31]
+	Sub-mesh 6: 9728 base brick(s), range [57, 66]-[0, 31]-[0, 31]
+	Sub-mesh 7: 9728 base brick(s), range [66, 75]-[0, 31]-[0, 31]
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+MESH: collecting ghosts in sub-meshes...
+	Sub-mesh 0:
+		Total  brick(s) 10752
+		Native brick(s) 9728
+		Inner  brick(s) 8704
+		Outer  brick(s) 1024
+		Ghost  brick(s) 1024
+	Sub-mesh 1:
+		Total  brick(s) 11776
+		Native brick(s) 9728
+		Inner  brick(s) 7680
+		Outer  brick(s) 2048
+		Ghost  brick(s) 2048
+	Sub-mesh 2:
+		Total  brick(s) 11776
+		Native brick(s) 9728
+		Inner  brick(s) 7680
+		Outer  brick(s) 2048
+		Ghost  brick(s) 2048
+	Sub-mesh 3:
+		Total  brick(s) 11776
+		Native brick(s) 9728
+		Inner  brick(s) 7680
+		Outer  brick(s) 2048
+		Ghost  brick(s) 2048
+	Sub-mesh 4:
+		Total  brick(s) 11776
+		Native brick(s) 9728
+		Inner  brick(s) 7680
+		Outer  brick(s) 2048
+		Ghost  brick(s) 2048
+	Sub-mesh 5:
+		Total  brick(s) 11776
+		Native brick(s) 9728
+		Inner  brick(s) 7680
+		Outer  brick(s) 2048
+		Ghost  brick(s) 2048
+	Sub-mesh 6:
+		Total  brick(s) 11776
+		Native brick(s) 9728
+		Inner  brick(s) 7680
+		Outer  brick(s) 2048
+		Ghost  brick(s) 2048
+	Sub-mesh 7:
+		Total  brick(s) 10752
+		Native brick(s) 9728
+		Inner  brick(s) 8704
+		Outer  brick(s) 1024
+		Ghost  brick(s) 1024
+	Total brick(s) 77824
+-----------------------------------------------------------------------
+Setting regions...OK (0.007 s)
+Base mesh info------------------
+	2D flag  =0
+	Period   =[0, 0, 0]
+	Nx=76
+		x[0]=-0.832058
+		x[1]=-0.810814
+		x[2]=-0.790555
+		x[3]=-0.77123
+		x[4]=-0.752795
+		x[5]=-0.735209
+		x[6]=-0.718434
+		x[7]=-0.702431
+		x[8]=-0.687165
+		x[9]=-0.672603
+		x[10]=-0.658712
+		x[11]=-0.64546
+		x[12]=-0.632819
+		x[13]=-0.619744
+		x[14]=-0.606669
+		x[15]=-0.593594
+		x[16]=-0.580519
+		x[17]=-0.567443
+		x[18]=-0.554368
+		x[19]=-0.541293
+		x[20]=-0.528218
+		x[21]=-0.515143
+		x[22]=-0.502068
+		x[23]=-0.488993
+		x[24]=-0.475918
+		x[25]=-0.462843
+		x[26]=-0.449767
+		x[27]=-0.436692
+		x[28]=-0.423617
+		x[29]=-0.410542
+		x[30]=-0.397467
+		x[31]=-0.384392
+		x[32]=-0.371317
+		x[33]=-0.358242
+		x[34]=-0.345166
+		x[35]=-0.332091
+		x[36]=-0.319016
+		x[37]=-0.305941
+		x[38]=-0.292866
+		x[39]=-0.279791
+		x[40]=-0.266716
+		x[41]=-0.253641
+		x[42]=-0.240566
+		x[43]=-0.22749
+		x[44]=-0.2145
+		x[45]=-0.20151
+		x[46]=-0.188519
+		x[47]=-0.175529
+		x[48]=-0.162539
+		x[49]=-0.149548
+		x[50]=-0.136558
+		x[51]=-0.123568
+		x[52]=-0.110577
+		x[53]=-0.0975869
+		x[54]=-0.0845965
+		x[55]=-0.0716062
+		x[56]=-0.0586158
+		x[57]=-0.0456255
+		x[58]=-0.0326351
+		x[59]=-0.0196448
+		x[60]=-0.00665441
+		x[61]=0.00633594
+		x[62]=0.0193263
+		x[63]=0.0323167
+		x[64]=0.045307
+		x[65]=0.0582974
+		x[66]=0.0713733
+		x[67]=0.0851058
+		x[68]=0.0995274
+		x[69]=0.114673
+		x[70]=0.130579
+		x[71]=0.147283
+		x[72]=0.164825
+		x[73]=0.183248
+		x[74]=0.202595
+		x[75]=0.222914
+		x[76]=0.244246
+	Ny=32
+		y[0]=-0.221661
+		y[1]=-0.201293
+		y[2]=-0.181917
+		y[3]=-0.163481
+		y[4]=-0.145938
+		y[5]=-0.129245
+		y[6]=-0.113361
+		y[7]=-0.0982466
+		y[8]=-0.0838649
+		y[9]=-0.07018
+		y[10]=-0.0571584
+		y[11]=-0.0447677
+		y[12]=-0.0329775
+		y[13]=-0.0217587
+		y[14]=-0.0109116
+		y[15]=-6.43554e-005
+		y[16]=0.0107829
+		y[17]=0.0216301
+		y[18]=0.0324773
+		y[19]=0.0433246
+		y[20]=0.0545426
+		y[21]=0.0663321
+		y[22]=0.0787223
+		y[23]=0.0917436
+		y[24]=0.105428
+		y[25]=0.11981
+		y[26]=0.134925
+		y[27]=0.150809
+		y[28]=0.167503
+		y[29]=0.185047
+		y[30]=0.203485
+		y[31]=0.222862
+		y[32]=0.243221
+	Nz=32
+		z[0]=-0.237578
+		z[1]=-0.217295
+		z[2]=-0.197982
+		z[3]=-0.17959
+		z[4]=-0.162074
+		z[5]=-0.145391
+		z[6]=-0.129504
+		z[7]=-0.114372
+		z[8]=-0.0999619
+		z[9]=-0.0862378
+		z[10]=-0.0731672
+		z[11]=-0.0607191
+		z[12]=-0.0488639
+		z[13]=-0.0375733
+		z[14]=-0.0250477
+		z[15]=-0.0125224
+		z[16]=2.88339e-006
+		z[17]=0.0125282
+		z[18]=0.0250535
+		z[19]=0.0375788
+		z[20]=0.0488687
+		z[21]=0.0607238
+		z[22]=0.0731717
+		z[23]=0.0862423
+		z[24]=0.0999665
+		z[25]=0.114377
+		z[26]=0.129509
+		z[27]=0.145397
+		z[28]=0.162079
+		z[29]=0.179597
+		z[30]=0.19799
+		z[31]=0.217303
+		z[32]=0.237578
+End of base mesh info---------
+Input_mesh_settings--------------------------------
+Settings 0----------------
+	Scope: GLOBAL
+	Type:	------MESHER_SETTINGS----------
+	RefAllCells           =0
+	RefFluidCells         =0
+	RefPartCells          =0
+	RefSolidCells         =0
+	l_SSFR(Capture crit)  =1
+	l_curv(Curvature crit)=0
+	l_tol(Tolerance crit) =0
+	UseChannelRef         =1
+	  l_NCR               =1
+	  N_gap               =5
+	  Use d_NCR_min       =0
+	  Use d_NCR_max       =0
+	IgnoreThinChannelsHeight         =0
+	--END_OF_MESHER_SETTINGS-------
+End of input mesh settings-------------------------
+
+-----------------------------------------------------------------------
+Building geometries:
+Building geometry Fluid.0.(0)...
+
+-----------------------------------------------------------------------
+Refining by triangulation...
+Refinement input: 77824 bricks
+Setting regions...OK (0.007 s)
+Refinement result: 78132 bricks (0.098 s)
+Refinement input: 78132 bricks
+Refinement result: 78132 bricks (0.011 s)
+Collecting and processing rays...OK (0.414 s)
+Capturing...OK (0.009 s)
+Refining by triangulation takes 0.535 s
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+Refining peculiar surfaces...
+0 surfaces refined
+Refining peculiar surfaces takes 0 s
+-----------------------------------------------------------------------
+Collecting and processing rays...OK (0.018 s)
+Capturing...OK (0.002 s)
+Collecting and processing rays...OK (0.017 s)
+Capturing...OK (0.002 s)
+Collecting and processing rays...OK (0.017 s)
+Capturing...OK (0.002 s)
+
+-----------------------------------------------------------------------
+Base mesh 1 Refining...
+Refinement input: 78132 bricks
+Refinement result: 78132 bricks (0.010 s)
+Collecting and processing rays...OK (0.017 s)
+Capturing...OK (0.002 s)
+-----------------------------------------------------------------------
+Refining channels...
+FYI: CNarrowChannelRefiner::RefineChannels_PRLL: m_submesh_count=8
+Refinement input: 78132 bricks
+Setting regions...OK (0.007 s)
+Refinement result: 81366 bricks (0.027 s)
+Collecting and processing rays...OK (0.068 s)
+Capturing...OK (0.003 s)
+FYI: m_iteration_count = 0
+FYI: level1 statistics:
+     level1_cnt_plus[1]=3696;		level1_cnt_minus[1]=0
+     level1_cnt_plus[2]=0;		level1_cnt_minus[2]=0
+     level1_cnt_plus[3]=0;		level1_cnt_minus[3]=0
+     level1_cnt_plus[4]=0;		level1_cnt_minus[4]=0
+     level1_cnt_plus[5]=0;		level1_cnt_minus[5]=0
+     level1_cnt_plus[6]=0;		level1_cnt_minus[6]=0
+     level1_cnt_plus[7]=0;		level1_cnt_minus[7]=0
+     level1_cnt_plus[8]=0;		level1_cnt_minus[8]=0
+     level1_cnt_plus[9]=0;		level1_cnt_minus[9]=0
+FYI: m_iteration_count = 1
+FYI: level1 statistics:
+     level1_cnt_plus[1]=3696;		level1_cnt_minus[1]=0
+     level1_cnt_plus[2]=0;		level1_cnt_minus[2]=0
+     level1_cnt_plus[3]=0;		level1_cnt_minus[3]=0
+     level1_cnt_plus[4]=0;		level1_cnt_minus[4]=0
+     level1_cnt_plus[5]=0;		level1_cnt_minus[5]=0
+     level1_cnt_plus[6]=0;		level1_cnt_minus[6]=0
+     level1_cnt_plus[7]=0;		level1_cnt_minus[7]=0
+     level1_cnt_plus[8]=0;		level1_cnt_minus[8]=0
+     level1_cnt_plus[9]=0;		level1_cnt_minus[9]=0
+FYI: level1 statistics:
+     level1_cnt_plus[1]=3696;		level1_cnt_minus[1]=0
+     level1_cnt_plus[2]=0;		level1_cnt_minus[2]=0
+     level1_cnt_plus[3]=0;		level1_cnt_minus[3]=0
+     level1_cnt_plus[4]=0;		level1_cnt_minus[4]=0
+     level1_cnt_plus[5]=0;		level1_cnt_minus[5]=0
+     level1_cnt_plus[6]=0;		level1_cnt_minus[6]=0
+     level1_cnt_plus[7]=0;		level1_cnt_minus[7]=0
+     level1_cnt_plus[8]=0;		level1_cnt_minus[8]=0
+     level1_cnt_plus[9]=0;		level1_cnt_minus[9]=0
+	CNarrowChannelRefiner::ChannelsResolution            function_total                0      = 0.280835 sec
+
+-----------------------------------------------------------------------
+U-shapes refinement...
+Refinement input: 81366 bricks
+Refinement result: 81366 bricks (0.015 s)
+Collecting and processing rays...OK (0.017 s)
+Capturing...OK (0.002 s)
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+Equi Distant Refiner:
+Equi Distant Refiner takes 0.00 s
+-----------------------------------------------------------------------
+Building geometry takes 0.951 s
+Geometry Fluid.0.
+Total		81366
+Partial	236
+Fluid		81130
+Solid		0
+Bad		0
+
+/-Ray Intersection---------------/ Time	0.365 s
+Calls			7330
+CorrectRay Calls	0
+
+
+Building geometries takes 0.953 s
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+PostBuilding geometries:
+PostBuilding geometries takes 0.003 s
+-----------------------------------------------------------------------
+Defect ray count	0
+FYI: CNarrowChannelRefiner::RedistributeLevel1_step_1: is finished
+FYI: level1 statistics:
+     level1_cnt_plus[1]=3696;		level1_cnt_minus[1]=0
+     level1_cnt_plus[2]=0;		level1_cnt_minus[2]=0
+     level1_cnt_plus[3]=0;		level1_cnt_minus[3]=0
+     level1_cnt_plus[4]=0;		level1_cnt_minus[4]=0
+     level1_cnt_plus[5]=0;		level1_cnt_minus[5]=0
+     level1_cnt_plus[6]=0;		level1_cnt_minus[6]=0
+     level1_cnt_plus[7]=0;		level1_cnt_minus[7]=0
+     level1_cnt_plus[8]=0;		level1_cnt_minus[8]=0
+     level1_cnt_plus[9]=0;		level1_cnt_minus[9]=0
+FYI: CNarrowChannelRefiner::RedistributeLevel1_step_2: is started
+FYI: CNarrowChannelRefiner::RedistributeLevel1_step_2: is finished
+FYI: level1 statistics:
+     level1_cnt_plus[1]=3782;		level1_cnt_minus[1]=0
+     level1_cnt_plus[2]=0;		level1_cnt_minus[2]=0
+     level1_cnt_plus[3]=0;		level1_cnt_minus[3]=0
+     level1_cnt_plus[4]=0;		level1_cnt_minus[4]=0
+     level1_cnt_plus[5]=0;		level1_cnt_minus[5]=0
+     level1_cnt_plus[6]=0;		level1_cnt_minus[6]=0
+     level1_cnt_plus[7]=0;		level1_cnt_minus[7]=0
+     level1_cnt_plus[8]=0;		level1_cnt_minus[8]=0
+     level1_cnt_plus[9]=0;		level1_cnt_minus[9]=0
+FYI: CNarrowChannelRefiner::RedistributeLevel1_step_3: is started
+FYI: CNarrowChannelRefiner::RedistributeLevel1_step_3: is finished
+RedistributeLevel1 takes:
+	CNarrowChannelRefiner::RedistributeLevel1            function_total                0      = 0.118805 sec
+FYI: level1 statistics:
+     level1_cnt_plus[1]=3782;		level1_cnt_minus[1]=266
+     level1_cnt_plus[2]=0;		level1_cnt_minus[2]=0
+     level1_cnt_plus[3]=0;		level1_cnt_minus[3]=0
+     level1_cnt_plus[4]=0;		level1_cnt_minus[4]=0
+     level1_cnt_plus[5]=0;		level1_cnt_minus[5]=0
+     level1_cnt_plus[6]=0;		level1_cnt_minus[6]=0
+     level1_cnt_plus[7]=0;		level1_cnt_minus[7]=0
+     level1_cnt_plus[8]=0;		level1_cnt_minus[8]=0
+     level1_cnt_plus[9]=0;		level1_cnt_minus[9]=0
+-----------------------------------------------------------------------
+BCF-Builder Iteration: 0
+Memory Working Set Current = 60.90 Mb, Memory Working Set Peak = 64.53 Mb
+Loading geometries triangulation & x-stacks...OK
+	Sub-mesh 0:
+		Total  brick(s) 10752
+		Native brick(s) 9728
+		Inner  brick(s) 8704
+		Outer  brick(s) 1024
+		Ghost  brick(s) 1024
+	Sub-mesh 1:
+		Total  brick(s) 11776
+		Native brick(s) 9728
+		Inner  brick(s) 7680
+		Outer  brick(s) 2048
+		Ghost  brick(s) 2048
+	Sub-mesh 2:
+		Total  brick(s) 12434
+		Native brick(s) 10330
+		Inner  brick(s) 8232
+		Outer  brick(s) 2098
+		Ghost  brick(s) 2104
+	Sub-mesh 3:
+		Total  brick(s) 12716
+		Native brick(s) 10582
+		Inner  brick(s) 8442
+		Outer  brick(s) 2140
+		Ghost  brick(s) 2134
+	Sub-mesh 4:
+		Total  brick(s) 12654
+		Native brick(s) 10526
+		Inner  brick(s) 8398
+		Outer  brick(s) 2128
+		Ghost  brick(s) 2128
+	Sub-mesh 5:
+		Total  brick(s) 12654
+		Native brick(s) 10526
+		Inner  brick(s) 8398
+		Outer  brick(s) 2128
+		Ghost  brick(s) 2128
+	Sub-mesh 6:
+		Total  brick(s) 12302
+		Native brick(s) 10218
+		Inner  brick(s) 8134
+		Outer  brick(s) 2084
+		Ghost  brick(s) 2084
+	Sub-mesh 7:
+		Total  brick(s) 10752
+		Native brick(s) 9728
+		Inner  brick(s) 8704
+		Outer  brick(s) 1024
+		Ghost  brick(s) 1024
+	Total brick(s) 81366
+
+-----------------------------------------------------------------------
+MSH (Real Geometry) format constructor:
+Getting submesh brick sets...OK (0.003 s)
+Level 1
+	Inner time 0.196 s
+	Outer Time 0.055 s
+	Level Time 0.251 s
+Level 0
+	Inner time 0.041 s
+	Outer Time 0.013 s
+	Level Time 0.055 s
+
+Brick parser time info:
+	0.754 s - time_Run
+		0.022 s - time_ConstructPoints
+			0.014 s - time_ConstructPointsAddFind2
+		0.019 s - time_ConstructPointsAndConnectsFromNb
+		0.006 s - time_AddRibConnects
+		0.151 s - time_ConstructBrickFacets
+			0.017 s - time_CalculateQpoints
+				0.002 s - time_AddFacetPoint_GetFacesQpoint
+					0.000 s - time_GetFacesQpoint_UShaped
+						0.000 s - time_GetFacesQpoint2
+					0.000 s - time_GetFacesQpoint_AddEdgesToList
+					0.002 s - time_Edge_GetClosestPointOn
+					0.000 s - time_Edge_NewtonMethod
+					0.000 s - time_GetFacesQpoint_ManyFinds
+				0.013 s - time_AddFacetPoint_AddQPoint
+					0.012 s - time_PointReverseEvaluate
+				0.000 s - time_AddFacetPoint_AddFind2
+		0.000 s - time_RemoveOddConnects
+		0.011 s - time_TestConnectivity
+		0.000 s - time_ValidateXeps
+		0.021 s - time_ConstructFaceAs
+		0.006 s - time_ConstructCvs
+		0.003 s - time_ConstructFaceWs
+		0.010 s - time_RealGeomAddQPoints
+		0.001 s - time_RealGeomAddNewFaces
+		0.000 s - time_RealGeomInitOppositeGeomFaceInd
+		0.015 s - time_RealGeomApproxCurveFaces
+		0.000 s - time_Enum1
+		0.000 s - time_Enum2
+		0.000 s - time_RealGeomCheckInvalidConnects
+		0.337 s - time_RealGeomParameters
+			0.207 s - time_CalculateParametersOfCv
+			0.127 s - time_CalculateParametersOfFace
+				0.041 s - time_CalculateRR
+				0.086 s - time_CalculateRefFaceData
+				0.000 s - time_CalculateLambdaProjection
+			0.003 s - time_SetFacesOrientation
+Result:
+	Bricks number:                        81366
+
+	Memory usage:                         1.858 MB
+	Memory usage (per brick):             0.023 KB
+	Construction time:                    0.396 s
+
+	Topology features:
+	------------------
+	- High quality bricks                 100.00 % (81366)
+	- Medium quality bricks                 0.00 % (0)
+	- Bad quality bricks                    0.00 % (0)
+	- Ribs corrected bricks                 0.00 % (0)
+	- Points with geom-info (bricks)        0.00 % (2)
+	- Points with closest-info (bricks)     0.02 % (20)
+	- Triangulated by center (bricks)       0.00 % (2)
+	- Facet w-faces mergings (bricks)       0.00 % (0)
+	- To refine (bricks)                    0.00 % (0)
+
+Memory Working Set Current = 67.79 Mb, Memory Working Set Peak = 81.09 Mb
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+MSH --> BCF format (Iteration 0)...
+BCF collector...
+	(1) Bcf collect time 0.118 s (11776 avs, 0 fws)
+	(0) Bcf collect time 0.118 s (10752 avs, 0 fws)
+	(7) Bcf collect time 0.118 s (10752 avs, 0 fws)
+	(5) Bcf collect time 0.121 s (13498 avs, 844 fws)
+	(4) Bcf collect time 0.121 s (13498 avs, 844 fws)
+	(6) Bcf collect time 0.115 s (12854 avs, 996 fws)
+	(2) Bcf collect time 0.123 s (13190 avs, 1015 fws)
+	(3) Bcf collect time 0.123 s (13678 avs, 1090 fws)
+	(7) Remove defect avs time 0.030 s
+	(0) Remove defect avs time 0.030 s
+	(5) Remove defect avs time 0.030 s
+	(3) Remove defect avs time 0.030 s
+	(4) Remove defect avs time 0.030 s
+	(6) Remove defect avs time 0.030 s
+	(2) Remove defect avs time 0.030 s
+	(1) Remove defect avs time 0.030 s
+Defect subdomain detector...
+		1 subdomain(s) of gi=0 (real bodies = 1).
+			Subdomain 0: 83062 av
+		Get real subdoms time 0.000 s
+		Mark defect subdomains by closed av...
+		Mark by closed av time 0.003 s
+		Mark defect subdomains by real bodies...
+		0 defect subdomain(s) of gi=0.
+	(0) Remove defect subdoms time 0.012 s
+	(4) Remove defect subdoms time 0.012 s
+	(5) Remove defect subdoms time 0.012 s
+	(6) Remove defect subdoms time 0.012 s
+	(7) Remove defect subdoms time 0.012 s
+	(2) Remove defect subdoms time 0.012 s
+	(3) Remove defect subdoms time 0.012 s
+	(1) Remove defect subdoms time 0.012 s
+NB-faces collector & conservator...
+Sub-mesh 0.
+	Conservated total=0 (bb-faces=0)
+Sub-mesh 1.
+	Conservated total=0 (bb-faces=0)
+Sub-mesh 2.
+	Conservated total=0 (bb-faces=0)
+Sub-mesh 3.
+	Conservated total=0 (bb-faces=0)
+Sub-mesh 4.
+	Conservated total=0 (bb-faces=0)
+Sub-mesh 5.
+	Conservated total=0 (bb-faces=0)
+Sub-mesh 6.
+	Conservated total=43 (bb-faces=0)
+Sub-mesh 7.
+	Conservated total=0 (bb-faces=0)
+	(7) Bcf calc time 0.009 s
+	(0) Bcf calc time 0.010 s
+	(1) Bcf calc time 0.011 s
+	(5) Bcf calc time 0.012 s
+	(4) Bcf calc time 0.013 s
+	(2) Bcf calc time 0.013 s
+	(3) Bcf calc time 0.013 s
+	(6) Bcf calc time 0.036 s
+FACE_W optimizer ...
+Sub-mesh 0.
+	Before optimization total=3424 (fs=0, ff=0, ss=0)
+	After  optimization total=3424 (fs=0, ff=0, ss=0)
+Sub-mesh 1.
+	Before optimization total=3552 (fs=0, ff=0, ss=0)
+	After  optimization total=3552 (fs=0, ff=0, ss=0)
+Sub-mesh 2.
+	Before optimization total=4741 (fs=1015, ff=0, ss=0)
+	After  optimization total=4741 (fs=1015, ff=0, ss=0)
+Sub-mesh 3.
+	Before optimization total=4922 (fs=1090, ff=0, ss=0)
+	After  optimization total=4922 (fs=1090, ff=0, ss=0)
+Sub-mesh 4.
+	Before optimization total=4630 (fs=844, ff=0, ss=0)
+	After  optimization total=4630 (fs=844, ff=0, ss=0)
+Sub-mesh 5.
+	Before optimization total=4630 (fs=844, ff=0, ss=0)
+	After  optimization total=4630 (fs=844, ff=0, ss=0)
+Sub-mesh 6.
+	Before optimization total=4656 (fs=996, ff=0, ss=0)
+	After  optimization total=4472 (fs=812, ff=0, ss=0)
+Sub-mesh 7.
+	Before optimization total=3424 (fs=0, ff=0, ss=0)
+	After  optimization total=3424 (fs=0, ff=0, ss=0)
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+Merging BCF...
+Merging bricks trees...OK (0.05 s)
+Merging av data...OK (0.03 s)
+Merging a-faces data (fluid)...
+	New a-face count   242622
+	Bound a-face count 7568 (3.12 %)
+Merging a-faces data takes 0.04 s
+Merging a-faces data (solid)...
+	New a-face count   3794
+	Bound a-face count 115 (3.03 %)
+Merging a-faces data takes 0.00 s
+Merging w-faces data...
+	New w-face count   15942
+	Bound w-face count 0 (0.00 %)
+	Need fw-nb         4496 (28.20 %)
+Merging w-faces data takes 0.03 s
+Merging BCF takes (0.18 s)
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+Geometrical diagonal nb-faces collector (cpu_num=8)...
+	Time=0.028s.
+-----------------------------------------------------------------------
+Fluid Subdom Constructor: 1 subdom(s).
+	Remove nb-fw from diff subdomains (fs)...
+		Diff subdomains cases         0
+
+-----------------------------------------------------------------------
+BCF CHECKSUM DATA (Mesh 0):
+
+FACE_A Area Sum:   G.Fluid        48.1298445568229240
+FACE_A Area Sum:   G.Solid        0.0245603241209180
+FACE_W Area Sum:                  2.5777014901605835
+FACE_W Nb   Sum:                  129306
+FACE_W min curvatures sum:        -129552.03563491
+FACE_W max curvatures sum:        1740829.86562175
+AV Max Disbalance: G.Fluid        2.13266e-015 (cid=38939, avid=39562)
+AV Max Disbalance: G.Solid        2.0648e-014 (cid=45323, avid=84558)
+-----------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------
+MESHER TOPOLOGY DATA (Mesh 0):
+
+BRICKS: Total                 81366
+BRICKS: 1-CV                  79502
+BRICKS: 2-CV                  194
+BRICKS: 3-CV                  1644
+BRICKS: 4-CV                  26
+BRICKS: Bad                   0
+
+AV:     G.Total               84926
+AV:     G.Fluid               83062
+AV:     G.Solid               1864
+
+AV:     G.Fluid Thin Profile    0.00 % (0)
+AV:     G.Solid Thin Profile   89.59 % (1670)
+
+AV:     G.Fluid Thin For Mega   0.00 % (0)
+AV:     G.Solid Thin For Mega  85.19 % (1588)
+
+AV:     G.Fluid Non-Convex      0.23 % (192)
+AV:     G.Solid Non-Convex      8.15 % (152)
+
+FACE_A: G.Fluid          (af) 242622 (partially opened 7142)
+FACE_A: G.Solid          (as) 3794 (partially opened 3774)
+
+FACE_W: G.Total                 15942       Brick/Bound
+FACE_W: G.Fluid/Solid    (fs_g) 4166        0           
+FACE_W: G.Fluid/Fluid    (ff_g) 0           0           
+FACE_W: G.Solid/Solid    (ss_g) 0           0           
+FACE_W: G.Fluid/External (fe_g) 11776
+FACE_W: G.Solid/External (se_g) 0
+
+AV max fa count:                15
+AV max fw count:                15
+AV max fw poly count:           15
+
+MEMORY: Total                   26.455 MB
+MEMORY: Per Brick               0.333 KB
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+Mega-cv constructor for fluid...
+	 0 av's is treated as thin
+Relative size generator (threshold = 0.05)...OK
+	 36 mega-cv's generated
+	 0 mega-cv's removed
+Convert clusters:
+	 36 mega-cv's total
+-----------------------------------------------------------------------
+Mixing plane rotation regions: NO.
+Sliding mesh rotation regions: NO.
+Fluid/fluid faces: NO.
+----------------------------------------------------------
+BCF --> BCF.GEOMSUBDOM (bridge arrays) (cpu_num=8):
+MESH (0):
+	Fluid Subdom Constructor: 1 subdom(s).
+	Solid Subdom Constructor: 1 subdom(s).
+	Net Asm Subdom Constructor: 0 subdom(s).
+	GEOMSUBDOM (0): gi=0 fluid av=83062 cv=83026 fa=242622 fw=15942 V=2.376923e-001
+	GEOMSUBDOM (1): gi=1 solid av=1864 cv=1864 fa=3794 fw=4166 V=5.314105e-005
+	Setting nb of w-faces...OK.
+
+MESH (0) checking:
+	GEOMSUBDOM (0):fa_s=48.1298445568235280 fw_s=2.5777014901605817 fw_nb=129306
+	GEOMSUBDOM (1):fa_s=0.0245603241209181 fw_s=0.1123912784658656 fw_nb=35122
+MESH (0) checking: OK.
+----------------------------------------------------------
+-----------------------------------------------------------------------
+Calculating curvature and tolerance criteria...
+Curvature: min=0 max=3.14159
+Tolerance: min=0 max=0.00633197
+Calculating curvature and tolerance criteria takes 0.098 s
+-----------------------------------------------------------------------
+Current CPU = 2 sec
+
+Nx=76
+Ny=32
+Nz=32
+Max_RL=1
+12. Saving initial mesh in: C:\Users\rdw1006\Documents\SEDS\1\1.fld .
+Storing results...
+Estimated CPT size=9.878 MB.
+OK
+Memory Working Set Current = 112.63 Mb, Memory Working Set Peak = 126.30 Mb
+Cleaning memory...
+Free Geometry DB takes 0.002 s
+Copying... OK
+
+------------------------------------------------------------------------------------------------------------
+CPU report:
+Function                                             CPU           descriptor                    nproc     
+------------------------------------------------------------------------------------------------------------
+GetGeometryFromSW                                    0.167 sec   function_total               
+GetGeometryFromSW                                    0.022 sec   InitGeometryTriangles        
+CMesh::PrepareMappedTriangles                        0.049 sec   function_total               
+SwapGeometries                                       0.000 sec   function_total               
+CMesh::PreBuild                                      0.016 sec   function_total               
+SetBrickRegion                                       0.021 sec   function_total               
+CMesh::Build                                         0.959 sec   function_total               
+CMesh::BuildGeometry                                 0.951 sec   function_total               
+ActivateAllCellsParameters                           0.009 sec   function_total               
+RefineByTriangles                                    0.535 sec   function_total               
+CaptureRefined                                       0.590 sec   function_total               
+GetMultiRaysIntersections                            0.191 sec   full                         
+CRayCollector::CorrectRays2                          0.319 sec   full                         
+CRayCollector::CorrectRays2                          0.176 sec   collect_undefined            
+CRayCollector::CorrectRays2                          0.104 sec   stage_2                      
+RefinePeculiarSurfaces                               0.020 sec   function_total               
+CNarrowChannelRefiner::ChannelsResolution            0.281 sec   function_total               
+CNarrowChannelRefiner::RefineChannels_PRLL           0.274 sec   function_total               
+CNarrowChannelRefiner::GetMainNormals                0.024 sec   function_total               
+CNarrowChannelRefiner::GetMainNormals                0.030 sec   function_total               
+CNarrowChannelRefiner::GetMainNormals                0.026 sec   function_total               
+CNarrowChannelRefiner::GetMainNormals                0.028 sec   function_total               
+CNarrowChannelRefiner::GetMainNormals                0.132 sec   function_total               
+CNarrowChannelRefiner::facade_bricks_of_brick_dirv   0.000 sec   function_total               
+CNarrowChannelRefiner::facade_bricks_of_brick_dirv   0.000 sec   function_total               
+CNarrowChannelRefiner::facade_bricks_of_brick_dirv   0.020 sec   function_total               
+CNarrowChannelRefiner::facade_bricks_of_brick_dirv   0.024 sec   function_total               
+CNarrowChannelRefiner::facade_bricks_of_brick_dirv   0.021 sec   function_total               
+CNarrowChannelRefiner::facade_bricks_of_brick_dirv   0.022 sec   function_total               
+CNarrowChannelRefiner::facade_bricks_of_brick_dirv   0.069 sec   function_total               
+CNarrowChannelRefiner::facade_bricks_of_brick_dirv   0.001 sec   function_total               
+CNarrowChannelRefiner::next_brick_on_ray             0.000 sec   function_total               
+CNarrowChannelRefiner::next_brick_on_ray             0.000 sec   function_total               
+CNarrowChannelRefiner::next_brick_on_ray             0.018 sec   function_total               
+CNarrowChannelRefiner::next_brick_on_ray             0.022 sec   function_total               
+CNarrowChannelRefiner::next_brick_on_ray             0.019 sec   function_total               
+CNarrowChannelRefiner::next_brick_on_ray             0.021 sec   function_total               
+CNarrowChannelRefiner::next_brick_on_ray             0.068 sec   function_total               
+CNarrowChannelRefiner::next_brick_on_ray             0.001 sec   function_total               
+CNarrowChannelRefiner::RefineChannels_PRLL           0.098 sec   NCR_execute_refinement       
+CMesh::BuildGeometry                                 0.000 sec   equidistant_refiner          
+CNarrowChannelRefiner::RedistributeLevel1            0.123 sec   function_total               
+CTPBuilder::build_bcf                                1.156 sec   function_total               
+CTPBuilder::bcf_builder                              0.953 sec   function_total               
+LoadTrianglesAndXSL                                  0.000 sec   function_total               
+CTPBuilder::collect_msh_format                       0.399 sec   function_total               
+CTPBuilder::Run                                      0.204 sec   bcf_collect                  
+CTPBuilder::Run                                      0.345 sec   bcf_merge                    
+CTPBuilder::build_bcf                                0.073 sec   collect_mega_cv              
+CTPBuilder::build_bcf                                0.128 sec   convert_to_mds_function      
+CMesh::CalculateCurvatureAndToleranceCriteria        0.099 sec   function_total               
+Store_Res_2                                          0.263 sec   function_total               
+Freemem_CPT                                          0.067 sec   function_total               
+------------------------------------------------------------------------------------------------------------
+
+Mesh generation normally finished at	8.11.2017	15:25:50
+Mesher CPU = 3 sec
+Mesher is finished at	8.11.2017	15:25:50

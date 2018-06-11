@@ -2,7 +2,7 @@ function [drag] = FminGetDrag (v,h,t,x)
 % calculate total drag for the sustainer and booster, carries to
 % sustainer then to recovery.
 % NB ! When v is + ve (up) drag should be + ve (down)
-%FOR FMINCON ONLY CALCULATES FOR ONE SET OF FINS
+% FOR FMINCON ONLY CALCULATES FOR ONE SET OF FINS
 % ~ AETHER4 ~
 
 pi = 3.14;

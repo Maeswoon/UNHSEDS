@@ -1,4 +1,12 @@
 function [history,searchdir] = Fmincon
+
+% The lengths of some parts are definite and unchanging, so they do not
+% appear as a variable of x. This includes the E-Bay, Coupler Body Tubes...
+
+% Note: what is determining the fin location? Add that as a var, i believe
+% it is Xb. Very important. We can also just assume to put the fins always
+% so the end meets with the end of the body tube. Probably the best.
+
 x1  = .24   ;  %Length of the nosecone
 x2  = .31   ;  %Length of the shoulder
 x3  = .46   ;  %Length of the sustainer bodytube
@@ -75,10 +83,10 @@ nonlincon=@supernonlincon;
          case 'iter'
            it=it+1;
 
-         % Concatenate current point and objective function
-         % value with history. x must be a row vector.
-           %history.fval = [history.fval; optimValues.fval];
-           %history.x = [history.x; x];
+           % Concatenate current point and objective function
+           % value with history. x must be a row vector.
+           % history.fval = [history.fval; optimValues.fval];
+           % history.x = [history.x; x];
            x1s(it)=x(1);
            x2s(it)=x(2);
            x3s(it)=x(3);

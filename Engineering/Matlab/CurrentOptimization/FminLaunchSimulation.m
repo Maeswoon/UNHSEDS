@@ -24,7 +24,7 @@ drag         = []; % Sustainer drag
 sfd          = []; % Skin Friction Drag
 pressured    = []; % Pressure Drag
 based        = []; % Base Drag
-tx            = []; % Used to keep track of time
+tx           = []; % Used to keep track of time
 
 for t = tstart:dt:tstop
     

@@ -11,6 +11,7 @@ CP = .322;  % 322 grams per meter for Coupler Body Tube
 ET = .168;  % 168 grams per meter for Engine Tube
 PL = 4.882; % 4882 grams per square meter for Plate Parts
 
+Mbattery                 =0;
 Mnosecone                = .150;
 Mshoulder                = x(2)*BT;
 Mebay                    = .400; % Whole E-Bay, Must find Value

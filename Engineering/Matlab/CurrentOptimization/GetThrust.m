@@ -5,13 +5,15 @@ function [thrust] = GetThrust ( t )
 % burntimeboost = .9;  % s
 % burntimesust = 1.7;     % s
 % startTimeboost = 1.9; % s (.9 + 1 second delay)
+cruisetime=1; %Change to D array
 
 % H340 - Booster Engine data (taken from thrustcurve.org)
 xb_data = [0, 0.01, 0.04, 0.06, 0.62, 0.68, 0.7, 0.8, 0.85, 0.9]; % s
 yb_data = [0, 5.00, 450 , 385 ,  375,  410, 400, 60 , 10  , 0]; % N
 
 % I204  - Sustainer Engine data (taken from thrustcurve.org)
-xs_data = [0 0.01 0.012 0.03 0.3 0.5 0.7 1 1.1 1.2 1.3 1.4 1.5 1.6 1.72];
+xs_data_Raw = [0 0.01 0.012 0.03 0.3 0.5 0.7 1 1.1 1.2 1.3 1.4 1.5 1.6 1.72];
+xs_data=xs_data_Raw+xb_data(end)+cruisetime;
 ys_data = [0 100 356 310 286 270 251 228 215 165 125 95 52 36 0];
 
 

@@ -6,7 +6,7 @@ function [history,searchdir] = Fmincon
 D  = [0.1,   0.24,   0.3 ;  %1 Length of the nosecone
       0.1,   0.31,   0.7 ;  %2 Length of the shoulder
       0.45,  0.46,   0.7 ;  %3 Length of the sustainer bodytube
-      0.02,   0.135, 0.5 ;  %4 Length of the staging coupler
+      0.02,  0.135, 0.5 ;  %4 Length of the staging coupler
       0.49,  0.50,   0.7 ;  %5 Length of the booster bodytube
       0,     0.002,  0.01;  %6 Length of the sustainer motorhang
       0,     0.0359, 0.07;  %7 Length of the booster motorhang

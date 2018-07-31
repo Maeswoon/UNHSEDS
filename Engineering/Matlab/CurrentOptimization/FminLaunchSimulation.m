@@ -14,7 +14,7 @@ bd = 0;             % initial base drag
 tstart      = 0;    % start time
 dt          = 0.1; % time step
 tstop       = 160;  % endtime
-tseperation = 2.3;  % booster seperation
+tseperation = 1.9;  % booster seperation
 
 %Initial Vectors
 height       = []; % Sustainer height

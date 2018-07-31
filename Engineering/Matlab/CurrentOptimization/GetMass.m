@@ -38,9 +38,9 @@ initialSustMass = Msustinit + Mnosecone + Mshoulder + Mebay + Msustbodytube + Ms
     + Mforwardfins + Mdrogueparachute + Mmainparachute;
 
 
-burnTimeBoost  = 1.3;          % sec
-burnTimeSust   = 3;            % sec
-startTimeboost = 2.3;          % sec
+burnTimeBoost  = .9;          % sec
+burnTimeSust   = 1.72;            % sec
+startTimeboost = 1.9;          % sec
 startTimecoast = startTimeboost + burnTimeSust;
 
 if (t>=0 && t<burnTimeBoost)

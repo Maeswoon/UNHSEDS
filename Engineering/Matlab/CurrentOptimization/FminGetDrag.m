@@ -4,21 +4,21 @@ function [drag] = FminGetDrag (v,h,t,x)
 % NB ! When v is + ve (up) drag should be + ve (down)
 %FOR FMINCON ONLY CALCULATES FOR ONE SET OF FINS
 % ~ AETHER4 ~
-
+tsuststart = 1.9;
 pi = 3.14;
 mu = 1.79e-5;
 rho = 1.217*exp(-h/8500);
 kv = mu/rho;
 
 if v >= 0
-    if t <= 2.3
+    if t <= tsuststart
         l=x(1)+x(2)+.02+x(3)+x(4)+x(5);%l = 1.25; % length of full rocket (m)
-    elseif t > 2.3
+    elseif t > tsuststart
         l=x(1)+x(2)+.02+x(3)+x(6); %0.80; % length of sustainer body tube (m)
     end
     
     % ~ SKIN FRICTION DRAG ~
-    D = .0574;   % (m) Diameter of Nosecone
+    D = .045;   % (m) Diameter of Nosecone
     r = D/2;
     Re = (v*l)/kv;
     Rs = 60e-6; % roughness

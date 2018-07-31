@@ -119,6 +119,33 @@ set(gca,'ycolor','r')
 title('Convergence of Rocket Dimensions to Maximize Altitude')
 grid on
 hold off
+% Launch sim
+[scoobertdoobert,tgraph,hgraph]=FminLaunchSimulation(xsol);
+tgraph
+hgraph
+figure(2);
+
+hold on
+
+plot(tgraph,hgraph,'r','displayname','Sustainer: MATLAB Model','linewidth',1)
+%plot(x2,height2,'b',D,'Booster: MATLAB Model',L,1)
+%colortri = [0 .6 0];
+%plot(nan,nan,'^','color',colortri,'MarkerSize',13);
+%plot(8.39,277.8,'^','color',colortri,'MarkerSize',16);
+%plot(15.98,1044,'^','color',colortri,'MarkerSize',16);
+%plot(28.94,839.6,'^','color',colortri,'MarkerSize',16);
+
+title('MATLAB Flight Model Verification','Fontsize',14)
+xlabel('Time (s)','fontsize',14)
+ylabel('Height (m)','fontsize',14)
+%axis([0 150 0 1200])
+leg = legend('Sustainer: MATLAB Model','Sustainer: OpenRocket','Booster: MATLAB Model','Booster: OpenRocket','Flight Data','Parachute Deployment');
+set(leg,'fontsize',11)
+grid minor
+hold off
+
+
+
 end
 %To Do:
 %Make masses dependent on x for stability and GetMass

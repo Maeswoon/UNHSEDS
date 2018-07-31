@@ -1,4 +1,4 @@
-function [oneoverh] = FminLaunchSimulation(x)
+function [oneoverh,tx,height] = FminLaunchSimulation(x)
 
 % ~ AETHER4 Launch Simulation ~
 

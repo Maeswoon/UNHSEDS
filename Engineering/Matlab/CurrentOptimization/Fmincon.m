@@ -140,7 +140,7 @@ xlabel('Time (s)','fontsize',14)
 ylabel('Height (m)','fontsize',14)
 %axis([0 150 0 1200])
 leg = legend('Sustainer: MATLAB Model','Sustainer: OpenRocket','Booster: MATLAB Model','Booster: OpenRocket','Flight Data','Parachute Deployment');
-%set(leg,'fontsize',11)
+set(leg,'fontsize',11)
 grid minor
 hold off
 

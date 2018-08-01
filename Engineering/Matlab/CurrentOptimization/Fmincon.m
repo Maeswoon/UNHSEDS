@@ -6,7 +6,7 @@ function [history,searchdir] = Fmincon
 D  = [0.1,   0.24,   0.3 ;  %1 Length of the nosecone
       0.1,   0.31,   0.7 ;  %2 Length of the shoulder
       0.45,  0.46,   0.7 ;  %3 Length of the sustainer bodytube
-      0.02,  0.135, 0.5 ;  %4 Length of the staging coupler
+      0.02,  0.135, 0.5 ;   %4 Length of the staging coupler
       0.49,  0.50,   0.7 ;  %5 Length of the booster bodytube
       0,     0.002,  0.01;  %6 Length of the sustainer motorhang
       0,     0.0359, 0.07;  %7 Length of the booster motorhang
@@ -40,6 +40,59 @@ fun=@FminLaunchSimulation;
 nonlincon=@supernonlincon;
 
 [xsol,fsol,exitflag,output]= fmincon(fun,D(:,2),A,b,Aeq,beq,D(:,1),D(:,3),nonlincon,options);
+%I made this a nested function so I can pass through more variables than
+%just x
+    function [oneoverh,tx,height] = FminLaunchSimulation(x)
+
+    % ~ AETHER Launch Simulation ~
+
+    L  = 'linewidth';
+    D  = 'displayname';
+    a  = 0;
+    v  = 0;             % initial velocity
+    h  = 0.5;           % initial height
+    d  = 0;             % initial drag
+    sf = 0;             % initial skin friction drag
+    pd = 0;             % initial pressure drag
+    bd = 0;             % initial base drag
+    tstart      = 0;    % start time
+    dt          = 0.1; % time step
+    tstop       = 160;  % endtime
+    tseperation = 1.9;  % booster seperation
+
+    %Initial Vectors
+    height       = []; % Sustainer height
+    velocity     = []; % Sustainer velocity
+    acceleration = []; % Sustainer acceleration
+    drag         = []; % Sustainer drag
+    sfd          = []; % Skin Friction Drag
+    pressured    = []; % Pressure Drag
+    based        = []; % Base Drag
+    tx           = []; % Used to keep track of time
+
+    for t = tstart:dt:tstop
+
+        height(end + 1)       = h;
+        velocity(end + 1)     = v;
+        acceleration(end + 1) = a;
+        drag(end + 1)         = d;
+        sfd(end + 1)          = sf;
+        pressured(end + 1)    = pd;
+        based(end + 1)        = bd;
+        tx(end + 1)            = t;
+        [a, d] = FminGetAcceleration(t,v,h,x); % get current acceleration
+        v = v + dt*a ; % update velocity
+        h = h + dt*v ; % update height
+
+        if h < 0
+            break
+        end
+    end
+
+    oneoverh=1/max(height);
+
+
+    end
 
  function stop = outfun(x,optimValues,state)
      stop = false;
@@ -147,25 +200,5 @@ grid minor
 hold off
 
 xsol(1)
-1/fsol
+fsol
 end
-%To Do:
-%Make masses dependent on x for stability and GetMass
-%Get correct constants for stability calc
-%Have clegg change GetDrag to account for two different fin sets
-%Limit bounds more
-%Double check cp cg calc with barrowman
-%Vary cruise time from .3 to 4 seconds
-%Create "Dictionaries" of parts, where each part contains info on x0, lb,
-%ub, material (density)
-%Add a table output for final dimensions and height
-%Add plot of the rough size of the rocket
-
-%{
-Qs
-What engines are we using?
-What diameter are we using? and should this be a variable?
-Where are cleggs changes to account for two sets of fins?
-Dictionary idea, maybe import data for nicer input?
-Go through bound limitations one by one
-%}

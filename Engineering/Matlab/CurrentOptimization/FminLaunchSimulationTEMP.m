@@ -1,6 +1,6 @@
 function [oneoverh,tx,height] = FminLaunchSimulation(x)
 
-% ~ AETHER4 Launch Simulation ~
+% ~ AETHER Launch Simulation ~
 
 L  = 'linewidth';
 D  = 'displayname';

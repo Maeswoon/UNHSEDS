@@ -117,7 +117,6 @@ nonlincon=@supernonlincon;
            x13s(it)=x(13);
            x14s(it)=x(14);
            x15s(it)=x(15);
-           x16s(it)=x(16);
            fstore(it)=1./optimValues.fval;
          case 'done'
              hold off
@@ -128,7 +127,6 @@ itstore=[1:it];
 color1=[0 .6 0];
 color2=[1 .35 .05];
 color3=[.7 0 .7];
-color4=[.4 .2 .4];
 set(groot,'DefaultLineLineWidth',1.25)
 plot(itstore,x1s./xsol(1),'b')
 set(gca,'FontSize',14)
@@ -140,8 +138,8 @@ plot(itstore,x8s./xsol(8),'Color',color3);
 plot(itstore,x12s./xsol(12),'Color',color1);
 plot(0,1,'r:','LineWidth',4);
 plot(it,1,'kx')
-%text(102.35,1.12,'\downarrow','Fontsize',13,'fontweight','bold')
-%text(102.35,1.24,'Convergence','fontweight','bold')
+text(102.35,1.12,'\downarrow','Fontsize',13,'fontweight','bold')
+text(102.35,1.24,'Convergence','fontweight','bold')
 %text(102.35,4.92,'\downarrow','Fontsize',13,'fontweight','bold')
 %text(102.35,5.04,'Optimized Apogee','fontweight','bold')
 
@@ -156,8 +154,7 @@ plot(itstore,x13s./xsol(13),'Color',color1);
 plot(itstore,x14s./xsol(14),'Color',color1);
 plot(itstore,x15s./xsol(15),'Color',color1);
 plot(itstore,x2s./xsol(2),'b')
-plot(itstore,x5s./xsol(5),'Color',color2);
-
+plot(itstore,x5s./xsol(5),'Color',color2)
 ylabel('$\frac{DIM_{iteration}}{DIM_{optimized}}$','Interpreter','latex','FontSize',24)
 axis([0 120 0 5.5])
 yyaxis right
@@ -177,7 +174,8 @@ grid on
 hold off
 % Launch sim
 [scoobertdoobert,tgraph,hgraph]=FminLaunchSimulation(xsol);
-
+tgraph
+hgraph
 figure(2);
 
 hold on
@@ -194,7 +192,7 @@ title('MATLAB Flight Model Verification','Fontsize',14)
 xlabel('Time (s)','fontsize',14)
 ylabel('Height (m)','fontsize',14)
 %axis([0 150 0 1200])
-leg = legend('Sustainer: MATLAB Model','Booster: MATLAB Model','Booster: OpenRocket','Flight Data','Parachute Deployment');
+leg = legend('Sustainer: MATLAB Model','Sustainer: OpenRocket','Booster: MATLAB Model','Booster: OpenRocket','Flight Data','Parachute Deployment');
 set(leg,'fontsize',11)
 grid minor
 hold off
@@ -202,3 +200,7 @@ hold off
 xsol(1)
 fsol
 end
+
+
+end
+

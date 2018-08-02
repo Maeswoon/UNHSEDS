@@ -1,7 +1,48 @@
-function [history,searchdir] = Fmincon
+function [Part,history,searchdir] = Fmincon
+%All units are SI unless otherwise stated
 
-%Sust I204
-%Boost H340
+Part(1,:)=struct('name','Nosecone','material','CarbonFiber','mass',[],'dims',...
+        {struct('dimName','Length','lowBounds',0.1,'initGuess',0.24,'upBounds',0.3),...
+        struct('dimName','ShoulderLength','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
+        struct([]),struct([])});
+
+Part(2,:)=struct('name','Ebay Coupler','material','CarbonFiber','mass',[],'dims',...
+        struct('dimName','Length','lowBounds',0.02,'initGuess',0.135,'upBounds',0.5));
+
+Part(3,:)=struct('name','Electronics','material',[],'mass',0.20,'dims',... %this mass is a complete guess
+        struct('dimName','CruiseTime','lowBounds',0.1,'initGuess',1.0,'upBounds',2));
+
+Part(4,:)=struct('name','Sustainer Bodytube','material','CarbonFiber','mass',[],'dims',...
+        struct('dimName','Length','lowBounds',0.45,'initGuess',0.46,'upBounds',0.7));
+
+Part(5,:)=struct('name','Sustainer Fins','material','FiberGlass','mass',[],'dims',...
+        {struct('dimName','RootChord','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
+        struct('dimName','TipChord','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
+        struct('dimName','SemiSpan','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
+        struct('dimName','SweepLength','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7)});
+
+Part(6,:)=struct('name','Sustainer Motor','material','I204','mass',0.349,'dims',...
+        struct('dimName','Overhang','lowBounds',0,'initGuess',0.002,'upBounds',0.01));
+
+Part(7,:)=struct('name','Staging Coupler','material','CarbonFiber','mass',[],'dims',...
+        struct('dimName','Length','lowBounds',0.02,'initGuess',0.135,'upBounds',0.5));
+
+Part(8,:)=struct('name','Booster Bodytube','material','CarbonFiber','mass',[],'dims',...
+        struct('dimName','Length','lowBounds',0.49,'initGuess',0.5,'upBounds',0.7));
+
+Part(9,:)=struct('name','Booster Fins','material','FiberGlass','mass',[],'dims',...
+        {struct('dimName','RootChord','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
+        struct('dimName','TipChord','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
+        struct('dimName','SemiSpan','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
+        struct('dimName','SweepLength','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7)});
+
+Part(10,:)=struct('name','Booster Motor','material','H340','mass',0.391,'dims',...
+        struct('dimName','Overhang','lowBounds',0,'initGuess',0.0359,'upBounds',0.07));
+
+
+
+
+
 
 D  = [0.1,   0.24,   0.3 ;  %1 Length of the nosecone
       0.1,   0.31,   0.7 ;  %2 Length of the shoulder
@@ -202,5 +243,4 @@ fsol
 end
 
 
-end
 

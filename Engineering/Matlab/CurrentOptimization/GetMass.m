@@ -1,11 +1,7 @@
-function [mass] = GetMass ( t,x )
+function [mass] = GetMass (t,x,Part)
 
 % ~ AETHER4 ~
-%Densities [kg/m3]
-FiberGlass=2600;
-%BlueTube=
-%CarbonFiber=
-%Nylon=
+
 BT = .330;  % 330 grams per meter for Body Tube
 CP = .322;  % 322 grams per meter for Coupler Body Tube
 ET = .168;  % 168 grams per meter for Engine Tube
@@ -38,10 +34,10 @@ initialSustMass = Msustinit + Mnosecone + Mshoulder + Mebay + Msustbodytube + Ms
     + Mforwardfins + Mdrogueparachute + Mmainparachute;
 
 
-burnTimeBoost  = .9;          % sec
-burnTimeSust   = 1.72;            % sec
-startTimeboost = 1.9;          % sec
-startTimecoast = startTimeboost + burnTimeSust;
+%burnTimeBoost  = .9;          % sec
+%burnTimeSust   = 1.72;            % sec
+%startTimeboost = 1.9;          % sec
+%startTimecoast = startTimeboost + burnTimeSust;
 
 if (t>=0 && t<burnTimeBoost)
     mass = initialMass - Mboostprop *(t/burnTimeBoost);

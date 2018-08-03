@@ -7,61 +7,89 @@ function [Part,history,searchdir] = Fmincon
 %We also have to change some of the constants used in get mass because things will be heavier and lighter
 %then the Aether models we were doing last year.
 
-Part=struct('name',[],'material',[],'mass',[],'burnTime',[],'dims',[]);
-
+Part=struct('name',[],'material',[],'density',[],'mass',[],'burnTime',[],'dims',[]);
 
 Part(1).name='Nosecone';
 Part(1).material='CarbonFiber';
-Part(1).dims= [struct('dimName','Length','lowBounds',0.1,'initGuess',0.24,'upBounds',0.3),...
-               struct('dimName','ShoulderLength','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7)];
+Part(1).dims= [struct('dimName','Length',        'lowBound',0.1,'initGuess',0.24,'upBound',0.3),...%1
+               struct('dimName','ShoulderLength','lowBound',0.1,'initGuess',0.31,'upBound',0.7)];  %2
 
 Part(2).name='Ebay Coupler';
 Part(2).material='CarbonFiber';
-Part(2).dims=struct('dimName','Length','lowBounds',0.02,'initGuess',0.135,'upBounds',0.5);
+Part(2).dims=struct('dimName','Length','lowBound',0.02,'initGuess',0.135,'upBound',0.5);    %3
 
 Part(3).name='Electronics';
 Part(3).mass=0.20;  %this mass is a complete guess
-Part(3).dims=struct('dimName','CruiseTime','lowBounds',0.1,'initGuess',1.0,'upBounds',2);
+Part(3).dims=struct('dimName','CruiseTime','lowBound',0.1,'initGuess',1.0,'upBound',2);     %4
 
 Part(4).name='Sustainer Bodytube';
 Part(4).material='CarbonFiber';
-Part(4).dims= struct('dimName','Length','lowBounds',0.45,'initGuess',0.46,'upBounds',0.7);
+Part(4).dims= struct('dimName','Length','lowBound',0.45,'initGuess',0.46,'upBound',0.7);    %5
 
 Part(5).name='Sustainer Fins';
-Part(5).material='FiberGlass';
-Part(5).dims=[struct('dimName','RootChord',  'lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
-              struct('dimName','TipChord',   'lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
-              struct('dimName','SemiSpan',   'lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
-              struct('dimName','SweepLength','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7)];
+Part(5).material='Aluminum';
+Part(5).dims=[struct('dimName','RootChord',  'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%6
+              struct('dimName','TipChord',   'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%7
+              struct('dimName','SemiSpan',   'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%8
+              struct('dimName','SweepLength','lowBound',0.1,'initGuess',0.31,'upBound',0.7)];  %9
           
 Part(6).name='Sustainer Motor';
 Part(6).material='I204';
 Part(6).mass=0.349;
 Part(6).burnTime=1.7;
-Part(6).dims=struct('dimName','Overhang','lowBounds',0,'initGuess',0.002,'upBounds',0.01);
+Part(6).dims=struct('dimName','Overhang','lowBound',0,'initGuess',0.002,'upBound',0.01);    %10
 
 Part(7).name='Staging Coupler';
 Part(7).material='CarbonFiber';
-Part(7).dims= struct('dimName','Length','lowBounds',0.02,'initGuess',0.135,'upBounds',0.5);
+Part(7).dims= struct('dimName','Length','lowBound',0.02,'initGuess',0.135,'upBound',0.5);   %11
 
 Part(8).name='Booster Bodytube';
 Part(8).material='CarbonFiber';
-Part(8).dims=struct('dimName','Length','lowBounds',0.49,'initGuess',0.5,'upBounds',0.7);
+Part(8).dims=struct('dimName','Length','lowBound',0.49,'initGuess',0.5,'upBound',0.7);      %12
 
 Part(9).name='Booster Fins';
-Part(9).material='FiberGlass';
-Part(9).dims=[struct('dimName','RootChord',  'lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
-              struct('dimName','TipChord',   'lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
-              struct('dimName','SemiSpan',   'lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
-              struct('dimName','SweepLength','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7)];
+Part(9).material='Aluminum';
+Part(9).dims=[struct('dimName','RootChord',  'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%13
+              struct('dimName','TipChord',   'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%14
+              struct('dimName','SemiSpan',   'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%15
+              struct('dimName','SweepLength','lowBound',0.1,'initGuess',0.31,'upBound',0.7)];  %16
 
 Part(10).name='Booster Motor';
 Part(10).material='H340';
 Part(10).mass=0.391;
 Part(10).burnTime=0.8;
-Part(10).dims=struct('dimName','Overhang','lowBounds',0,'initGuess',0.0359,'upBounds',0.07);
+Part(10).dims=struct('dimName','Overhang','lowBound',0,'initGuess',0.0359,'upBound',0.07);  %17
+
+lbCount=1;
+x0Count=1;
+ubCount=1;
 
 
+for i=1:length(Part)
+    for j=1:length(Part(i).dims)
+        lb(lbCount)=Part(i).dims(j).lowBound;
+        lbCount=lbCount+1;
+        x0(x0Count)=Part(i).dims(j).initGuess;
+        x0Count=x0Count+1;
+        ub(ubCount)=Part(i).dims(j).upBound;
+        ubCount=ubCount+1;
+    end
+end
+
+cfDensity=1800;  %1.75?2.00 g/cm3
+fgDensity=2550;  %2.55-2.68 g/cm3
+alDensity=2700;
+
+for i=1:length(Part)
+    if strcmp(Part(i).material,'CarbonFiber')
+        Part(i).density=cfDensity;
+    elseif strcmp(Part(i).material,'FiberGlass')
+        Part(i).density=fgDensity;
+    elseif strcmp(Part(i).material,'Aluminum')
+        Part(i).density=alDensity;
+    end
+end
+%{
 D  = [0.1,   0.24,   0.3 ;  %1 Length of the nosecone
       0.1,   0.31,   0.7 ;  %2 Length of the shoulder
       0.45,  0.46,   0.7 ;  %3 Length of the sustainer bodytube
@@ -79,6 +107,7 @@ D  = [0.1,   0.24,   0.3 ;  %1 Length of the nosecone
       0.01,  0.045,  0.2 ;  %15 Fin Root Leading Edge to Fin Tip Leading Edge, Xr2, Booster
       0.1,   1,      2   ;  %16 Cruise Time
       ];
+%}
   
 % Set up shared variables with OUTFUN
 history.x = [];
@@ -98,7 +127,7 @@ fun=@FminLaunchSimulation;
 
 nonlincon=@supernonlincon;
 
-[xsol,fsol,exitflag,output]= fmincon(fun,D(:,2),A,b,Aeq,beq,D(:,1),D(:,3),nonlincon,options);
+[xsol,fsol,exitflag,output]= fmincon(fun,x0,A,b,Aeq,beq,lb,ub,nonlincon,options);
 %I made this a nested function so I can pass through more variables than
 %just x
     function [oneoverh,tx,height] = FminLaunchSimulation(x)
@@ -117,9 +146,9 @@ nonlincon=@supernonlincon;
     tstart      = 0;    % start time
     dt          = 0.1; % time step
     tstop       = 160;  % endtime
-    tseperation = 1.9;  % booster seperation
 
-    %Initial Vectors
+    %Initial Vectors (Maybe contain these in the structure? might reduce
+    %speed though)
     height       = []; % Sustainer height
     velocity     = []; % Sustainer velocity
     acceleration = []; % Sustainer acceleration
@@ -139,7 +168,7 @@ nonlincon=@supernonlincon;
         pressured(end + 1)    = pd;
         based(end + 1)        = bd;
         tx(end + 1)            = t;
-        [a, d] = FminGetAcceleration(t,v,h,x); % get current acceleration
+        [a, d] = FminGetAcceleration(t,v,h,x,Part); % get current acceleration
         v = v + dt*a ; % update velocity
         h = h + dt*v ; % update height
 
@@ -197,8 +226,8 @@ plot(itstore,x8s./xsol(8),'Color',color3);
 plot(itstore,x12s./xsol(12),'Color',color1);
 plot(0,1,'r:','LineWidth',4);
 plot(it,1,'kx')
-text(102.35,1.12,'\downarrow','Fontsize',13,'fontweight','bold')
-text(102.35,1.24,'Convergence','fontweight','bold')
+%text(102.35,1.12,'\downarrow','Fontsize',13,'fontweight','bold')
+%text(102.35,1.24,'Convergence','fontweight','bold')
 %text(102.35,4.92,'\downarrow','Fontsize',13,'fontweight','bold')
 %text(102.35,5.04,'Optimized Apogee','fontweight','bold')
 
@@ -215,7 +244,7 @@ plot(itstore,x15s./xsol(15),'Color',color1);
 plot(itstore,x2s./xsol(2),'b')
 plot(itstore,x5s./xsol(5),'Color',color2)
 ylabel('$\frac{DIM_{iteration}}{DIM_{optimized}}$','Interpreter','latex','FontSize',24)
-axis([0 120 0 5.5])
+%axis([0 120 0 5.5])
 yyaxis right
 plot(itstore,fstore,'r:','LineWidth',4);
 
@@ -233,8 +262,7 @@ grid on
 hold off
 % Launch sim
 [scoobertdoobert,tgraph,hgraph]=FminLaunchSimulation(xsol);
-tgraph
-hgraph
+
 figure(2);
 
 hold on

@@ -1,4 +1,4 @@
-function [thrust] = GetThrust ( t,x )  
+function [thrust] = GetThrust(t,x)  
 
 % ~ Competition Rocket Engines ~ 
 
@@ -13,7 +13,7 @@ yb_data = [0, 5.00, 450 , 385 ,  375,  410, 400, 60 , 10  , 0]; % N
 
 % I204  - Sustainer Engine data (taken from thrustcurve.org)
 xs_data_Raw = [0 0.01 0.012 0.03 0.3 0.5 0.7 1 1.1 1.2 1.3 1.4 1.5 1.6 1.72];
-xs_data=xs_data_Raw+xb_data(end)+x(16);
+xs_data=xs_data_Raw+xb_data(end)+x(4);
 ys_data = [0 100 356 310 286 270 251 228 215 165 125 95 52 36 0];
 
 

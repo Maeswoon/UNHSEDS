@@ -7,49 +7,59 @@ function [Part,history,searchdir] = Fmincon
 %We also have to change some of the constants used in get mass because things will be heavier and lighter
 %then the Aether models we were doing last year.
 
+Part=struct('name',[],'material',[],'mass',[],'burnTime',[],'dims',[]);
 
 
-Part(1,:)=struct('name','Nosecone','material','CarbonFiber','mass',[],'dims',...
-         {struct('dimName','Length','lowBounds',0.1,'initGuess',0.24,'upBounds',0.3),...
-          struct('dimName','ShoulderLength','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
-          struct([]),struct([])});
+Part(1).name='Nosecone';
+Part(1).material='CarbonFiber';
+Part(1).dims= [struct('dimName','Length','lowBounds',0.1,'initGuess',0.24,'upBounds',0.3),...
+               struct('dimName','ShoulderLength','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7)];
 
-Part(2,:)=struct('name','Ebay Coupler','material','CarbonFiber','mass',[],'dims',...
-          struct('dimName','Length','lowBounds',0.02,'initGuess',0.135,'upBounds',0.5));
+Part(2).name='Ebay Coupler';
+Part(2).material='CarbonFiber';
+Part(2).dims=struct('dimName','Length','lowBounds',0.02,'initGuess',0.135,'upBounds',0.5);
 
-Part(3,:)=struct('name','Electronics','material',[],'mass',0.20,'dims',... %this mass is a complete guess
-          struct('dimName','CruiseTime','lowBounds',0.1,'initGuess',1.0,'upBounds',2));
+Part(3).name='Electronics';
+Part(3).mass=0.20;  %this mass is a complete guess
+Part(3).dims=struct('dimName','CruiseTime','lowBounds',0.1,'initGuess',1.0,'upBounds',2);
 
-Part(4,:)=struct('name','Sustainer Bodytube','material','CarbonFiber','mass',[],'dims',...
-          struct('dimName','Length','lowBounds',0.45,'initGuess',0.46,'upBounds',0.7));
+Part(4).name='Sustainer Bodytube';
+Part(4).material='CarbonFiber';
+Part(4).dims= struct('dimName','Length','lowBounds',0.45,'initGuess',0.46,'upBounds',0.7);
 
-Part(5,:)=struct('name','Sustainer Fins','material','FiberGlass','mass',[],'dims',...
-         {struct('dimName','RootChord','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
-          struct('dimName','TipChord','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
-          struct('dimName','SemiSpan','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
-          struct('dimName','SweepLength','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7)});
+Part(5).name='Sustainer Fins';
+Part(5).material='FiberGlass';
+Part(5).dims=[struct('dimName','RootChord',  'lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
+              struct('dimName','TipChord',   'lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
+              struct('dimName','SemiSpan',   'lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
+              struct('dimName','SweepLength','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7)];
+          
+Part(6).name='Sustainer Motor';
+Part(6).material='I204';
+Part(6).mass=0.349;
+Part(6).burnTime=1.7;
+Part(6).dims=struct('dimName','Overhang','lowBounds',0,'initGuess',0.002,'upBounds',0.01);
 
-Part(6,:)=struct('name','Sustainer Motor','material','I204','mass',0.349,'dims',...
-          struct('dimName','Overhang','lowBounds',0,'initGuess',0.002,'upBounds',0.01));
+Part(7).name='Staging Coupler';
+Part(7).material='CarbonFiber';
+Part(7).dims= struct('dimName','Length','lowBounds',0.02,'initGuess',0.135,'upBounds',0.5);
 
-Part(7,:)=struct('name','Staging Coupler','material','CarbonFiber','mass',[],'dims',...
-          struct('dimName','Length','lowBounds',0.02,'initGuess',0.135,'upBounds',0.5));
+Part(8).name='Booster Bodytube';
+Part(8).material='CarbonFiber';
+Part(8).dims=struct('dimName','Length','lowBounds',0.49,'initGuess',0.5,'upBounds',0.7);
 
-Part(8,:)=struct('name','Booster Bodytube','material','CarbonFiber','mass',[],'dims',...
-          struct('dimName','Length','lowBounds',0.49,'initGuess',0.5,'upBounds',0.7));
+Part(9).name='Booster Fins';
+Part(9).material='FiberGlass';
+Part(9).dims=[struct('dimName','RootChord',  'lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
+              struct('dimName','TipChord',   'lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
+              struct('dimName','SemiSpan',   'lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
+              struct('dimName','SweepLength','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7)];
 
-Part(9,:)=struct('name','Booster Fins','material','FiberGlass','mass',[],'dims',...
-         {struct('dimName','RootChord','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
-          struct('dimName','TipChord','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
-          struct('dimName','SemiSpan','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7),...
-          struct('dimName','SweepLength','lowBounds',0.1,'initGuess',0.31,'upBounds',0.7)});
-
-Part(10,:)=struct('name','Booster Motor','material','H340','mass',0.391,'dims',...
-           struct('dimName','Overhang','lowBounds',0,'initGuess',0.0359,'upBounds',0.07));
-
-
-
-
+Part(10).name='Booster Motor';
+Part(10).material='H340';
+Part(10).mass=0.391;
+Part(10).burnTime=0.8;
+Part(10).dims=struct('dimName','Overhang','lowBounds',0,'initGuess',0.0359,'upBounds',0.07);
 
 
 D  = [0.1,   0.24,   0.3 ;  %1 Length of the nosecone

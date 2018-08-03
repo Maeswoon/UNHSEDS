@@ -2,9 +2,9 @@ function [thrust] = GetThrust ( t,x )
 
 % ~ Competition Rocket Engines ~ 
 
-% burntimeboost = .9;  % s
+% burntimeboost = .8;  % s
 % burntimesust = 1.7;     % s
-% startTimeboost = 1.9; % s (.9 + 1 second delay)
+% startTimeboost = 1.8; % s (.8 + 1 second delay)
 
 
 % H340 - Booster Engine data (taken from thrustcurve.org)

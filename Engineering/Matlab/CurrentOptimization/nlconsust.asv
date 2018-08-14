@@ -24,8 +24,8 @@ xbattery              = 0.02;    % From forward of E-Bay Bulk Plate
 xmainparachute        = 0.12;    % From forward Shoulder Forward
 xdrogueparachute      = 0.10;    % From aft of E-Bay Bulk Plate
 xboosterparachute     = 0.12;    % From aft of Coupler Bulk Plate
+Dbattery              = Debay - Lebay/2 + xbattery + Lbattery/2;       % Offset from E-Bay Forward Bulk Plate 
 
-Dbattery            = Debay - Lebay/2 + xbattery + Lbattery/2;       % Offset from E-Bay Forward Bulk Plate 
 Ddrogueparachute    = Debay + Lebay/2 + xdrogueparachute + Ldrogueparachute/2 - .07;                                                                % Offset from Nosecone Forward
 Dmainparachute      = x(1) + xmainparachute + Lmainparachute/2;                                                % Offset from E-bay Aft
 Dboosterparachute   = Dstagingcoupler + LcouplerBodyTubeStage/2 + x(4)/2 + xboosterparachute + Lboosterparachute/2;   % Offset from Staging Coupler Aft

@@ -7,63 +7,65 @@ function [out,history,searchdir] = Fmincon
 %We also have to change some of the constants used in get mass because things will be heavier and lighter
 %then the Aether models we were doing last year.
 
-Part=struct('name',[],'material',[],'density',[],'mass',[],'burnTime',[],'dims',[]);
+Part=struct('name',[],'material',[],'density',[],'mass',[],'OD',[],'burnTime',[],'dims',[]);
 
 Part(1).name='Nosecone';
 Part(1).material='CarbonFiber';
-Part(1).dims= [struct('dimName','Length',        'lowBound',0.1,'initGuess',0.24,'upBound',0.3),...%1
-               struct('dimName','ShoulderLength','lowBound',0.1,'initGuess',0.31,'upBound',0.7)];  %2
+Part(1).dims= [struct('dimName',"Length",        'lowBound',0.1,'initGuess',0.24,'upBound',0.3),...%1
+               struct('dimName',"ShoulderLength",'lowBound',0.1,'initGuess',0.31,'upBound',0.7)];  %2
 
 Part(2).name='Ebay Coupler';
 Part(2).material='CarbonFiber';
-Part(2).dims=struct('dimName','Length','lowBound',0.02,'initGuess',0.135,'upBound',0.5);    %3
+Part(2).dims=struct('dimName',"Length",'lowBound',0.02,'initGuess',0.135,'upBound',0.5);    %3
 
 Part(3).name='Electronics';
 Part(3).mass=0.20;  %this mass is a complete guess
-Part(3).dims=struct('dimName','CruiseTime','lowBound',0.1,'initGuess',1.0,'upBound',2);     %4
+Part(3).dims=struct('dimName',"CruiseTime",'lowBound',0.1,'initGuess',1.0,'upBound',2);     %4
 
 Part(4).name='Sustainer Bodytube';
+Part(4).OD=.0474;
 Part(4).material='CarbonFiber';
-Part(4).dims= struct('dimName','Length','lowBound',0.45,'initGuess',0.46,'upBound',0.7);    %5
+Part(4).dims= struct('dimName',"Length",'lowBound',0.45,'initGuess',0.46,'upBound',0.7);    %5
 
 Part(5).name='Sustainer Fins';
 Part(5).material='Aluminum';
-Part(5).dims=[struct('dimName','RootChord',  'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%6
-              struct('dimName','TipChord',   'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%7
-              struct('dimName','SemiSpan',   'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%8
-              struct('dimName','SweepLength','lowBound',0.1,'initGuess',0.31,'upBound',0.7)];  %9
+Part(5).dims=[struct('dimName',"RootChord",  'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%6
+              struct('dimName',"TipChord",   'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%7
+              struct('dimName',"SemiSpan",   'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%8
+              struct('dimName',"SweepLength",'lowBound',0.1,'initGuess',0.31,'upBound',0.7)];  %9
           
 Part(6).name='Sustainer Motor';
 Part(6).material='I204';
 Part(6).mass=0.349;
 Part(6).burnTime=1.7;
-Part(6).dims=struct('dimName','Overhang','lowBound',0,'initGuess',0.002,'upBound',0.01);    %10
+Part(6).dims=struct('dimName',"Overhang",'lowBound',0,'initGuess',0.002,'upBound',0.01);    %10
 
 Part(7).name='Staging Coupler';
 Part(7).material='CarbonFiber';
-Part(7).dims= struct('dimName','Length','lowBound',0.02,'initGuess',0.135,'upBound',0.5);   %11
+Part(7).dims= struct('dimName',"Length",'lowBound',0.02,'initGuess',0.135,'upBound',0.5);   %11
 
 Part(8).name='Booster Bodytube';
 Part(8).material='CarbonFiber';
-Part(8).dims=struct('dimName','Length','lowBound',0.49,'initGuess',0.5,'upBound',0.7);      %12
+Part(8).OD=.0474;
+Part(8).dims=struct('dimName',"Length",'lowBound',0.49,'initGuess',0.5,'upBound',0.7);      %12
 
 Part(9).name='Booster Fins';
 Part(9).material='Aluminum';
-Part(9).dims=[struct('dimName','RootChord',  'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%13
-              struct('dimName','TipChord',   'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%14
-              struct('dimName','SemiSpan',   'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%15
-              struct('dimName','SweepLength','lowBound',0.1,'initGuess',0.31,'upBound',0.7)];  %16
+Part(9).dims=[struct('dimName',"RootChord",  'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%13
+              struct('dimName',"TipChord",   'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%14
+              struct('dimName',"SemiSpan",   'lowBound',0.1,'initGuess',0.31,'upBound',0.7),...%15
+              struct('dimName',"SweepLength",'lowBound',0.1,'initGuess',0.31,'upBound',0.7)];  %16
 
 Part(10).name='Booster Motor';
 Part(10).material='H340';
 Part(10).mass=0.391;
 Part(10).burnTime=0.9;
-Part(10).dims=struct('dimName','Overhang','lowBound',0,'initGuess',0.0359,'upBound',0.07);  %17
+Part(10).dims=struct('dimName',"Overhang",'lowBound',0,'initGuess',0.0359,'upBound',0.07);  %17
 
 lbCount=1;
 x0Count=1;
 ubCount=1;
-
+dNamesCount=1;
 
 for i=1:length(Part)
     for j=1:length(Part(i).dims)
@@ -73,6 +75,7 @@ for i=1:length(Part)
         x0Count=x0Count+1;
         ub(ubCount)=Part(i).dims(j).upBound;
         ubCount=ubCount+1;
+        dNames(dNamesCount)=Part(i).dims(j).dimName;
     end
 end
 
@@ -283,7 +286,9 @@ leg = legend('Sustainer: MATLAB Model','Sustainer: OpenRocket','Booster: MATLAB 
 set(leg,'fontsize',11)
 grid minor
 hold off
-out=table(xsol,(1/fsol));
+%out=table(dNames,xsol',(1/fsol));
+dNames
+xsol'
 end
 
 

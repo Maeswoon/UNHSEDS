@@ -1,4 +1,4 @@
-function [c,ceq] = nlconsust(x)
+function [c,ceq] = nlconsust(x,Part)
 % for now this is only constraining for initial caliber before launch=1.5
 Lebay                 =0.10;
 Lboost                =0.32;
@@ -29,7 +29,7 @@ Dbattery            = Debay - Lebay/2 + xbattery + Lbattery/2;       % Offset fr
 Ddrogueparachute    = Debay + Lebay/2 + xdrogueparachute + Ldrogueparachute/2;                                                                % Offset from Nosecone Forward
 Dmainparachute      = x(1) + xmainparachute + Lmainparachute/2;                                                % Offset from E-bay Aft
 Dboosterparachute   = Dstagingcoupler + LcouplerBodyTubeStage/2 + x(4)/2 + xboosterparachute + Lboosterparachute/2;   % Offset from Staging Coupler Aft
-Diameter=Part.Nosecone.diameter;   % GET THE RIGHT PART FOR DIAMETER INSERT
+Diameter=Part(4).OD;   % GET THE RIGHT PART FOR DIAMETER INSERT
 Thickness=.00175;
 Rbodytube = Diameter/2;     % Radius of Bodytube
 
@@ -59,20 +59,20 @@ Mboosterparachute   = .043;
 %for now we are optimizing for fixed initial caliber=1.5
 
 CGBoost = Mboostinit*Dboost;                     % Center of Gravity of booster during flight
-Mtot    = Mboostinit + Msustinit + Mnosecone + Mshoulder + Mebay + Msustbodytube + Mforwardfins + Mstagingcoupler + Mboosterbodytube...               % Total mass of sustainer and
-    + Maftfins + Mbattery + Maltimeter + MSEDSaltimeter + Mswitch + Mdrogueparachute + Mboosterparachute + Mmainparachute + 4*Mcenteringring;     % booster through flight
+Mtot    = Mboostinit + Msustinit + Mnosecone + Mebay + Msustbodytube + Mforwardfins + Mstagingcoupler + Mboosterbodytube...               % Total mass of sustainer and
+    + Maftfins + Mdrogueparachute + Mboosterparachute + Mmainparachute;     % booster through flight
 CGboostsust      = (CGBoost + Dnosecone*Mnosecone + Debay*Mebay + Dsustbodytube*Msustbodytube + Dforwardfins*Mforwardfins...         % Center of gravity of entire rocket
-        + Dstagingcoupler*Mstagingcoupler + Dsust*Msustinit + Dboosterbodytube*Mboosterbodytube + Daftfins*Maftfins + Mbattery*Dbattery...        % through flight before seperation
+        + Dstagingcoupler*Mstagingcoupler + Dsust*Msustinit + Dboosterbodytube*Mboosterbodytube + Daftfins*Maftfins...        % through flight before seperation
         + Mdrogueparachute*Ddrogueparachute + Mboosterparachute*Dboosterparachute...
         + Mmainparachute*Dmainparachute)./Mtot;  
     
 
 CGSust  = Msustinit.*Dsust;                       % Center of Gravity of sustainer during flight
 
-Mtot2   = Msustinit + Mnosecone + Mshoulder + Mebay + Msustbodytube + Mforwardfins + Mbattery + Maltimeter...                                 % Total mass of sustainer through flight
-        + MSEDSaltimeter + Mswitch + Mdrogueparachute + Mmainparachute + 2*Mcenteringring;                                                % after booster seperation
+Mtot2   = Msustinit + Mnosecone + Mebay + Msustbodytube + Mforwardfins ...                                 % Total mass of sustainer through flight
+        + Mdrogueparachute + Mmainparachute;                                                % after booster seperation
               
-CG2     = (CGSust + Dnosecone*Mnosecone + Debay*Mebay + Mbattery*Dbattery + Dsustbodytube*Msustbodytube + Dforwardfins*Mforwardfins...  % Center of gravity of sustainer through flight
+CG2     = (CGSust + Dnosecone*Mnosecone + Debay*Mebay + Dsustbodytube*Msustbodytube + Dforwardfins*Mforwardfins...  % Center of gravity of sustainer through flight
         + Mdrogueparachute*Ddrogueparachute + Mmainparachute*Dmainparachute)./Mtot2;   
 %Cp
 Xb  = Dforwardfins - x(8)/2;  % Length of nosecone tip to beginning of root chord

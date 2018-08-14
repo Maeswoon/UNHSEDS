@@ -34,18 +34,16 @@ initialSustMass = Msustinit + Mnosecone + Mshoulder + Mebay + Msustbodytube + Ms
     + Mforwardfins + Mdrogueparachute + Mmainparachute;
 
 
-%burnTimeBoost  = .9;          % sec
-%burnTimeSust   = 1.72;            % sec
-%startTimeboost = 1.9;          % sec
-%startTimecoast = startTimeboost + burnTimeSust;
+          % sec
+startTimeSust = Part(10).burnTime+x(4);          % sec
 
-if (t>=0 && t<burnTimeBoost)
-    mass = initialMass - Mboostprop *(t/burnTimeBoost);
-elseif (t>=burnTimeBoost && t<startTimeboost)
+if (t>=0 && t<Part(10).burnTime)    %Launch to boost eject
+    mass = initialMass - Mboostprop *(t/Part(10).burnTime);
+elseif (t>=Part(10).burnTime && t<startTimeSust) %Coast
     mass = initialMass - Mboostprop;
-elseif (t>=startTimeboost && t< startTimeboost + burnTimeSust)
-    mass = initialSustMass - Msustprop * (t/(burnTimeSust + startTimeboost));
-elseif (t>startTimecoast)
+elseif (t>=startTimeSust && t< startTimeSust + Part(6).burnTime)    %Sust ign to MT
+    mass = initialSustMass - Msustprop * (t/(Part(6).burnTime + startTimeSust));
+elseif (t>startTimeSust+Part(6).burnTime)    %MT
     mass = initialSustMass - Msustprop;
 else
     mass = initialMass;

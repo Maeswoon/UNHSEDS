@@ -1,4 +1,4 @@
-function [Part,history,searchdir] = Fmincon
+function [out,history,searchdir] = Fmincon
 %All units are SI unless otherwise stated
 %We have to be careful with the constant we give the parameters. We cant lose
 %track that the engine mass doesnt include the casing, retainer etc... 
@@ -57,7 +57,7 @@ Part(9).dims=[struct('dimName','RootChord',  'lowBound',0.1,'initGuess',0.31,'up
 Part(10).name='Booster Motor';
 Part(10).material='H340';
 Part(10).mass=0.391;
-Part(10).burnTime=0.8;
+Part(10).burnTime=0.9;
 Part(10).dims=struct('dimName','Overhang','lowBound',0,'initGuess',0.0359,'upBound',0.07);  %17
 
 lbCount=1;
@@ -283,9 +283,7 @@ leg = legend('Sustainer: MATLAB Model','Sustainer: OpenRocket','Booster: MATLAB 
 set(leg,'fontsize',11)
 grid minor
 hold off
-
-xsol(1)
-fsol
+out=table(xsol,(1/fsol));
 end
 
 

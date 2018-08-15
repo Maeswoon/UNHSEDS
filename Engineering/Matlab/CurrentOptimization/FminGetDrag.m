@@ -3,8 +3,8 @@ function [drag] = FminGetDrag (v,h,t,x)
 % sustainer then to recovery.
 % NB ! When v is + ve (up) drag should be + ve (down)
 %FOR FMINCON ONLY CALCULATES FOR ONE SET OF FINS
-% ~ AETHER4 ~
-tsuststart = 1.9;
+
+tsuststart = x(4) + .9;  % Burn time for Booster
 pi = 3.14;
 mu = 1.79e-5;
 rho = 1.217*exp(-h/8500);
@@ -59,8 +59,6 @@ if v >= 0
     
     % ~ PRESSURE DRAG ~
     % Nose Cone Pressure Drag
-    % if M is less than 0.9...
-    % CDpd_nc = 0.05; % ogive nose cone
     CDpd_nc = 0;
     Fpd_nosecone = CDpd_nc*(1/2)*rho*v^2*(crosssection_area);
     
@@ -76,7 +74,7 @@ if v >= 0
     
     Fpd_fins = CDpd_fins*(1/2)*rho*v^2*(finarea_sf);
     
-    Fpd_fins = Fpd_fins*6;
+    Fpd_fins = Fpd_fins*6; % Assume same fin design, 6 of them
     Fdrag_pd = Fpd_nosecone + Fpd_fins;
     
     % ~ BASE DRAG ~
@@ -111,5 +109,4 @@ end
 
 end      
         
-           
-
+% Do we account for stage seperation and the loss of drag from that? Hmm

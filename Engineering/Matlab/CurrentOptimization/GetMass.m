@@ -8,9 +8,9 @@ ET = .168;  % 168 grams per meter for Engine Tube
 PL = 4.882; % 4882 grams per square meter for Plate Parts
 
 Mbattery                 =0;
-Mnosecone                = .150;
+Mnosecone                = .150;  % Estimate
 Mshoulder                = x(2)*BT;
-Mebay                    = .400; % Whole E-Bay, Must find Value
+Mebay                    = .400;  % Whole E-Bay, Must find Value
 Msustbodytube            = x(3)*BT;
 Mforwardfins             = PL * .5*x(8)*x(9)*x(10);
 Mstagingcoupler          = .058;    
@@ -30,11 +30,10 @@ Mboosterparachute        = .036;
 initialMass = Mboostinit + Msustinit + Mnosecone + Mshoulder + Mebay + Mbattery + Msustbodytube + Mforwardfins + Msustcasingtuberetainer...
     + Mstagingcoupler + Mboosterbodytube + Mboostcasingtuberetainer + Maftfins +...
     Mdrogueparachute + Mmainparachute + Mboosterparachute;
+
 initialSustMass = Msustinit + Mnosecone + Mshoulder + Mebay + Msustbodytube + Msustcasingtuberetainer...
     + Mforwardfins + Mdrogueparachute + Mmainparachute;
 
-
-          % sec
 startTimeSust = Part(10).burnTime+x(4);          % sec
 
 if (t>=0 && t<Part(10).burnTime)    %Launch to boost eject

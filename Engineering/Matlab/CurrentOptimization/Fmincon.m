@@ -7,92 +7,87 @@ function [out,history,searchdir] = Fmincon
 %We also have to change some of the constants used in get mass because things will be heavier and lighter
 %then the Aether models we were doing last year.
 
-Part=struct('name',[],'material',[],'density',[],'mass',[],'OD',[],'burnTime',[],'dims',[]);
-
-Part(1).name='Nosecone';
-Part(1).material='CarbonFiber';
-Part(1).dims= [struct('dimName',"Length",        'lowBound',0.1,'initGuess',0.24,'upBound',0.3),...%1
+Aether.Nosecone.material='CarbonFiber';
+Aether.Nosecone.dims= [struct('dimName',"Length",        'lowBound',0.1,'initGuess',0.24,'upBound',0.3),...%1
                struct('dimName',"ShoulderLength",'lowBound',0.1,'initGuess',0.31,'upBound',0.7)];  %2
+           
+Aether.EbayCoupler.material='CarbonFiber';
+Aether.EbayCoupler.length=0.05; %(lip length)Check
+Aether.EbayCoupler.dims=struct('dimName',"Length",'lowBound',0.02,'initGuess',0.135,'upBound',0.5);    %3
 
-Part(2).name='EbayCoupler';
-Part(2).material='CarbonFiber';
-Part(2).dims=struct('dimName',"Length",'lowBound',0.02,'initGuess',0.135,'upBound',0.5);    %3
+Aether.Electronics.mass=0.200;  %this mass is a complete guess
+Aether.Electronics.material='Plastic'; %this is a filler
+Aether.Electronics.dims=struct('dimName',"CruiseTime",'lowBound',0.1,'initGuess',1.0,'upBound',2);     %4
 
-Part(3).name='Electronics';
-Part(3).mass=0.20;  %this mass is a complete guess
-Part(3).dims=struct('dimName',"CruiseTime",'lowBound',0.1,'initGuess',1.0,'upBound',2);     %4
+Aether.SustainerBodytube.OD=.0474;
+Aether.SustainerBodytube.material='CarbonFiber';
+Aether.SustainerBodytube.dims= struct('dimName',"Length",'lowBound',0.45,'initGuess',0.46,'upBound',0.7);    %5
 
-Part(4).name='SustainerBodytube';
-Part(4).OD=.0474;
-Part(4).material='CarbonFiber';
-Part(4).dims= struct('dimName',"Length",'lowBound',0.45,'initGuess',0.46,'upBound',0.7);    %5
-
-Part(5).name='SustainerFins';
-Part(5).material='Aluminum';
-Part(5).dims=[struct('dimName',"RootChord",  'lowBound',0.01,'initGuess',0.05,'upBound',0.1),...%6
+Aether.SustainerFins.material='Aluminum';
+Aether.SustainerFins.dims=[struct('dimName',"RootChord",  'lowBound',0.01,'initGuess',0.05,'upBound',0.1),...%6
               struct('dimName',"TipChord",   'lowBound',0.01,'initGuess',0.05,'upBound',0.1),...%7
               struct('dimName',"SemiSpan",   'lowBound',0.01,'initGuess',0.05,'upBound',0.1),...%8
               struct('dimName',"SweepLength",'lowBound',0.01,'initGuess',0.05,'upBound',0.1)];  %9
-          
-Part(6).name='SustainerMotor';
-Part(6).material='I204';
-Part(6).mass=0.349;
-Part(6).burnTime=1.7;
-Part(6).dims=struct('dimName',"Overhang",'lowBound',0,'initGuess',0.002,'upBound',0.01);    %10
 
-Part(7).name='StagingCoupler';
-Part(7).material='CarbonFiber';
-Part(7).dims= struct('dimName',"Length",'lowBound',0.02,'initGuess',0.135,'upBound',0.5);   %11
+Aether.SustainerMotor.material='I204';
+Aether.SustainerMotor.mass=0.349;
+Aether.SustainerMotor.length=0.32; %CHECK
+Aether.SustainerMotor.burnTime=1.7;
+Aether.SustainerMotor.dims=struct('dimName',"Overhang",'lowBound',0,'initGuess',0.002,'upBound',0.01);    %10
 
-Part(8).name='BoosterBodytube';
-Part(8).material='CarbonFiber';
-Part(8).OD=.0474;
-Part(8).dims=struct('dimName',"Length",'lowBound',0.49,'initGuess',0.5,'upBound',0.7);      %12
+Aether.StagingCoupler.material='CarbonFiber';
+Aether.StagingCoupler.length=0.05; %Check (lip length)
+Aether.StagingCoupler.dims= struct('dimName',"Length",'lowBound',0.02,'initGuess',0.135,'upBound',0.5);   %11
 
-Part(9).name='BoosterFins';
-Part(9).material='Aluminum';
-Part(9).dims=[struct('dimName',"RootChord",  'lowBound',0.01,'initGuess',0.05,'upBound',0.1),...%13
+Aether.BoosterBodytube.material='CarbonFiber';
+Aether.BoosterBodytube.OD=.0474;
+Aether.BoosterBodytube.dims=struct('dimName',"Length",'lowBound',0.49,'initGuess',0.5,'upBound',0.7);      %12
+
+Aether.BoosterFins.material='Aluminum';
+Aether.BoosterFins.dims=[struct('dimName',"RootChord",  'lowBound',0.01,'initGuess',0.05,'upBound',0.1),...%13
               struct('dimName',"TipChord",   'lowBound',0.01,'initGuess',0.05,'upBound',0.1),...%14
               struct('dimName',"SemiSpan",   'lowBound',0.01,'initGuess',0.05,'upBound',0.1),...%15
               struct('dimName',"SweepLength",'lowBound',0.01,'initGuess',0.05,'upBound',0.1)];  %16
 
-Part(10).name='BoosterMotor';
-Part(10).material='H340';
-Part(10).mass=0.391;
-Part(10).burnTime=0.9;
-Part(10).dims=struct('dimName',"Overhang",'lowBound',0,'initGuess',0.0359,'upBound',0.07);  %17
+Aether.BoosterMotor.material='H340';
+Aether.BoosterMotor.mass=0.391;
+Aether.BoosterMotor.length=0.32; %CHECK
+Aether.BoosterMotor.burnTime=0.9;
+Aether.BoosterMotor.dims=struct('dimName',"Overhang",'lowBound',0,'initGuess',0.0359,'upBound',0.07);  %17
 
 lbCount=1;
 x0Count=1;
 ubCount=1;
 dNamesCount=1;
+fn=fieldnames(Aether);
 
-for i=1:length(Part)
-    for j=1:length(Part(i).dims)
-        lb(lbCount)=Part(i).dims(j).lowBound;
+for i = 1:numel(fn)
+  for j=1:length(Aether.(fn{i}).dims)
+        lb(lbCount)=Aether.(fn{i}).dims(j).lowBound;
         lbCount=lbCount+1;
-        x0(x0Count)=Part(i).dims(j).initGuess;
+        x0(x0Count)=Aether.(fn{i}).dims(j).initGuess;
         x0Count=x0Count+1;
-        ub(ubCount)=Part(i).dims(j).upBound;
+        ub(ubCount)=Aether.(fn{i}).dims(j).upBound;
         ubCount=ubCount+1;
-        dNames(dNamesCount)=strcat(Part(i).name,Part(i).dims(j).dimName);
+        dNames(dNamesCount)=strcat(fn{i},Aether.(fn{i}).dims(j).dimName);
         dNamesCount=dNamesCount+1;
-    end
+  end
 end
 
-cfDensity=1800;  %1.75?2.00 g/cm3
+cfDensity=1800;  %1.75-2.00 g/cm3
 fgDensity=2550;  %2.55-2.68 g/cm3
 alDensity=2700;
 
-for i=1:length(Part)
-    if strcmp(Part(i).material,'CarbonFiber')
-        Part(i).density=cfDensity;
-    elseif strcmp(Part(i).material,'FiberGlass')
-        Part(i).density=fgDensity;
-    elseif strcmp(Part(i).material,'Aluminum')
-        Part(i).density=alDensity;
+for i=1:length(fn)
+    if strcmp(Aether.(fn{i}).material,'CarbonFiber')
+        Aether.(fn{i}).density=cfDensity;
+    elseif strcmp(Aether.(fn{i}).material,'FiberGlass')
+        Aether.(fn{i}).density=fgDensity;
+    elseif strcmp(Aether.(fn{i}).material,'Aluminum')
+        Aether.(fn{i}).density=alDensity;
     end
 end
+
 %{
 D  = [0.1,   0.24,   0.3 ;  %1 Length of the nosecone
       0.1,   0.31,   0.7 ;  %2 Length of the shoulder
@@ -172,7 +167,7 @@ nonlincon=@supernonlincon;
         pressured(end + 1)    = pd;
         based(end + 1)        = bd;
         tx(end + 1)            = t;
-        [a, d] = FminGetAcceleration(t,v,h,x,Part); % get current acceleration
+        [a, d] = FminGetAcceleration(t,v,h,x,Aether); % get current acceleration
         v = v + dt*a ; % update velocity
         h = h + dt*v ; % update height
 
@@ -186,8 +181,8 @@ nonlincon=@supernonlincon;
 
     end
     function [c,ceq] = supernonlincon(x)
-    [c1, ceq1] = nlconboostandsust(x,Part);
-    [c2, ceq2] = nlconsust(x,Part);
+    [c1, ceq1] = nlconboostandsust(x,Aether);
+    [c2, ceq2] = nlconsust(x,Aether);
     c = [c1; c2];
     ceq = [ceq1; ceq2];
     end

@@ -1,28 +1,22 @@
-function [c,ceq] = nlconsust(x,Part)
+function [c,ceq] = nlconsust(x,Aether)
 % for now this is only constraining for initial caliber before launch=1.5
-Lebay                 =0.10;
-Lboost                =0.32;
-Lsust                 =0.32;
-Lboosterparachute     =0.06;
+
 Ldrogueparachute      =0.04;
 Lmainparachute        =0.08;
-LcouplerBodyTubeEbay  =0.02;
-LcouplerBodyTubeStage =0.02;
 
 Dnosecone        = x(1)*.666; % Must calculate CG for our custom part... 
-Debay            = x(1) + + x(2)  + LcouplerBodyTubeEbay/2;
-Dsustbodytube    = Debay + LcouplerBodyTubeEbay/2 + x(3)/2;
+Debay            = x(1) + + x(2)  + Aether.EbayCoupler.length/2;
+Dsustbodytube    = Debay + Aether.EbayCoupler.length/2 + x(3)/2;
 Dforwardfins     = Dsustbodytube + x(3)/2 - x(8)/2 ;  
-Dstagingcoupler  = Dsustbodytube + x(3)/2 + LcouplerBodyTubeStage/2;
-Dsust            = Dstagingcoupler - LcouplerBodyTubeStage/2 - Lsust/2 + x(6);
+Dstagingcoupler  = Dsustbodytube + x(3)/2 + Aether.StagingCoupler.length/2;
+Dsust            = Dstagingcoupler - Aether.StagingCoupler.length/2 - Aether.SustainerMotor.length/2 + x(6);
 % Parachute Placements
 xmainparachute        = 0.12;    % From forward Shoulder Forward
 xdrogueparachute      = 0.10;    % From aft of E-Bay Bulk Plate
-xboosterparachute     = 0.12;    % From aft of Coupler Bulk Plate
 
-Ddrogueparachute    = Debay + Lebay/2 + xdrogueparachute + Ldrogueparachute/2;                                       % Offset from Nosecone Forward
+Ddrogueparachute    = Debay + Aether.EbayCoupler.length/2 + xdrogueparachute + Ldrogueparachute/2;                                       % Offset from Nosecone Forward
 Dmainparachute      = x(1) + xmainparachute + Lmainparachute/2;                                                      % Offset from E-bay Aft
-Diameter=Part(4).OD;  
+Diameter=Aether.SustainerBodytube.OD;  
 Rbodytube = Diameter/2;     % Radius of Bodytube
 
 % Linear Weights

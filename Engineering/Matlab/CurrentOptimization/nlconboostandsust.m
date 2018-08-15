@@ -1,33 +1,29 @@
-function [c,ceq] = nlconboostandsust(x,Part)
+function [c,ceq] = nlconboostandsust(x,Aether)
 % for now this is only constraining for initial caliber before launch=1.5
-Lebay                 =0.10;
-Lboost                =0.32;
-Lsust                 =0.32;
+
 Lboosterparachute     =0.06;
 Ldrogueparachute      =0.04;
 Lmainparachute        =0.08;
-LcouplerBodyTubeEbay  =0.02;
-LcouplerBodyTubeStage =0.02;
 
 Dnosecone        = x(1)*.666; % Must calculate CG for our custom part... 
-Debay            = x(1) + + x(2)  + LcouplerBodyTubeEbay/2;
-Dsustbodytube    = Debay + LcouplerBodyTubeEbay/2 + x(3)/2;
+Debay            = x(1) + + x(2)  + Aether.EbayCoupler.length/2;
+Dsustbodytube    = Debay + Aether.EbayCoupler.length/2 + x(3)/2;
 Dforwardfins     = Dsustbodytube + x(3)/2 - x(8)/2 ;  
-Dstagingcoupler  = Dsustbodytube + x(3)/2 + LcouplerBodyTubeStage/2;
-Dsust            = Dstagingcoupler - LcouplerBodyTubeStage/2 - Lsust/2 + x(6);
-Dboosterbodytube = Dstagingcoupler + LcouplerBodyTubeStage/2 + x(5)/2;
-Daftfins         = Dstagingcoupler + LcouplerBodyTubeStage/2 + x(5) - x(12)/2;
-Dboost           = Dstagingcoupler + LcouplerBodyTubeStage/2 + x(5) - Lboost/2 + x(7);
+Dstagingcoupler  = Dsustbodytube + x(3)/2 + Aether.StagingCoupler.length/2;
+Dsust            = Dstagingcoupler - Aether.StagingCoupler.length/2 - Aether.SustainerMotor.length/2 + x(6);
+Dboosterbodytube = Dstagingcoupler + Aether.StagingCoupler.length/2 + x(5)/2;
+Daftfins         = Dstagingcoupler + Aether.StagingCoupler.length/2 + x(5) - x(12)/2;
+Dboost           = Dstagingcoupler + Aether.StagingCoupler.length/2 + x(5) - Aether.BoosterMotor.length/2 + x(7);
 
 % Parachute Placements
 xmainparachute        = 0.12;    % From forward Shoulder Forward
 xdrogueparachute      = 0.10;    % From aft of E-Bay Bulk Plate
 xboosterparachute     = 0.12;    % From aft of Coupler Bulk Plate
 
-Ddrogueparachute    = Debay + Lebay/2 + xdrogueparachute + Ldrogueparachute/2;                                       % Offset from Nosecone Forward
+Ddrogueparachute    = Debay + Aether.EbayCoupler.length/2 + xdrogueparachute + Ldrogueparachute/2;                                       % Offset from Nosecone Forward
 Dmainparachute      = x(1) + xmainparachute + Lmainparachute/2;                                                      % Offset from E-bay Aft
-Dboosterparachute   = Dstagingcoupler + LcouplerBodyTubeStage/2 + x(4)/2 + xboosterparachute + Lboosterparachute/2;  % Offset from Staging Coupler Aft
-Diameter=Part(4).OD;  
+Dboosterparachute   = Dstagingcoupler + Aether.StagingCoupler.length/2 + x(4)/2 + xboosterparachute + Lboosterparachute/2;  % Offset from Staging Coupler Aft
+Diameter=Aether.SustainerBodytube.OD;  
 Rbodytube = Diameter/2;     % Radius of Bodytube
 
 % Linear Weights
@@ -40,7 +36,7 @@ ET = .168;  % 168 grams per meter for Engine Tube, NOT NEEDED - Estimated
 Maftfins         = PL * .5*x(12)*x(13)*x(14); 
 Mforwardfins     = PL * .5*x(8)*x(9)*x(10);
 Mnosecone        = .200;   % Needs to be accuratly estimated with shoulder factored in
-Mebay            = .200;   % Constant that needs to be measured when built
+Mebay            = Aether.Electronics.mass;   % Constant that needs to be measured when built
 Msustbodytube    = x(5)*BT;
 Mstagingcoupler  = .08 * CP;    
 Mboosterbodytube = x(12) * BT;    
@@ -53,11 +49,8 @@ Mmainparachute      = .078;
 Mboosterparachute   = .043;   
 
 
-
-
-
-%for now we are optimizing for fixed initial caliber=1.5
-CGBoost = Mboostinit*Dboost;                     % Center of Gravity of booster during flight
+%for now we are constraining to a fixed initial caliber=1.5
+CGBoost = Mboostinit*Dboost;             % Center of Gravity of booster during flight
 
 Mtot    = Mboostinit + Msustinit + Mnosecone + Mebay + Msustbodytube + Mforwardfins + Mstagingcoupler + Mboosterbodytube...    % Total mass of sustainer and
     + Maftfins + Mdrogueparachute + Mboosterparachute + Mmainparachute;     % booster through flight

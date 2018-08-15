@@ -1,4 +1,4 @@
-function [mass] = GetMass (t,x,Part)
+function [mass] = GetMass (t,x,Aether)
 
 % ~ AETHER4 ~
 
@@ -34,15 +34,15 @@ initialMass = Mboostinit + Msustinit + Mnosecone + Mshoulder + Mebay + Mbattery 
 initialSustMass = Msustinit + Mnosecone + Mshoulder + Mebay + Msustbodytube + Msustcasingtuberetainer...
     + Mforwardfins + Mdrogueparachute + Mmainparachute;
 
-startTimeSust = Part(10).burnTime+x(4);          % sec
+startTimeSust = Aether.BoosterMotor.burnTime+x(4);          % sec
 
-if (t>=0 && t<Part(10).burnTime)    %Launch to boost eject
-    mass = initialMass - Mboostprop *(t/Part(10).burnTime);
-elseif (t>=Part(10).burnTime && t<startTimeSust) %Coast
+if (t>=0 && t<Aether.BoosterMotor.burnTime)    %Launch to boost eject
+    mass = initialMass - Mboostprop *(t/Aether.BoosterMotor.burnTime);
+elseif (t>=Aether.BoosterMotor.burnTime && t<startTimeSust) %Coast
     mass = initialMass - Mboostprop;
-elseif (t>=startTimeSust && t< startTimeSust + Part(6).burnTime)    %Sust ign to MT
-    mass = initialSustMass - Msustprop * (t/(Part(6).burnTime + startTimeSust));
-elseif (t>startTimeSust+Part(6).burnTime)    %MT
+elseif (t>=startTimeSust && t< startTimeSust + Aether.SustainerMotor.burnTime)    %Sust ign to MT
+    mass = initialSustMass - Msustprop * (t/(Aether.SustainerMotor.burnTime + startTimeSust));
+elseif (t>startTimeSust+Aether.SustainerMotor.burnTime)    %MT
     mass = initialSustMass - Msustprop;
 else
     mass = initialMass;

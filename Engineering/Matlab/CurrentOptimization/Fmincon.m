@@ -8,14 +8,15 @@ function [out,history,searchdir] = Fmincon
 %then the Aether models we were doing last year.
 
 Aether.Nosecone.material='CarbonFiber';
-Aether.Nosecone.dims= [struct('dimName',"Length",        'lowBound',0.1,'initGuess',0.2,'upBound',0.3),...%1
-               struct('dimName',"ShoulderLength",'lowBound',0.04,'initGuess',0.05,'upBound',0.1)];  %2
+Aether.Nosecone.mass=0.200; %CHECK
+Aether.Nosecone.dims= [struct('dimName',"Length",'lowBound',0.1,'initGuess',0.2,'upBound',0.3),...%1
+                       struct('dimName',"ShoulderLength",'lowBound',0.04,'initGuess',0.05,'upBound',0.1)];  %2
            
 Aether.EbayCoupler.material='CarbonFiber';
 Aether.EbayCoupler.length=0.05; %(lip length)Check
 Aether.EbayCoupler.dims=struct('dimName',"Length",'lowBound',0.1,'initGuess',0.2,'upBound',0.3);    %3
 
-Aether.Electronics.mass=0.200;  %this mass is a complete guess
+Aether.Electronics.mass=0.300;  %this mass is a complete guess
 Aether.Electronics.material='Plastic'; %this is a filler
 Aether.Electronics.dims=struct('dimName',"CruiseTime",'lowBound',0.1,'initGuess',1.0,'upBound',2);     %4
 
@@ -33,10 +34,11 @@ Aether.SustainerMotor.material='I204';
 Aether.SustainerMotor.mass=0.349;
 Aether.SustainerMotor.length=0.32; %CHECK
 Aether.SustainerMotor.burnTime=1.7;
+Aether.SustainerMotor.propMass=0.184; %CHECK
 Aether.SustainerMotor.dims=struct('dimName',"Overhang",'lowBound',0,'initGuess',0.015,'upBound',0.03);    %10
 
 Aether.StagingCoupler.material='CarbonFiber';
-Aether.StagingCoupler.length=0.05; %Check (lip length)
+Aether.StagingCoupler.mass=.06; %FIX (this should be dependent on length)
 Aether.StagingCoupler.dims= struct('dimName',"Length",'lowBound',0.06,'initGuess',0.1,'upBound',0.14);   %11
 
 Aether.BoosterBodytube.material='CarbonFiber';
@@ -50,10 +52,13 @@ Aether.BoosterFins.dims=[struct('dimName',"RootChord",  'lowBound',0.04,'initGue
               struct('dimName',"SweepLength",'lowBound',0.00,'initGuess',0.05,'upBound',0.1)];  %16
 
 Aether.BoosterMotor.material='H340';
-Aether.BoosterMotor.mass=0.391;
+Aether.BoosterMotor.mass=0.391; %CHECK
 Aether.BoosterMotor.length=0.32; %CHECK
 Aether.BoosterMotor.burnTime=0.9;
+Aether.BoosterMotor.propMass=0.139; %CHECK
 Aether.BoosterMotor.dims=struct('dimName',"Overhang",'lowBound',0,'initGuess',0.015,'upBound',0.03);  %17
+
+
 lbCount=1;
 x0Count=1;
 ubCount=1;

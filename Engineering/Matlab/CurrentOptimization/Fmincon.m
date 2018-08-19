@@ -7,6 +7,7 @@ function [out,history,searchdir] = Fmincon
 %We also have to change some of the constants used in get mass because things will be heavier and lighter
 %then the Aether models we were doing last year.
 
+%Put compenents not used in fmincon at the end
 Aether.Nosecone.material='CarbonFiber';
 Aether.Nosecone.mass=0.200; %CHECK
 Aether.Nosecone.dims= [struct('dimName',"Length",'lowBound',0.1,'initGuess',0.2,'upBound',0.3),...%1
@@ -66,7 +67,8 @@ dNamesCount=1;
 fn=fieldnames(Aether);
 
 for i = 1:numel(fn)
-  for j=1:length(Aether.(fn{i}).dims)
+  if isfield(Aether.(fn{i}),'dims')
+    for j=1:length(Aether.(fn{i}).dims)
         lb(lbCount)=Aether.(fn{i}).dims(j).lowBound;
         lbCount=lbCount+1;
         x0(x0Count)=Aether.(fn{i}).dims(j).initGuess;
@@ -75,6 +77,7 @@ for i = 1:numel(fn)
         ubCount=ubCount+1;
         dNames(dNamesCount)=strcat(fn{i},Aether.(fn{i}).dims(j).dimName);
         dNamesCount=dNamesCount+1;
+    end
   end
 end
 

@@ -37,12 +37,12 @@ PL = 4.882; % 4882 grams per square meter for Plate Parts
 
 Msustcoupler             = Aether.ForwardCoupler.length * CP + Aether.ForwardCoupler.lipLength * BT;  % Whole E-Bay, Must find Value
 Msustbodytube            = x(3) * BT;
-Mforwardfins             = PL * .5*x(4)*x(6) * 3;
+Mforwardfins             = PL * x(4)*x(6) * 3;
 Msustcasingtuberetainer  = .120 + ET*.3; % Mass of the Engine Casing, Engine Tube and Retainer
 Mboostcasingtuberetainer = .120 + ET*.3; % Mass of the Engine Casing, Engine Tube and Retainer
 Mstagingcoupler          = Aether.AftCoupler.length * CP;
 Mboosterbodytube         = x(9) * BT;    
-Maftfins                 = PL * .5*x(10)*x(12) * 3; 
+Maftfins                 = PL * x(10)*x(12) * 3; 
 
 % Parachutes
 Mdrogueparachute         = .030; % Guesses, but good enough.

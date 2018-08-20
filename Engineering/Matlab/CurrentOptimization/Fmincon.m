@@ -9,6 +9,12 @@ function [out,history,searchdir] = Fmincon
 
 %Put compenents not used in fmincon at the end
 
+
+
+% Want to add that all masses and distance print out in a table. Also total
+% mass.
+
+
 Aether.Nosecone.material='CarbonFiber';
 Aether.Nosecone.mass=0.300; %Includes Electronic Mass and Fiberglass NoseCone
 Aether.Nosecone.ShoulderLength = .04; % Length for base of nosecone to connect to forward coupler

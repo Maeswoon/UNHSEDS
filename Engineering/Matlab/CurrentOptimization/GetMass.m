@@ -10,7 +10,7 @@ PL = 4.882; % 4882 grams per square meter for Plate Parts
 Mshoulder               	= Aether.Nosecone.ShoulderLength * BT;
 Msustcoupler                = Aether.ForwardCoupler.length * CP + Aether.ForwardCoupler.lipLength * BT;  % Whole E-Bay, Must find Value
 Msustbodytube               = x(3) * BT;
-Mforwardfins                = PL * .5*x(4)*x(6)* 3;
+Mforwardfins                = PL * x(4)*x(6)* 3;
 Maftcoupler              = Aether.AftCoupler.length * CP + Aether.AftCoupler.lipLength * BT;    
 Mboosterbodytube         = x(9) * BT;
 Maftfins                 = PL * .5*x(10)*x(12) * 3; 
@@ -27,6 +27,7 @@ initialMass = Aether.BoosterMotor.mass + Aether.SustainerMotor.mass + Aether.Nos
 
 initialSustMass = Aether.SustainerMotor.mass + Aether.Nosecone.mass + Mshoulder + Msustcoupler + Msustbodytube + Msustcasingtuberetainer...
     + Mforwardfins + Mdrogueparachute + Mmainparachute;
+
 
 startTimeSust = Aether.BoosterMotor.burnTime + x(2); % sec
 

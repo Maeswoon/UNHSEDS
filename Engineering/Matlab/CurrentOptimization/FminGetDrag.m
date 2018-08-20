@@ -16,14 +16,14 @@ if v >= 0
         finbaseboost   = x(6);
         finheightsust  = x(10);
         finheightboost = x(12);
-        finarea_sf_sust = 0.5*finbasesust*finheightsust;
-        finarea_sf_boost = 0.5*finbaseboost*finheightboost;
+        finarea_sf_sust = finbasesust*finheightsust;
+        finarea_sf_boost = finbaseboost*finheightboost;
         fin_totalarea_sf = finarea_sf_sust*6 + finarea_sf_boost*6;
     elseif t > tsuststart
-        l=x(1)+x(2)+.02+x(5); % length of sustainer body tube (m)
+        l=x(1)+Aether.Nosecone.ShoulderLength + Aether.ForwardCoupler.lipLength + x(3); % length of sustainer body tube (m)
         finbasesust = x(4);
         finheightsust = x(6);
-        finarea_sf_sust = 0.5*finbasesust*finheightsust;
+        finarea_sf_sust = finbasesust*finheightsust;
         fin_totalarea_sf = finarea_sf_sust*6;
     end
     
@@ -44,7 +44,7 @@ if v >= 0
     
     fb = l/D; % fineness ratio
     t = 0.003; % fin thickness
-    c = x(4);%(x(8)+x(9))/2; % aerodynamic cord length
+    c = (x(5) + x(6))/2;% aerodynamic cord length
 
     bodytube_area = 2*pi*r*l;   % surface area
     crosssection_area = pi*r^2; % cross-sectional area

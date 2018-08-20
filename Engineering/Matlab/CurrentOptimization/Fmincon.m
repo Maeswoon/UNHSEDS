@@ -8,60 +8,62 @@ function [out,history,searchdir] = Fmincon
 %then the Aether models we were doing last year.
 
 %Put compenents not used in fmincon at the end
+
 Aether.Nosecone.material='CarbonFiber';
-
-Aether.Nosecone.mass=0.200; %CHECK
-Aether.Nosecone.dims= [struct('dimName',"Length",        'lowBound',0.1,'initGuess',0.2,'upBound',0.3),...%1
-               struct('dimName',"ShoulderLength",'lowBound',0.04,'initGuess',0.04,'upBound',0.04)];  %2
+Aether.Nosecone.mass=0.300; %Includes Electronic Mass and Fiberglass NoseCone
+Aether.Nosecone.ShoulderLength = .04; % Length for base of nosecone to connect to forward coupler
+Aether.Nosecone.dims= [struct('dimName',"Length",'lowBound',0.1,'initGuess',0.2,'upBound',0.3)] %1
            
-Aether.EbayCoupler.material='CarbonFiber';
-Aether.EbayCoupler.lipLength=0.02; %(lip length)Check
-Aether.EbayCoupler.dims=struct('dimName',"Length",'lowBound',0.1,'initGuess',0.1,'upBound',0.1);    %3
+           
+Aether.ForwardCoupler.material='CarbonFiber';
+Aether.ForwardCoupler.lipLength=0.02; %(lip length)Check
+Aether.ForwardCoupler.length= .100;
 
-Aether.Electronics.mass=0.300;  %this mass is a complete guess
-Aether.Electronics.material='Plastic'; %this is a filler
-Aether.Electronics.dims=struct('dimName',"CruiseTime",'lowBound',0.1,'initGuess',1.0,'upBound',2);     %4
+
+Aether.Electronics.dims=struct('dimName',"CruiseTime",'lowBound',0.1,'initGuess',1.0,'upBound',2);     %2
+
 
 Aether.SustainerBodytube.OD=.0474;
 Aether.SustainerBodytube.material='CarbonFiber';
-Aether.SustainerBodytube.dims= struct('dimName',"Length",'lowBound',0.45,'initGuess',0.6,'upBound',0.75);    %5
+Aether.SustainerBodytube.dims= struct('dimName',"Length",'lowBound',0.45,'initGuess',0.6,'upBound',0.75);    %3
 
-Aether.SustainerFins.material='Aluminum';
-Aether.SustainerFins.dims=[struct('dimName',"RootChord",  'lowBound',0.04,'initGuess',0.08,'upBound',0.12),...%6
-              struct('dimName',"TipChord",   'lowBound',0.03,'initGuess',0.05,'upBound',0.07),...%7
-              struct('dimName',"SemiSpan",   'lowBound',0.03,'initGuess',0.04,'upBound',0.05),...%8
-              struct('dimName',"SweepLength",'lowBound',0.00,'initGuess',0.01,'upBound',0.02)];  %9
 
+Aether.SustainerFins.material='CarbonFiber';
+Aether.SustainerFins.dims=[struct('dimName',"RootChord",  'lowBound',0.04,'initGuess',0.08,'upBound',0.12),...%4
+                           struct('dimName',"TipChord",   'lowBound',0.03,'initGuess',0.05,'upBound',0.07),...%5
+                           struct('dimName',"SemiSpan",   'lowBound',0.03,'initGuess',0.04,'upBound',0.05),...%6
+                           struct('dimName',"SweepLength",'lowBound',0.00,'initGuess',0.01,'upBound',0.02)];  %7
+
+                       
 Aether.SustainerMotor.material='I204';
 Aether.SustainerMotor.mass=0.349;
-Aether.SustainerMotor.length=0.32; %CHECK
+Aether.SustainerMotor.length=0.32;
 Aether.SustainerMotor.burnTime=1.7;
-Aether.SustainerMotor.propMass=0.184; %CHECK
-Aether.SustainerMotor.dims=struct('dimName',"Overhang",'lowBound',0,'initGuess',0.015,'upBound',0.03);    %10
+Aether.SustainerMotor.propMass=0.184; 
+Aether.SustainerMotor.dims=struct('dimName',"Overhang",'lowBound',0,'initGuess',0.015,'upBound',0.03);    %8
 
-Aether.StagingCoupler.material='CarbonFiber';
 
-Aether.StagingCoupler.lipLength=0.02; %Check (lip length)
-Aether.StagingCoupler.dims= struct('dimName',"Length",'lowBound',0.1,'initGuess',0.1,'upBound',0.1);   %11
-
+Aether.AftCoupler.material='CarbonFiber';
+Aether.AftCoupler.lipLength = 0.02; % Bodytube Piece
+Aether.AftCoupler.length = .100;  % Length of aft coupler tube
 
 Aether.BoosterBodytube.material='CarbonFiber';
 Aether.BoosterBodytube.OD=.0474;
-Aether.BoosterBodytube.dims=struct('dimName',"Length",'lowBound',0.45,'initGuess',0.5,'upBound',0.55);      %12
+Aether.BoosterBodytube.dims=struct('dimName',"Length",'lowBound',0.45,'initGuess',0.5,'upBound',0.55);      %9
 
 
 Aether.BoosterFins.material='Aluminum';
-Aether.BoosterFins.dims=[struct('dimName',"RootChord",  'lowBound',0.04,'initGuess',0.08,'upBound',0.12),...%13
-              struct('dimName',"TipChord",   'lowBound',0.03,'initGuess',0.05,'upBound',0.15),...%14
-              struct('dimName',"SemiSpan",   'lowBound',0.03,'initGuess',0.04,'upBound',0.05),...%15
-              struct('dimName',"SweepLength",'lowBound',0.00,'initGuess',0.01,'upBound',0.02)];  %16
+Aether.BoosterFins.dims=[struct('dimName',"RootChord",  'lowBound',0.04,'initGuess',0.08,'upBound',0.12),...%10
+              struct('dimName',"TipChord",   'lowBound',0.03,'initGuess',0.05,'upBound',0.15),...%11
+              struct('dimName',"SemiSpan",   'lowBound',0.03,'initGuess',0.04,'upBound',0.05),...%12
+              struct('dimName',"SweepLength",'lowBound',0.00,'initGuess',0.01,'upBound',0.02)];  %13
 
 Aether.BoosterMotor.material='H340';
-Aether.BoosterMotor.mass=0.391; %CHECK
-Aether.BoosterMotor.length=0.32; %CHECK
+Aether.BoosterMotor.mass=0.391; 
+Aether.BoosterMotor.length=0.365; 
 Aether.BoosterMotor.burnTime=0.9;
-Aether.BoosterMotor.propMass=0.139; %CHECK
-Aether.BoosterMotor.dims=struct('dimName',"Overhang",'lowBound',0,'initGuess',0.015,'upBound',0.03);  %17
+Aether.BoosterMotor.propMass=0.206; 
+Aether.BoosterMotor.dims=struct('dimName',"Overhang",'lowBound',0,'initGuess',0.015,'upBound',0.03);  %14
 
 
 lbCount=1;

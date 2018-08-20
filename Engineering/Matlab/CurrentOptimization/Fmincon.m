@@ -12,7 +12,7 @@ function [out,history,searchdir] = Fmincon
 Aether.Nosecone.material='CarbonFiber';
 Aether.Nosecone.mass=0.300; %Includes Electronic Mass and Fiberglass NoseCone
 Aether.Nosecone.ShoulderLength = .04; % Length for base of nosecone to connect to forward coupler
-Aether.Nosecone.dims= [struct('dimName',"Length",'lowBound',0.1,'initGuess',0.2,'upBound',0.3)] %1
+Aether.Nosecone.dims = struct('dimName',"Length",'lowBound',0.1,'initGuess',0.2,'upBound',0.3); %1
            
            
 Aether.ForwardCoupler.material='CarbonFiber';
@@ -92,12 +92,14 @@ fgDensity=2550;  %2.55-2.68 g/cm3
 alDensity=2700;
 
 for i=1:length(fn)
-    if strcmp(Aether.(fn{i}).material,'CarbonFiber')
-        Aether.(fn{i}).density=cfDensity;
-    elseif strcmp(Aether.(fn{i}).material,'FiberGlass')
-        Aether.(fn{i}).density=fgDensity;
-    elseif strcmp(Aether.(fn{i}).material,'Aluminum')
-        Aether.(fn{i}).density=alDensity;
+    if isfield(Aether.(fn{i}),'material')
+        if strcmp(Aether.(fn{i}).material,'CarbonFiber')
+            Aether.(fn{i}).density=cfDensity;
+        elseif strcmp(Aether.(fn{i}).material,'FiberGlass')
+            Aether.(fn{i}).density=fgDensity;
+        elseif strcmp(Aether.(fn{i}).material,'Aluminum')
+            Aether.(fn{i}).density=alDensity;
+        end
     end
 end
 

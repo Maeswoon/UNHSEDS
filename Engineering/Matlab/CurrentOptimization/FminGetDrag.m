@@ -1,4 +1,4 @@
-function [drag] = FminGetDrag (v,h,t,x)
+function [drag] = FminGetDrag (v,h,t,x,Aether)
 % calculate total drag for the sustainer and booster, carries to
 % sustainer then to recovery.
 

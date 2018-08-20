@@ -5,24 +5,19 @@ Ldrogueparachute      =0.04;
 Lmainparachute        =0.08;
 
 Dnosecone        = x(1)*.666; % Must calculate CG for our custom part... 
-<<<<<<< HEAD
-Debay            = x(1) +  .04 + .01;
-Dsustbodytube    = Debay + .01 + x(5)/2;
+
+
+Debay            = x(1) + x(2)  + Aether.EbayCoupler.lipLength/2;
+Dsustbodytube    = Debay + Aether.EbayCoupler.lipLength/2 + x(3)/2;
 Dforwardfins     = Dsustbodytube + x(5)/2 - x(6)/2 ;  
-Dstagingcoupler  = Dsustbodytube + x(5)/2 + .01;
-Dsust            = Dstagingcoupler - .01 - Aether.SustainerMotor.length/2;
-=======
-Debay            = x(1) + + x(2)  + Aether.EbayCoupler.length/2;
-Dsustbodytube    = Debay + Aether.EbayCoupler.length/2 + x(3)/2;
-Dforwardfins     = Dsustbodytube + x(3)/2 - x(8)/2 ;  
-Dstagingcoupler  = Dsustbodytube + x(3)/2 + x(11)/2;
+Dstagingcoupler  = Dsustbodytube + x(5)/2 + Aether.EbayCoupler.lipLength/2;
 Dsust            = Dstagingcoupler - x(11)/2 - Aether.SustainerMotor.length/2 + x(6);
->>>>>>> a244ad11cb53522f5cbee0ff0d8eef7f11c26584
+
 % Parachute Placements
 xmainparachute        = 0.12;    % From forward Shoulder Forward
 xdrogueparachute      = 0.10;    % From aft of E-Bay Bulk Plate
 
-Ddrogueparachute    = Debay + Aether.EbayCoupler.length/2 + xdrogueparachute + Ldrogueparachute/2;                                       % Offset from Nosecone Forward
+Ddrogueparachute    = Debay + Aether.EbayCoupler.lipLength/2 + xdrogueparachute + Ldrogueparachute/2;                                       % Offset from Nosecone Forward
 Dmainparachute      = x(1) + xmainparachute + Lmainparachute/2;                                                      % Offset from E-bay Aft
 Diameter=Aether.SustainerBodytube.OD;  
 Rbodytube = Diameter/2;     % Radius of Bodytube
@@ -34,13 +29,8 @@ CP = .322;  % 322 grams per meter for Coupler Body Tube
 ET = .168;  % 168 grams per meter for Engine Tube, NOT NEEDED - Estimated
 
 
-<<<<<<< HEAD
+
 Mforwardfins     = PL * .5*x(6)*x(8)*3;
-Mnosecone        = .150;   % Needs to be accuratly estimated with shoulder factored in
-Mebay            = .200;   % Constant that needs to be measured when built
-=======
-Mforwardfins     = PL * .5*x(8)*x(9)*x(10);
->>>>>>> a244ad11cb53522f5cbee0ff0d8eef7f11c26584
 Msustbodytube    = x(5)*BT;
 Msustinit        = .349 + .125;   % Initial mass of sustainer plus casing and tube
 

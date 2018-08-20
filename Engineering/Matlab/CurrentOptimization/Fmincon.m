@@ -9,17 +9,13 @@ function [out,history,searchdir] = Fmincon
 
 %Put compenents not used in fmincon at the end
 Aether.Nosecone.material='CarbonFiber';
-<<<<<<< HEAD
+
+Aether.Nosecone.mass=0.200; %CHECK
 Aether.Nosecone.dims= [struct('dimName',"Length",        'lowBound',0.1,'initGuess',0.2,'upBound',0.3),...%1
                struct('dimName',"ShoulderLength",'lowBound',0.04,'initGuess',0.04,'upBound',0.04)];  %2
-=======
-Aether.Nosecone.mass=0.200; %CHECK
-Aether.Nosecone.dims= [struct('dimName',"Length",'lowBound',0.1,'initGuess',0.2,'upBound',0.3),...%1
-                       struct('dimName',"ShoulderLength",'lowBound',0.04,'initGuess',0.05,'upBound',0.1)];  %2
->>>>>>> a244ad11cb53522f5cbee0ff0d8eef7f11c26584
            
 Aether.EbayCoupler.material='CarbonFiber';
-Aether.EbayCoupler.length=0.02; %(lip length)Check
+Aether.EbayCoupler.lipLength=0.02; %(lip length)Check
 Aether.EbayCoupler.dims=struct('dimName',"Length",'lowBound',0.1,'initGuess',0.1,'upBound',0.1);    %3
 
 Aether.Electronics.mass=0.300;  %this mass is a complete guess
@@ -44,17 +40,15 @@ Aether.SustainerMotor.propMass=0.184; %CHECK
 Aether.SustainerMotor.dims=struct('dimName',"Overhang",'lowBound',0,'initGuess',0.015,'upBound',0.03);    %10
 
 Aether.StagingCoupler.material='CarbonFiber';
-<<<<<<< HEAD
-Aether.StagingCoupler.length=0.10; %Check (lip length)
+
+Aether.StagingCoupler.lipLength=0.02; %Check (lip length)
 Aether.StagingCoupler.dims= struct('dimName',"Length",'lowBound',0.1,'initGuess',0.1,'upBound',0.1);   %11
-=======
-Aether.StagingCoupler.mass=.06; %FIX (this should be dependent on length)
-Aether.StagingCoupler.dims= struct('dimName',"Length",'lowBound',0.06,'initGuess',0.1,'upBound',0.14);   %11
->>>>>>> a244ad11cb53522f5cbee0ff0d8eef7f11c26584
+
 
 Aether.BoosterBodytube.material='CarbonFiber';
 Aether.BoosterBodytube.OD=.0474;
 Aether.BoosterBodytube.dims=struct('dimName',"Length",'lowBound',0.45,'initGuess',0.5,'upBound',0.55);      %12
+
 
 Aether.BoosterFins.material='Aluminum';
 Aether.BoosterFins.dims=[struct('dimName',"RootChord",  'lowBound',0.04,'initGuess',0.08,'upBound',0.12),...%13

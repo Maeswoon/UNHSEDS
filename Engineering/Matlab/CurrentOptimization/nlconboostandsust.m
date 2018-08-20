@@ -6,8 +6,8 @@ Ldrogueparachute      =0.04;
 Lmainparachute        =0.08;
 
 Dnosecone        = x(1)*.666; % Must calculate CG for our custom part... 
-Debay            = x(1) + x(2)  + Aether.EbayCoupler.length/2;
-Dsustbodytube    = Debay + Aether.EbayCoupler.length/2 + x(3)/2;
+Debay            = x(1) + x(2)  + Aether.EbayCoupler.lipLength/2;
+Dsustbodytube    = Debay + Aether.EbayCoupler.lipLength/2 + x(3)/2;
 Dforwardfins     = Dsustbodytube + x(3)/2 - x(8)/2 ;  
 Dstagingcoupler  = Dsustbodytube + x(3)/2 + x(11)/2;
 Dsust            = Dstagingcoupler - x(11)/2 - Aether.SustainerMotor.length/2 + x(6);
@@ -20,7 +20,7 @@ xmainparachute        = 0.12;    % From forward Shoulder Forward
 xdrogueparachute      = 0.10;    % From aft of E-Bay Bulk Plate
 xboosterparachute     = 0.12;    % From aft of Coupler Bulk Plate
 
-Ddrogueparachute    = Debay + Aether.EbayCoupler.length/2 + xdrogueparachute + Ldrogueparachute/2;                                       % Offset from Nosecone Forward
+Ddrogueparachute    = Debay + Aether.EbayCoupler.lipLength/2 + xdrogueparachute + Ldrogueparachute/2;                                       % Offset from Nosecone Forward
 Dmainparachute      = x(1) + xmainparachute + Lmainparachute/2;                                                      % Offset from E-bay Aft
 Dboosterparachute   = Dstagingcoupler + x(11)/2 + x(4)/2 + xboosterparachute + Lboosterparachute/2;  % Offset from Staging Coupler Aft
 Diameter=Aether.SustainerBodytube.OD;  

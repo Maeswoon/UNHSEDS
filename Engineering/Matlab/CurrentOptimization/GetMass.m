@@ -54,7 +54,6 @@ initialSustMass = Aether.SustainerMotor.mass + Aether.Nosecone.mass + Mshoulder 
 startTimeSust = Aether.BoosterMotor.burnTime+x(4);          % sec
 
 if (t>=0 && t<Aether.BoosterMotor.burnTime)    %Launch to boost eject
-    mass = initialMass - Mboostprop *(t/Aether.BoosterMotor.burnTime);
     mass = initialMass - Aether.BoosterMotor.propMass *(t/Aether.BoosterMotor.burnTime);
 elseif (t>=Aether.BoosterMotor.burnTime && t<startTimeSust) %Coast
 <<<<<<< HEAD

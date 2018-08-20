@@ -22,7 +22,6 @@ Aether.EbayCoupler.material='CarbonFiber';
 Aether.EbayCoupler.length=0.02; %(lip length)Check
 Aether.EbayCoupler.dims=struct('dimName',"Length",'lowBound',0.1,'initGuess',0.1,'upBound',0.1);    %3
 
-Aether.Electronics.mass=0.200;  %this mass is a complete guess
 Aether.Electronics.mass=0.300;  %this mass is a complete guess
 Aether.Electronics.material='Plastic'; %this is a filler
 Aether.Electronics.dims=struct('dimName',"CruiseTime",'lowBound',0.1,'initGuess',1.0,'upBound',2);     %4
@@ -64,7 +63,6 @@ Aether.BoosterFins.dims=[struct('dimName',"RootChord",  'lowBound',0.04,'initGue
               struct('dimName',"SweepLength",'lowBound',0.00,'initGuess',0.01,'upBound',0.02)];  %16
 
 Aether.BoosterMotor.material='H340';
-Aether.BoosterMotor.mass=0.391;
 Aether.BoosterMotor.mass=0.391; %CHECK
 Aether.BoosterMotor.length=0.32; %CHECK
 Aether.BoosterMotor.burnTime=0.9;

@@ -52,11 +52,9 @@ Mmainparachute      = .0;
 % CG calculations
 CGSust  = Msustinit.*Dsust; % Center of Gravity of sustainer engine during flight
 
-Mtot2   = Msustinit + Mnosecone + Mebay + Msustbodytube + Mforwardfins ...                  % Total mass of sustainer through flight
 Mtot2   = Msustinit + Aether.Nosecone.mass + Aether.Electronics.mass + Msustbodytube + Mforwardfins ...                  % Total mass of sustainer through flight
         + Mdrogueparachute + Mmainparachute;                                                % after booster seperation
               
-CG2     = (CGSust + Dnosecone*Mnosecone + Debay*Mebay + Dsustbodytube*Msustbodytube + Dforwardfins*Mforwardfins...  % Center of gravity of sustainer through flight
 CG2     = (CGSust + Dnosecone*Aether.Nosecone.mass + Debay*Aether.Electronics.mass + Dsustbodytube*Msustbodytube + Dforwardfins*Mforwardfins...  % Center of gravity of sustainer through flight
         + Mdrogueparachute*Ddrogueparachute + Mmainparachute*Dmainparachute)./Mtot2;   
 %Cp

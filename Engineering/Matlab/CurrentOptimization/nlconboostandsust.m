@@ -6,15 +6,9 @@ Ldrogueparachute      =0.04;
 Lmainparachute        =0.08;
 
 Dnosecone        = x(1)*.666; % Must calculate CG for our custom part... 
-Debay            = x(1) + + x(2)  + Aether.EbayCoupler.length/2;
 Debay            = x(1) + x(2)  + Aether.EbayCoupler.length/2;
 Dsustbodytube    = Debay + Aether.EbayCoupler.length/2 + x(3)/2;
 Dforwardfins     = Dsustbodytube + x(3)/2 - x(8)/2 ;  
-Dstagingcoupler  = Dsustbodytube + x(3)/2 + Aether.StagingCoupler.length/2;
-Dsust            = Dstagingcoupler - Aether.StagingCoupler.length/2 - Aether.SustainerMotor.length/2 + x(6);
-Dboosterbodytube = Dstagingcoupler + Aether.StagingCoupler.length/2 + x(5)/2;
-Daftfins         = Dstagingcoupler + Aether.StagingCoupler.length/2 + x(5) - x(12)/2;
-Dboost           = Dstagingcoupler + Aether.StagingCoupler.length/2 + x(5) - Aether.BoosterMotor.length/2 + x(7);
 Dstagingcoupler  = Dsustbodytube + x(3)/2 + x(11)/2;
 Dsust            = Dstagingcoupler - x(11)/2 - Aether.SustainerMotor.length/2 + x(6);
 Dboosterbodytube = Dstagingcoupler + x(11)/2 + x(5)/2;
@@ -28,7 +22,6 @@ xboosterparachute     = 0.12;    % From aft of Coupler Bulk Plate
 
 Ddrogueparachute    = Debay + Aether.EbayCoupler.length/2 + xdrogueparachute + Ldrogueparachute/2;                                       % Offset from Nosecone Forward
 Dmainparachute      = x(1) + xmainparachute + Lmainparachute/2;                                                      % Offset from E-bay Aft
-Dboosterparachute   = Dstagingcoupler + Aether.StagingCoupler.length/2 + x(4)/2 + xboosterparachute + Lboosterparachute/2;  % Offset from Staging Coupler Aft
 Dboosterparachute   = Dstagingcoupler + x(11)/2 + x(4)/2 + xboosterparachute + Lboosterparachute/2;  % Offset from Staging Coupler Aft
 Diameter=Aether.SustainerBodytube.OD;  
 Rbodytube = Diameter/2;     % Radius of Bodytube
@@ -42,8 +35,6 @@ ET = .168;  % 168 grams per meter for Engine Tube, NOT NEEDED - Estimated
 
 Maftfins         = PL * .5*x(12)*x(13)*x(14); 
 Mforwardfins     = PL * .5*x(8)*x(9)*x(10);
-Mnosecone        = .200;   % Needs to be accuratly estimated with shoulder factored in
-Mebay            = Aether.Electronics.mass;   % Constant that needs to be measured when built
 Msustbodytube    = x(5)*BT;
 Mstagingcoupler  = .08 * CP;    
 Mboosterbodytube = x(12) * BT;    
@@ -59,11 +50,9 @@ Mboosterparachute   = .043;
 %for now we are constraining to a fixed initial caliber=1.5
 CGBoost = Mboostinit*Dboost;             % Center of Gravity of booster during flight
 
-Mtot    = Mboostinit + Msustinit + Mnosecone + Mebay + Msustbodytube + Mforwardfins + Mstagingcoupler + Mboosterbodytube...    % Total mass of sustainer and
 Mtot    = Mboostinit + Msustinit + Aether.Nosecone.mass + Aether.Electronics.mass + Msustbodytube + Mforwardfins + Mstagingcoupler + Mboosterbodytube...    % Total mass of sustainer and
     + Maftfins + Mdrogueparachute + Mboosterparachute + Mmainparachute;     % booster through flight
 
-CGboostsust      = (CGBoost + Dnosecone*Mnosecone + Debay*Mebay + Dsustbodytube*Msustbodytube + Dforwardfins*Mforwardfins...   % Center of gravity of entire rocket
 CGboostsust      = (CGBoost + Dnosecone*Aether.Nosecone.mass + Debay*Aether.Electronics.mass + Dsustbodytube*Msustbodytube + Dforwardfins*Mforwardfins...   % Center of gravity of entire rocket
         + Dstagingcoupler*Mstagingcoupler + Dsust*Msustinit + Dboosterbodytube*Mboosterbodytube + Daftfins*Maftfins ...        % through flight before seperation
         + Mdrogueparachute*Ddrogueparachute + Mboosterparachute*Dboosterparachute + Mmainparachute*Dmainparachute)./Mtot;  
@@ -109,7 +98,6 @@ cnr2=cnn+cnt+cnf+cnf2;
 cp2 = ((cnn*xn+cnt*xt+cnf*xf+cnf2*xf2)/cnr2);   % Center of Pressure equation for a rocket 
 
 
-c=[];%1.5-((cp2-CGboostsust)/(2*Rbodytube));
 c=[];
 ceq=1.5-((cp2-CGboostsust)/(2*Rbodytube));
 end

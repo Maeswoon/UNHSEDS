@@ -12,7 +12,7 @@ function [out,history,searchdir] = Fmincon
 Aether.Nosecone.material='CarbonFiber';
 Aether.Nosecone.mass=0.300; %Includes Electronic Mass and Fiberglass NoseCone
 Aether.Nosecone.ShoulderLength = .04; % Length for base of nosecone to connect to forward coupler
-Aether.Nosecone.dims= [struct('dimName',"Length",'lowBound',0.1,'initGuess',0.2,'upBound',0.3)] %1
+Aether.Nosecone.dims= [struct('dimName',"Length",'lowBound',0.1,'initGuess',0.2,'upBound',0.3)]; %1
            
            
 Aether.ForwardCoupler.material='CarbonFiber';
@@ -90,6 +90,11 @@ end
 cfDensity=1800;  %1.75-2.00 g/cm3
 fgDensity=2550;  %2.55-2.68 g/cm3
 alDensity=2700;
+BT = .330;  % 330 grams per meter for Body Tube
+CP = .322;  % 322 grams per meter for Coupler Body Tube
+ET = .168;  % 168 grams per meter for Engine Tube
+PL = 4.882; % 4882 grams per square meter for Plate Parts
+
 
 for i=1:length(fn)
     if strcmp(Aether.(fn{i}).material,'CarbonFiber')

@@ -9,11 +9,11 @@ function [out,history,searchdir] = Fmincon
 
 Aether.Nosecone.material='CarbonFiber';
 Aether.Nosecone.dims= [struct('dimName',"Length",        'lowBound',0.1,'initGuess',0.2,'upBound',0.3),...%1
-               struct('dimName',"ShoulderLength",'lowBound',0.04,'initGuess',0.05,'upBound',0.1)];  %2
+               struct('dimName',"ShoulderLength",'lowBound',0.04,'initGuess',0.04,'upBound',0.04)];  %2
            
 Aether.EbayCoupler.material='CarbonFiber';
-Aether.EbayCoupler.length=0.05; %(lip length)Check
-Aether.EbayCoupler.dims=struct('dimName',"Length",'lowBound',0.1,'initGuess',0.2,'upBound',0.3);    %3
+Aether.EbayCoupler.length=0.02; %(lip length)Check
+Aether.EbayCoupler.dims=struct('dimName',"Length",'lowBound',0.1,'initGuess',0.1,'upBound',0.1);    %3
 
 Aether.Electronics.mass=0.200;  %this mass is a complete guess
 Aether.Electronics.material='Plastic'; %this is a filler
@@ -21,13 +21,13 @@ Aether.Electronics.dims=struct('dimName',"CruiseTime",'lowBound',0.1,'initGuess'
 
 Aether.SustainerBodytube.OD=.0474;
 Aether.SustainerBodytube.material='CarbonFiber';
-Aether.SustainerBodytube.dims= struct('dimName',"Length",'lowBound',0.4,'initGuess',0.55,'upBound',0.7);    %5
+Aether.SustainerBodytube.dims= struct('dimName',"Length",'lowBound',0.45,'initGuess',0.6,'upBound',0.75);    %5
 
 Aether.SustainerFins.material='Aluminum';
-Aether.SustainerFins.dims=[struct('dimName',"RootChord",  'lowBound',0.04,'initGuess',0.06,'upBound',0.12),...%6
-              struct('dimName',"TipChord",   'lowBound',0.03,'initGuess',0.05,'upBound',0.1),...%7
-              struct('dimName',"SemiSpan",   'lowBound',0.03,'initGuess',0.05,'upBound',0.1),...%8
-              struct('dimName',"SweepLength",'lowBound',0.00,'initGuess',0.05,'upBound',0.1)];  %9
+Aether.SustainerFins.dims=[struct('dimName',"RootChord",  'lowBound',0.04,'initGuess',0.08,'upBound',0.12),...%6
+              struct('dimName',"TipChord",   'lowBound',0.03,'initGuess',0.05,'upBound',0.07),...%7
+              struct('dimName',"SemiSpan",   'lowBound',0.03,'initGuess',0.04,'upBound',0.05),...%8
+              struct('dimName',"SweepLength",'lowBound',0.00,'initGuess',0.01,'upBound',0.02)];  %9
 
 Aether.SustainerMotor.material='I204';
 Aether.SustainerMotor.mass=0.349;
@@ -36,18 +36,18 @@ Aether.SustainerMotor.burnTime=1.7;
 Aether.SustainerMotor.dims=struct('dimName',"Overhang",'lowBound',0,'initGuess',0.015,'upBound',0.03);    %10
 
 Aether.StagingCoupler.material='CarbonFiber';
-Aether.StagingCoupler.length=0.05; %Check (lip length)
-Aether.StagingCoupler.dims= struct('dimName',"Length",'lowBound',0.06,'initGuess',0.1,'upBound',0.14);   %11
+Aether.StagingCoupler.length=0.10; %Check (lip length)
+Aether.StagingCoupler.dims= struct('dimName',"Length",'lowBound',0.1,'initGuess',0.1,'upBound',0.1);   %11
 
 Aether.BoosterBodytube.material='CarbonFiber';
 Aether.BoosterBodytube.OD=.0474;
-Aether.BoosterBodytube.dims=struct('dimName',"Length",'lowBound',0.49,'initGuess',0.5,'upBound',0.7);      %12
+Aether.BoosterBodytube.dims=struct('dimName',"Length",'lowBound',0.45,'initGuess',0.5,'upBound',0.55);      %12
 
 Aether.BoosterFins.material='Aluminum';
-Aether.BoosterFins.dims=[struct('dimName',"RootChord",  'lowBound',0.04,'initGuess',0.06,'upBound',0.12),...%13
-              struct('dimName',"TipChord",   'lowBound',0.03,'initGuess',0.05,'upBound',0.1),...%14
-              struct('dimName',"SemiSpan",   'lowBound',0.03,'initGuess',0.05,'upBound',0.1),...%15
-              struct('dimName',"SweepLength",'lowBound',0.00,'initGuess',0.05,'upBound',0.1)];  %16
+Aether.BoosterFins.dims=[struct('dimName',"RootChord",  'lowBound',0.04,'initGuess',0.08,'upBound',0.12),...%13
+              struct('dimName',"TipChord",   'lowBound',0.03,'initGuess',0.05,'upBound',0.15),...%14
+              struct('dimName',"SemiSpan",   'lowBound',0.03,'initGuess',0.04,'upBound',0.05),...%15
+              struct('dimName',"SweepLength",'lowBound',0.00,'initGuess',0.01,'upBound',0.02)];  %16
 
 Aether.BoosterMotor.material='H340';
 Aether.BoosterMotor.mass=0.391;
@@ -142,8 +142,8 @@ nonlincon=@supernonlincon;
     pd = 0;             % initial pressure drag
     bd = 0;             % initial base drag
     tstart      = 0;    % start time
-    dt          = 0.1; % time step
-    tstop       = 160;  % endtime
+    dt          = 0.05; % time step
+    tstop       = 200;  % endtime
 
     %Initial Vectors (Maybe contain these in the structure? might reduce
     %speed though)

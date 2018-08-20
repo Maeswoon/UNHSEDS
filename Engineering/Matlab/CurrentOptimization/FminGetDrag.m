@@ -1,10 +1,8 @@
 function [drag] = FminGetDrag (v,h,t,x)
 % calculate total drag for the sustainer and booster, carries to
 % sustainer then to recovery.
-% NB ! When v is + ve (up) drag should be + ve (down)
-%FOR FMINCON ONLY CALCULATES FOR ONE SET OF FINS
 
-tsuststart = x(4) + .9;  % Burn time for Booster
+tsuststart = Aether.BoosterMotor.burnTime+x(4); % Burn time for Booster
 pi = 3.14;
 mu = 1.79e-5;
 rho = 1.217*exp(-h/8500);
@@ -12,13 +10,21 @@ kv = mu/rho;
 
 if v >= 0
     if t <= tsuststart
-        l=x(1)+x(2)+.02+x(3)+x(4)+x(5);%l = 1.25; % length of full rocket (m)
+        l=x(1)+x(2)+.02+x(5)+.02+x(12); % length of full rocket (m)
+        finbase = x(6);
+        finheight = x(8);
+        finarea_sf = 0.5*finbase*finheight;
+        fin_totalarea_sf = finarea_sf*12;
     elseif t > tsuststart
-        l=x(1)+x(2)+.02+x(3)+x(6); %0.80; % length of sustainer body tube (m)
+        l=x(1)+x(2)+.02+x(5); % length of sustainer body tube (m)
+        finbase = x(6);
+        finheight = x(8);
+        finarea_sf = 0.5*finbase*finheight;
+        fin_totalarea_sf = finarea_sf*6;
     end
     
     % ~ SKIN FRICTION DRAG ~
-    D = .045;   % (m) Diameter of Nosecone
+    D = .0474;   % (m) Diameter of Nosecone
     r = D/2;
     Re = (v*l)/kv;
     Rs = 60e-6; % roughness
@@ -35,11 +41,11 @@ if v >= 0
     
     fb = l/D; % fineness ratio
     t = 0.003; % fin thickness
-    c = (x(8)+x(9))/2; % aerodynamic cord length
-    finbase = x(8);
-    finheight = x(10);
-    finarea_sf = 0.5*finbase*finheight;
-    fin_totalarea_sf = finarea_sf*12;
+    c = x(6);%(x(8)+x(9))/2; % aerodynamic cord length
+%     finbase = x(6);
+%     finheight = x(8);
+%     finarea_sf = 0.5*finbase*finheight;
+%     fin_totalarea_sf = finarea_sf*12;
     bodytube_area = 2*pi*r*l;   % surface area
     crosssection_area = pi*r^2; % cross-sectional area
     ref_area_sf = fin_totalarea_sf + bodytube_area;

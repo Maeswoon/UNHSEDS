@@ -5,11 +5,11 @@ Ldrogueparachute      =0.04;
 Lmainparachute        =0.08;
 
 Dnosecone        = x(1)*.666; % Must calculate CG for our custom part... 
-Debay            = x(1) + + x(2)  + Aether.EbayCoupler.length/2;
-Dsustbodytube    = Debay + Aether.EbayCoupler.length/2 + x(3)/2;
-Dforwardfins     = Dsustbodytube + x(3)/2 - x(8)/2 ;  
-Dstagingcoupler  = Dsustbodytube + x(3)/2 + Aether.StagingCoupler.length/2;
-Dsust            = Dstagingcoupler - Aether.StagingCoupler.length/2 - Aether.SustainerMotor.length/2 + x(6);
+Debay            = x(1) +  .04 + .01;
+Dsustbodytube    = Debay + .01 + x(5)/2;
+Dforwardfins     = Dsustbodytube + x(5)/2 - x(6)/2 ;  
+Dstagingcoupler  = Dsustbodytube + x(5)/2 + .01;
+Dsust            = Dstagingcoupler - .01 - Aether.SustainerMotor.length/2;
 % Parachute Placements
 xmainparachute        = 0.12;    % From forward Shoulder Forward
 xdrogueparachute      = 0.10;    % From aft of E-Bay Bulk Plate
@@ -26,15 +26,15 @@ CP = .322;  % 322 grams per meter for Coupler Body Tube
 ET = .168;  % 168 grams per meter for Engine Tube, NOT NEEDED - Estimated
 
 
-Mforwardfins     = PL * .5*x(8)*x(9)*x(10);
-Mnosecone        = .200;   % Needs to be accuratly estimated with shoulder factored in
+Mforwardfins     = PL * .5*x(6)*x(8)*3;
+Mnosecone        = .150;   % Needs to be accuratly estimated with shoulder factored in
 Mebay            = .200;   % Constant that needs to be measured when built
 Msustbodytube    = x(5)*BT;
 Msustinit        = .349 + .125;   % Initial mass of sustainer plus casing and tube
 
 % Internal pieces (kg)
-Mdrogueparachute    = .025;    % MEASURE THESE 
-Mmainparachute      = .078;
+Mdrogueparachute    = .0;    % MEASURE THESE 
+Mmainparachute      = .0;
 
 
 % CG calculations
@@ -46,7 +46,7 @@ Mtot2   = Msustinit + Mnosecone + Mebay + Msustbodytube + Mforwardfins ...      
 CG2     = (CGSust + Dnosecone*Mnosecone + Debay*Mebay + Dsustbodytube*Msustbodytube + Dforwardfins*Mforwardfins...  % Center of gravity of sustainer through flight
         + Mdrogueparachute*Ddrogueparachute + Mmainparachute*Dmainparachute)./Mtot2;   
 %Cp
-Xb  = Dforwardfins - x(8)/2;  % Length of nosecone tip to beginning of root chord
+Xb  = Dforwardfins - x(6)/2;  % Length of nosecone tip to beginning of root chord
 
 cnn = 2;             % Co-efficient for the type of nose cone 
 xn  = .666 * x(1);   % Location of the center of pressure for an ogive

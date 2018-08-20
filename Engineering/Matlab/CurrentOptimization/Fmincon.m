@@ -230,7 +230,7 @@ nonlincon=@supernonlincon;
            x12s(it)=x(12);
            x13s(it)=x(13);
            x14s(it)=x(14);
-           x15s(it)=x(15);
+
            fstore(it)=1./optimValues.fval;
          case 'done'
              hold off
@@ -266,7 +266,6 @@ plot(itstore,x11s./xsol(11),'Color',color3);
 
 plot(itstore,x13s./xsol(13),'Color',color1);
 plot(itstore,x14s./xsol(14),'Color',color1);
-plot(itstore,x15s./xsol(15),'Color',color1);
 plot(itstore,x2s./xsol(2),'b')
 plot(itstore,x5s./xsol(5),'Color',color2)
 ylabel('$\frac{DIM_{iteration}}{DIM_{optimized}}$','Interpreter','latex','FontSize',24)

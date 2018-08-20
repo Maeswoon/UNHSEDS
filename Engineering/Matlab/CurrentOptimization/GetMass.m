@@ -7,13 +7,13 @@ CP = .322;  % 322 grams per meter for Coupler Body Tube
 ET = .168;  % 168 grams per meter for Engine Tube
 PL = 4.882; % 4882 grams per square meter for Plate Parts
 
-Mshoulder               	= x(2) * BT;
-Msustcoupler                = x(3) * CP;  % Whole E-Bay, Must find Value
+Mshoulder               	= Aether.Nosecone.ShoulderLength * BT;
+Msustcoupler                = Aether.ForwardCoupler.length * CP + Aether.ForwardCoupler.lipLength * BT;  % Whole E-Bay, Must find Value
 Msustbodytube               = x(3) * BT;
-Mforwardfins                = PL * .5*x(8)*x(9)*x(10);
-Aether.StagingCoupler.mass  = x(11) * CP;    
-Mboosterbodytube         = x(5) * BT;
-Maftfins                 = PL * .5*x(13)*x(15); 
+Mforwardfins                = PL * .5*x(4)*x(6)* 3;
+Maftcoupler              = Aether.AftCoupler.length * CP + Aether.AftCoupler.lipLength * BT;    
+Mboosterbodytube         = x(9) * BT;
+Maftfins                 = PL * .5*x(10)*x(12) * 3; 
 Msustcasingtuberetainer  = .120 + ET*.3;            % Mass of the Engine Casing, Engine Tube and Retainer
 Mboostcasingtuberetainer = .120 + ET*.3;            % Mass of the Engine Casing, Engine Tube and Retainer
 
@@ -22,13 +22,13 @@ Mmainparachute           = .070;
 Mboosterparachute        = .040; 
 
 initialMass = Aether.BoosterMotor.mass + Aether.SustainerMotor.mass + Aether.Nosecone.mass + Mshoulder + Msustcoupler + Msustbodytube + Mforwardfins...
-    + Msustcasingtuberetainer + Aether.StagingCoupler.mass + Mboosterbodytube + Mboostcasingtuberetainer + Maftfins +...
+    + Msustcasingtuberetainer + Maftcoupler + Mboosterbodytube + Mboostcasingtuberetainer + Maftfins +...
     Mdrogueparachute + Mmainparachute + Mboosterparachute;
 
 initialSustMass = Aether.SustainerMotor.mass + Aether.Nosecone.mass + Mshoulder + Msustcoupler + Msustbodytube + Msustcasingtuberetainer...
     + Mforwardfins + Mdrogueparachute + Mmainparachute;
 
-startTimeSust = Aether.BoosterMotor.burnTime + x(4); % sec
+startTimeSust = Aether.BoosterMotor.burnTime + x(2); % sec
 
 if (t>=0 && t<Aether.BoosterMotor.burnTime) %Launch to boost eject
     mass = initialMass - Aether.BoosterMotor.propMass *(t/Aether.BoosterMotor.burnTime);

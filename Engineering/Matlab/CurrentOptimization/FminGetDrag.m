@@ -2,7 +2,7 @@ function [drag] = FminGetDrag (v,h,t,x,Aether)
 % calculate total drag for the sustainer and booster, carries to
 % sustainer then to recovery.
 
-tsuststart = Aether.BoosterMotor.burnTime+x(4); % Burn time for Booster
+tsuststart = Aether.BoosterMotor.burnTime+x(2); % Burn time for Booster
 pi = 3.14;
 mu = 1.79e-5;
 rho = 1.217*exp(-h/8500);
@@ -10,17 +10,21 @@ kv = mu/rho;
 
 if v >= 0
     if t <= tsuststart
-        l=x(1)+x(2)+.02+x(5)+.02+x(12); % length of full rocket (m)
-        finbase = x(6);
-        finheight = x(8);
-        finarea_sf = 0.5*finbase*finheight;
-        fin_totalarea_sf = finarea_sf*12;
+        l=x(1)+Aether.Nosecone.ShoulderLength + Aether.ForwardCoupler.lipLength + ...
+          x(3)+ Aether.AftCoupler.lipLength +x(9); % length of full rocket (m)
+        finbasesust    = x(4);
+        finbaseboost   = x(6);
+        finheightsust  = x(10);
+        finheightboost = x(12);
+        finarea_sf_sust = 0.5*finbasesust*finheightsust;
+        finarea_sf_boost = 0.5*finbaseboost*finheightboost;
+        fin_totalarea_sf = finarea_sf_sust*6 + finarea_sf_boost*6;
     elseif t > tsuststart
         l=x(1)+x(2)+.02+x(5); % length of sustainer body tube (m)
-        finbase = x(6);
-        finheight = x(8);
-        finarea_sf = 0.5*finbase*finheight;
-        fin_totalarea_sf = finarea_sf*6;
+        finbasesust = x(4);
+        finheightsust = x(6);
+        finarea_sf_sust = 0.5*finbasesust*finheightsust;
+        fin_totalarea_sf = finarea_sf_sust*6;
     end
     
     % ~ SKIN FRICTION DRAG ~
@@ -36,16 +40,12 @@ if v >= 0
         CDsf = 1/(1.50*log(Re) - 5.6)^2;
     elseif Re > Rcrit
         CDsf = 0.032*(Rs/l)^0.2;
-        
     end
     
     fb = l/D; % fineness ratio
     t = 0.003; % fin thickness
-    c = x(6);%(x(8)+x(9))/2; % aerodynamic cord length
-%     finbase = x(6);
-%     finheight = x(8);
-%     finarea_sf = 0.5*finbase*finheight;
-%     fin_totalarea_sf = finarea_sf*12;
+    c = x(4);%(x(8)+x(9))/2; % aerodynamic cord length
+
     bodytube_area = 2*pi*r*l;   % surface area
     crosssection_area = pi*r^2; % cross-sectional area
     ref_area_sf = fin_totalarea_sf + bodytube_area;
@@ -78,9 +78,9 @@ if v >= 0
         CDpd_fins = (1.214 - 0.502/(M^2) + 0.1095/(M^4))*cosd(LEA)^2;
     end
     
-    Fpd_fins = CDpd_fins*(1/2)*rho*v^2*(finarea_sf);
+    Fpd_fins = CDpd_fins*(1/2)*rho*v^2*(fin_totalarea_sf);
     
-    Fpd_fins = Fpd_fins*6; % Assume same fin design, 6 of them
+    
     Fdrag_pd = Fpd_nosecone + Fpd_fins;
     
     % ~ BASE DRAG ~

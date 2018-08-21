@@ -3,14 +3,14 @@ function [c,ceq] = nlconboostandsust(x,Aether)
 
 
 Dnosecone        = x(1)*.666; % Estimate with electronics and shoulder
-Dforwardcoupler  = x(1) + x(2)  + Aether.ForwardCoupler.lipLength/2;
+Dforwardcoupler  = x(1) + Aether.Nosecone.ShoulderLength + Aether.ForwardCoupler.lipLength/2;
 Dsustbodytube    = Dforwardcoupler + Aether.ForwardCoupler.lipLength/2 + x(3)/2;
 Dforwardfins     = Dsustbodytube + x(3)/2 - x(4)/2 ;  
 Dstagingcoupler  = Dsustbodytube + x(3)/2 + Aether.AftCoupler.lipLength/2;
 Dsust            = Dstagingcoupler - Aether.AftCoupler.lipLength/2 + x(8) - Aether.SustainerMotor.length/2 ;
 Dboosterbodytube = Dstagingcoupler + Aether.AftCoupler.lipLength/2 + x(9)/2;
 Daftfins         = Dboosterbodytube + x(9)/2 - x(10)/2;
-Dboost           = Dboosterbodytube + x(9)/2 + x(14) - Aether.BoosterMotor.length ;
+Dboost           = Dboosterbodytube + x(9)/2 + x(14) - Aether.BoosterMotor.length/2 ;
 
 
 % Parachute Placements

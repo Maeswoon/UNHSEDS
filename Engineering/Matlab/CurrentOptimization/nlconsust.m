@@ -5,15 +5,15 @@ Ldrogueparachute      =0.04;
 Lmainparachute        =0.08;
 
 Dnosecone        = x(1)*.666; % For nosecone and Shoulder, estimate
-Dforwardcoupler  = x(1) + x(2)  + Aether.ForwardCoupler.lipLength/2;
+Dforwardcoupler  = x(1) + Aether.Nosecone.ShoulderLength+ Aether.ForwardCoupler.lipLength/2;
 Dsustbodytube    = Dforwardcoupler + Aether.ForwardCoupler.lipLength/2 + x(3)/2;
 Dforwardfins     = Dsustbodytube + x(3)/2 - x(4)/2 ;  
 Dstagingcoupler  = Dsustbodytube + x(3)/2 + Aether.AftCoupler.lipLength/2;
 Dsust            = Dstagingcoupler - Aether.AftCoupler.lipLength/2 + x(8) - Aether.SustainerMotor.length/2 ;
 
 % Parachute Placements
-xmainparachute        = 0.12;    % From forward sustainer body tube
-xdrogueparachute      = 0.10;    % From middle of forward coupler
+xmainparachute        = 0.02;    % From forward sustainer body tube
+xdrogueparachute      = 0.05;    % From middle of forward coupler
 
 Ddrogueparachute    = Dforwardcoupler + xdrogueparachute + Ldrogueparachute/2;         
 Dmainparachute      = Dsustbodytube -  x(3)/2 + xmainparachute +Lmainparachute/2;                                              
@@ -27,7 +27,7 @@ ET = .168;  % 168 grams per meter for Engine Tube
 PL = 4.882; % 4882 grams per square meter for Plate Parts
 
 
-Msustcoupler             = Aether.ForwardCoupler.length * CP + Aether.ForwardCoupler.lipLength * BT;  % Whole E-Bay, Must find Value
+Mforwardcoupler             = Aether.ForwardCoupler.length * CP + Aether.ForwardCoupler.lipLength * BT;  % Whole E-Bay, Must find Value
 Msustbodytube            = x(3) * BT;
 Mforwardfins             = PL * x(4)*x(6) * 3;
 Msustcasingtuberetainer  = .120 + ET*.3;            % Mass of the Engine Casing, Engine Tube and Retainer
@@ -39,10 +39,9 @@ Mmainparachute           = .070;
 % CG calculations
 
 Mtot   = Aether.SustainerMotor.mass + Msustcasingtuberetainer + Aether.Nosecone.mass...
-    + Msustcoupler + Msustbodytube + ...
-    + Mforwardfins + Mdrogueparachute + Mmainparachute;
+    + Mforwardcoupler + Msustbodytube + Mforwardfins + Mdrogueparachute + Mmainparachute;
               
-CG2     = ((Aether.SustainerMotor.mass + Msustcasingtuberetainer)*Dsust + Dnosecone*Aether.Nosecone.mass + Dforwardcoupler*Msustcoupler + Dsustbodytube*Msustbodytube + Dforwardfins*Mforwardfins...  % Center of gravity of sustainer through flight
+CG2     = ((Aether.SustainerMotor.mass + Msustcasingtuberetainer)*Dsust + Dnosecone*Aether.Nosecone.mass + Dforwardcoupler*Mforwardcoupler + Dsustbodytube*Msustbodytube + Dforwardfins*Mforwardfins...  % Center of gravity of sustainer through flight
         + Mdrogueparachute*Ddrogueparachute + Mmainparachute*Dmainparachute)./Mtot;   
 %Cp
 Xb  = Dforwardfins - x(4)/2;  % Length of nosecone tip to beginning of root chord

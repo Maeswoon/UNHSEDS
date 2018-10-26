@@ -2,8 +2,8 @@ function [mass] = GetMass ( t )
 
 % ~ AETHER4 ~
 
-Sustainer_Mass = 1.089; %kg
-Booster_Mass   = 0.783; %kg
+Sustainer_Mass = 1.229; %kg
+Booster_Mass   = 0.873; %kg
 Mboostprop     = 0.187; %kg
 Msustprop      = 0.185; %kg
 initialMass = Sustainer_Mass + Booster_Mass; %kg
@@ -11,7 +11,7 @@ initialSustMass = Sustainer_Mass; %kg
 
 burnTimeBoost  = 1.9;              % sec
 burnTimeSust   = 1.72;             % sec
-startTimesust = burnTimeBoost + 2; % sec
+startTimesust = burnTimeBoost + 2.9; % sec
 startTimecoast = startTimesust + burnTimeSust; %sec
 
 % Conditional to print total mass of rocket at any given time.

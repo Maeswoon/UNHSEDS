@@ -3,13 +3,13 @@ function [thrust] = GetThrust ( t )
 % ~ Competition Rocket Engines ~ 
 
 % H159 - Booster Engine data (taken from thrustcurve.org)
-xb_data = [0, 0.03, 0.14, .5, .75, 1.25, 1.65, 1.7, 1.78, 1.9]; % s
-yb_data = [0, 150, 190 , 180 ,  185,  165, 150, 90 , 115  , 0]; % N
+xb_data = [0, 0.012, 0.032, .103, .171, .299, .511, .717, 1.272, 1.424,1.519,1.584,1.632,1.727,1.768,1.834,1.865,1.887]; % s
+yb_data = cosd(25).*[0, 117, 158 , 177 ,  184,  185, 178, 179 , 162  , 159,152,149,146,89,109,25,10,0]; % N
 
 % I204  - Sustainer Engine data (taken from thrustcurve.org)
 xs_data_Raw = [0 0.01 0.012 0.03 0.3 0.5 0.7 1 1.1 1.2 1.3 1.4 1.5 1.6 1.72];
 xs_data=xs_data_Raw+xb_data(end)+2;
-ys_data = [0 100 356 310 286 270 251 228 215 165 125 95 52 36 0];
+ys_data = cosd(25).*[0 100 356 310 286 270 251 228 215 165 125 95 52 36 0];
 
 
 % Uses data points to find the slope of the line between points and
@@ -51,6 +51,50 @@ elseif t > xb_data(8) && t <= xb_data(9)
 elseif t > xb_data(9) && t <= xb_data(10)
     b9s = yb_data(10) - ((yb_data(10) - yb_data(9))/(xb_data(10) - xb_data(9)))*xb_data(10);
     thrust = ((yb_data(10) - yb_data(9))/(xb_data(10) - xb_data(9)))*t + b9s;
+    
+elseif t > xb_data(10) && t <= xb_data(11)
+    b10s = yb_data(11) - ((yb_data(11) - yb_data(10))/(xb_data(11) - xb_data(10)))*xb_data(11);
+    thrust = ((yb_data(11) - yb_data(10))/(xb_data(11) - xb_data(10)))*t + b10s;
+    
+
+    
+elseif t > xb_data(11) && t <= xb_data(12)
+    b11s = yb_data(12) - ((yb_data(12) - yb_data(11))/(xb_data(12) - xb_data(11)))*xb_data(12);
+    thrust = ((yb_data(12) - yb_data(11))/(xb_data(12) - xb_data(11)))*t + b11s;
+    
+
+    
+elseif t > xb_data(12) && t <= xb_data(13)
+    b12s = yb_data(13) - ((yb_data(13) - yb_data(12))/(xb_data(13) - xb_data(12)))*xb_data(13);
+    thrust = ((yb_data(13) - yb_data(12))/(xb_data(13) - xb_data(12)))*t + b12s;
+    
+
+    
+elseif t > xb_data(13) && t <= xb_data(14)
+    b13s = yb_data(14) - ((yb_data(14) - yb_data(13))/(xb_data(14) - xb_data(13)))*xb_data(14);
+    thrust = ((yb_data(14) - yb_data(13))/(xb_data(14) - xb_data(13)))*t + b13s;
+    
+
+    
+elseif t > xb_data(14) && t <= xb_data(15)
+    b14s = yb_data(15) - ((yb_data(15) - yb_data(14))/(xb_data(15) - xb_data(14)))*xb_data(15);
+    thrust = ((yb_data(15) - yb_data(14))/(xb_data(15) - xb_data(14)))*t + b14s;
+    
+
+    
+elseif t > xb_data(15) && t <= xb_data(16)
+    b15s = yb_data(16) - ((yb_data(16) - yb_data(15))/(xb_data(16) - xb_data(15)))*xb_data(16);
+    thrust = ((yb_data(16) - yb_data(15))/(xb_data(16) - xb_data(15)))*t + b15s;
+    
+    
+elseif t > xb_data(16) && t <= xb_data(17)
+    b16s = yb_data(17) - ((yb_data(17) - yb_data(16))/(xb_data(17) - xb_data(16)))*xb_data(17);
+    thrust = ((yb_data(17) - yb_data(16))/(xb_data(17) - xb_data(16)))*t + b16s;
+    
+    
+elseif t > xb_data(17) && t <= xb_data(18)
+    b17s = yb_data(18) - ((yb_data(18) - yb_data(17))/(xb_data(18) - xb_data(17)))*xb_data(18);
+    thrust = ((yb_data(18) - yb_data(17))/(xb_data(18) - xb_data(17)))*t + b17s;
     
 
 

@@ -4,7 +4,7 @@ function drag = GetDrag2 (v,h)
 % Competition Rocket, Carbon Fiber
 
 
-Seperation_Time = 3.9;
+
 D = .0474;   % (m) Diameter of Nosecone
 
 

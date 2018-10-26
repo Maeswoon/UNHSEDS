@@ -1,7 +1,7 @@
 clear all;
 close all;
 
-% ~ AETHER4 Launch Simulation ~
+% ~ Competition Rocket Launch Simulation ~
 
 L  = 'linewidth';
 D  = 'displayname';
@@ -14,8 +14,8 @@ pd = 0;             % initial pressure drag
 bd = 0;             % initial base drag
 tstart      = 0;    % start time
 dt          = 0.01; % time step
-tstop       = 160;  % endtime
-tseperation = 3.9;  % booster seperation
+tstop       = 180;  % endtime
+tseperation = 4.82;  % booster seperation
 
 %Initial Vectors
 height       = []; % Sustainer height
@@ -49,9 +49,9 @@ end
 % Booster (Starts Tracking at Seperation)
 % Initial Values and Vectors for Booster Seperation
 
-h = height(390); %(tseperation/dt);
-v = velocity(390); %(tseperation/dt);
-a = acceleration(390); %(tseperation/dt);
+h = height(482); %(tseperation/dt);
+v = velocity(482); %(tseperation/dt);
+a = acceleration(482); %(tseperation/dt);
 height2       = []; %height((tseperation-dt)/dt);
 velocity2     = []; %velocity((tseperation-dt)/dt);
 acceleration2 = []; %acceleration((tseperation-dt)/dt);
@@ -79,171 +79,211 @@ for t = tseperation+dt:dt:tstop
     end
 end
 
+
+
 % Open Rocket Data
-Aether3opendata = 'SustainerOpenRocket.csv';
-Aether3opendataboost = 'BoosterOpenRocket.csv';
-g = linspace(0,4,20);
-TimeOpenSust    = xlsread(Aether3opendata,'A75:A532')-2.3;
-TimeOpenBoost   = xlsread(Aether3opendataboost,'A1:A190')-1;
-HeightOpenSust  = xlsread(Aether3opendata,'B75:B532')-140;
-HeightOpenBoost = xlsread(Aether3opendataboost,'B1:B190')-30;
-%TimeOpenSust2 = TimeOpenSust(end-20:end)+g;
-%TimeOpenSust = horzcat(TimeOpenSust(1:end-20) + TimeOpenSust2
+CompetitionRocket_OpenRocket_Sustainer = 'CR_OP_Sustainer.csv';
+CompetitionRocket_OpenRocket_Booster = 'CR_OP_Booster.csv';
+TimeOpenSust    = xlsread(CompetitionRocket_OpenRocket_Sustainer,'A1:A5230');
+TimeOpenBoost   = xlsread(CompetitionRocket_OpenRocket_Booster,'A1:A838');
+HeightOpenSust  = xlsread(CompetitionRocket_OpenRocket_Sustainer,'B1:B5230');
+HeightOpenBoost = xlsread(CompetitionRocket_OpenRocket_Booster,'B1:B838');
+VelocityOpenSust  = xlsread(CompetitionRocket_OpenRocket_Sustainer,'C1:C5230');
+VelocityOpenBoost = xlsread(CompetitionRocket_OpenRocket_Booster,'C1:C838');
 
 % Experimental Data
-Aether4boosterexperimental = 'Aether4 Flight Data.csv';
+CompetitionRocket_Experimental = 'USRC_TeleMega_Flight_Data.csv';
+TimeExperimental    = xlsread(CompetitionRocket_Experimental,'E10:E688');
+HeightExperimentalBoost  = xlsread(CompetitionRocket_Experimental,'M10:M688');
+VelocityExperimentalBoost  = xlsread(CompetitionRocket_Experimental,'N10:N688');
+% TimeExperimentalBoost = TimeExperimentalBoost(1:1021);
+% HeightExperimentalBoost = HeightExperimentalBoost(1:1021);
 
 
-TimeExperimentalBoost    = xlsread(Aether4boosterexperimental,'E66:E1284');
-HeightExperimentalBoost  = xlsread(Aether4boosterexperimental,'K66:K1284');
-TimeExperimentalBoost = TimeExperimentalBoost(1:1021);
-HeightExperimentalBoost = HeightExperimentalBoost(1:1021);
-
-
-figure;
-subplot(3,1,1)
+figure(1)
+plot(TimeExperimental,HeightExperimentalBoost,'k')
 hold on
-xpurp = x(1:230);
-heightpurp = height(1:230);
-x = x(231:end);
-height = height(231:end);
+plot(x,height,'b')
+plot(x2,height2,'b')
+plot(TimeOpenSust,HeightOpenSust,'r')
+plot(TimeOpenBoost,HeightOpenBoost,'r')
+plot([22.5,22.5],[0,2650],'Color',[.5,0,.5])
+plot([0,140],[2542,2542],'r')
+plot([0,140],[2310,2310],'b')
+plot([0,140],[2215,2215],'k')
+text(23,1250,'APOGEE','Color',[.5,0,.5],'FontSize',12)
+text(60,2593,'OpenRocket Apogee Prediction','Color','r','FontSize',12)
+text(60,2360,'MATLAB Apogee Prediction','Color','b','FontSize',12)
+text(60,2265,'Actual Experimental Apogee','Color','k','FontSize',12)
 
-plot(xpurp,heightpurp,'Color',[.5 0 .5],D,'Full Rocket',L,2)
-plot(x,height,'r',D,'Sustainer',L,1)
-plot(x2,height2,'b',D,'Booster',L,1)
-title('MATLAB Flight Model')
-% xlabel('Time (s)')
-ylabel('Height (m)','fontsize',12)
-axis([0 20 0 1200])
-legend('show')
-grid minor
+text(4.8,374,'\leftarrow Sustainer Ignition','Color',[.5,0,.5],'FontSize',10)
+text(49.2,310,'\leftarrow Simulated Parachute Deployment','Color',[.5,0,.5],'FontSize',10)
+text(67.92,1334,'\leftarrow Wrapped Parachute','Color',[.5,0,.5],'FontSize',10)
+text(126,206.8,'Lake Landing','Color',[.5,0,.5],'FontSize',10)
+text(82.2,60,'Simulated Landing','Color',[.5,0,.5],'FontSize',10)
 
+xlabel('Time (s)','FontSize',22)
+set(gca,'fontsize',20)
+ylabel('Height (m)','FontSize',22)
+set(gca,'fontsize',20)
+lgd = legend('\color{black} Raw Launch Data','\color{blue} MATLAB Simulation Data','\color{red} OpenRocket Simulation Data');
+lgd.FontSize = 20;
+xlim([0,140])
+ylim([0,2650])
+
+
+figure(2)
+plot(TimeExperimental,HeightExperimentalBoost,'k')
+hold on
+plot(x,height,'b')
+plot(x2,height2,'b')
+plot(TimeOpenSust,HeightOpenSust,'r')
+plot(TimeOpenBoost,HeightOpenBoost,'r')
+plot([22,22],[0,2650],'Color',[.5,0,.5])
+plot([0,140],[2513,2513],'r')
+plot([0,140],[2310,2310],'b')
+plot([0,140],[2215,2215],'k')
+text(23,1250,'APOGEE','Color',[.5,0,.5],'FontSize',12)
+text(60,2563,'OpenRocket Apogee Prediction','Color','r','FontSize',12)
+text(60,2360,'MATLAB Apogee Prediction','Color','b','FontSize',12)
+text(60,2265,'Actual Experimental Apogee','Color','k','FontSize',12)
+text(2.20,337,'Pressure Change from Booster Cutoff','Color',[.5,0,.5],'FontSize',10)
+
+text(4.8,374,'\leftarrow Sustainer Ignition','Color',[.5,0,.5],'FontSize',12)
+
+
+xlabel('Time (s)','FontSize',22)
+set(gca,'fontsize',20)
+ylabel('Height (m)','FontSize',22)
+set(gca,'fontsize',20)
+lgd = legend('\color{black} Raw Launch Data','\color{blue} MATLAB Simulation Data','\color{red} OpenRocket Simulation Data');
+lgd.FontSize = 20;
+xlim([0,10])
+ylim([0,500])
+
+figure(3)
+plot(TimeExperimental,VelocityExperimentalBoost,'k')
+hold on
+plot(x,velocity,'r')
+plot(x2,velocity2,'r')
+plot(TimeOpenSust,VelocityOpenSust,'b')
+plot(TimeOpenBoost,VelocityOpenBoost,'b')
+plot([23,23],[-150,500],'Color',[.5,0,.5])
+plot([0,60],[368,368],'k')
+plot([0,60],[310,310],'b')
+plot([0,60],[281,281],'r')
+plot([6.2,6.2],[-150,500],'Color',[.5,0,.5])
+text(23.2,200,'APOGEE','Color',[.5,0,.5],'FontSize',12)
+text(12,376,'Actual Experimental MaxV','Color','k','FontSize',12)
+text(12,318,'MATLAB MaxV Prediction','Color','b','FontSize',12)
+text(12,289,'OpenRocket MaxV Prediction','Color','r','FontSize',12)
+text(6.2,100,'MaxV','Color',[.5,0,.5],'FontSize',10)
+
+text(23.6,57.64,'\leftarrow Common TeleMega Lag at Apogee','Color',[.5,0,.5],'FontSize',10)
+text(49.1,-50,'\leftarrow Simulated Parachute Deployment','Color',[.5,0,.5],'FontSize',10)
+text(42,-115,'Simulated Free-Falling','Color',[.5,0,.5],'FontSize',10)
+
+xlabel('Time (s)','FontSize',22)
+set(gca,'fontsize',20)
+ylabel('Velocity (m/s)','FontSize',22)
+set(gca,'fontsize',20)
+lgd = legend('\color{black} Raw Launch Data','\color{blue} MATLAB Simulation Data','\color{red} OpenRocket Simulation Data');
+lgd.FontSize = 20;
+xlim([0,60])
+ylim([-150,500])
+
+
+figure(4)
+subplot(2,1,2)
+plot(TimeExperimental,VelocityExperimentalBoost,'k')
+hold on
+plot(TimeOpenSust,VelocityOpenSust,'b')
+plot(TimeOpenBoost,VelocityOpenBoost,'b')
+plot([23,23],[-150,500],'Color',[.5,0,.5])
+text(23.2,200,'APOGEE','Color',[.5,0,.5],'FontSize',12)
+text(23.6,57.64,'\leftarrow Common TeleMega Lag at Apogee','Color',[.5,0,.5],'FontSize',10)
+text(0,35,'\leftarrow TeleMega Velocity Offset','Color',[.5,0,.5],'FontSize',10)
+xlabel('Time (s)','FontSize',22)
+set(gca,'fontsize',20)
+ylabel('Velocity (m/s)','FontSize',22)
+set(gca,'fontsize',20)
+lgd = legend('\color{black} Raw Launch Data','\color{blue} MATLAB Simulation Data');
+lgd.FontSize = 20;
+xlim([0,60])
+ylim([-150,500])
+
+subplot(2,1,1)
+
+plot(TimeExperimental,HeightExperimentalBoost,'k')
+hold on
+plot(x,height,'b')
+plot(x2,height2,'b')
+plot([23,23],[0,2650],'Color',[.5,0,.5])
+text(23.2,1250,'APOGEE','Color',[.5,0,.5],'FontSize',12)
+
+xlabel('Time (s)','FontSize',22)
+set(gca,'fontsize',20)
+ylabel('Height (m)','FontSize',22)
+set(gca,'fontsize',20)
+lgd = legend('\color{black} Raw Launch Data','\color{blue} MATLAB Simulation Data');
+lgd.FontSize = 20;
+xlim([0,60])
+ylim([0,2650])
+
+
+figure(5)
 subplot(3,1,2)
+plot(TimeExperimental,VelocityExperimentalBoost,'k')
 hold on
-velocitypurp = velocity(1:230);
-velocity = velocity(231:end);
+plot(TimeOpenSust,VelocityOpenSust,'b')
+plot(TimeOpenBoost,VelocityOpenBoost,'b')
+plot([23,23],[-150,500],'Color',[.5,0,.5])
+text(23.2,150,'APOGEE','Color',[.5,0,.5],'FontSize',12)
+text(23.6,57.64,'\leftarrow Common TeleMega Lag at Apogee','Color',[.5,0,.5],'FontSize',10)
+text(0,35,'\leftarrow TeleMega Velocity Offset','Color',[.5,0,.5],'FontSize',10)
+text(4.8,100,'\leftarrow Sustainer Ignition','Color',[.5,0,.5],'FontSize',12)
+xlabel('Time (s)','FontSize',22)
+set(gca,'fontsize',20)
+ylabel('Velocity (m/s)','FontSize',22)
+set(gca,'fontsize',20)
+lgd = legend('\color{black} Raw Launch Data','\color{blue} MATLAB Simulation Data');
+lgd.FontSize = 20;
+xlim([0,30])
+ylim([0,400])
 
-plot(xpurp,velocitypurp,'Color',[.5 0 .5],D,'Full Rocket',L,2)
+subplot(3,1,1)
 
-plot(x,velocity,'r',D,'Sustainer',L,1)
-plot(x2,velocity2,'b',D,'Booster',L,1)
-%title('MATLAB Flight Model')
-% xlabel('Time (s)')
-ylabel('Velocity (m/s)','fontsize',12)
-axis([0 20 -100 200])
-% legend('show')
-grid minor
+plot(TimeExperimental,HeightExperimentalBoost,'k')
+hold on
+plot(x,height,'b')
+plot(x2,height2,'b')
+plot([23,23],[0,2650],'Color',[.5,0,.5])
+text(23.2,850,'APOGEE','Color',[.5,0,.5],'FontSize',12)
+text(4.8,374,'\leftarrow Sustainer Ignition','Color',[.5,0,.5],'FontSize',12)
+xlabel('Time (s)','FontSize',22)
+set(gca,'fontsize',20)
+ylabel('Height (m)','FontSize',22)
+set(gca,'fontsize',20)
+lgd = legend('\color{black} Raw Launch Data','\color{blue} MATLAB Simulation Data');
+lgd.FontSize = 20;
+xlim([0,30])
+ylim([0,2650])
+
 
 subplot(3,1,3)
+plot(TimeExperimental,VelocityExperimentalBoost-34.2,'k')
 hold on
-
-accelerationpurp = acceleration(1:230);
-acceleration = acceleration(231:end);
-
-plot(xpurp,accelerationpurp,'Color',[.5 0 .5],D,'Full Rocket',L,2)
-
-plot(x,acceleration,'r',D,'Sustainer Acceleration',L,1)
-plot(x2,acceleration2,'b',D,'Booster Acceleration',L,1)
-%title('Acceleration vs Time')
-xlabel('Time (s)','fontsize',13)
-ylabel('Acceleration (m/s^2)','fontsize',12)
-axis([0 20 -100 200])
-%  legend('show')
-grid minor
-
-figure;
-hold on
-plot(x,height,'r',D,'Sustainer: Matlab',L,1)
-plot(TimeOpenSust,HeightOpenSust,'r--',D,'Sustainer: OpenRocket',L,1)
-plot(x2,height2,'b',D,'Booster: Matlab',L,1)
-plot(TimeOpenBoost,HeightOpenBoost,'b--',D,'Booster: OpenRocket',L,1)
-plot(TimeExperimentalBoost,HeightExperimentalBoost,'k',D,'Booster: Experimental',L,1)
-
-title('Height vs Time')
-xlabel('Time (s)','fontsize',15)
-ylabel('Height (m)','fontsize',15)
-legend('show')
-grid minor
-
-% figure
-% plot(x,drag,'r-',D,'Sustainer',L,1)
-% hold on
-% plot(x2,drag2,'b-',D,'Booster',L,1)
-% title('F_D vs Time')
-% xlabel('Time (s)')
-% ylabel('Force of Drag (N)')
-% legend('show')
-% grid minor
-
-
-
-
-
-
-
-
-
-
-
-
-
-% figure;
-% subplot(3,1,1)
-% hold on
-% plot(x,height,'r',D,'Sustainer',L,1)
-% plot(x2,height2,'b',D,'Booster',L,1)
-% title('Height vs Time')
-% % xlabel('Time (s)')
-% ylabel('Height (m)')
-% axis([0 25 0 1500])
-% legend('show')
-% grid minor
-% 
-% subplot(3,1,2)
-% hold on
-% plot(x,velocity,'r',D,'Sustainer Velocity',L,1)
-% plot(x2,velocity2,'b',D,'Booster Velocity',L,1)
-% title('Velocity vs Time')
-% % xlabel('Time (s)')
-% ylabel('Velocity (m/s)')
-% axis([0 25 -200 600])
-% % legend('show')
-% grid minor
-% 
-% subplot(3,1,3)
-% hold on
-% plot(x,acceleration,'r',D,'Sustainer Acceleration',L,1)
-% plot(x2,acceleration2,'b',D,'Booster Acceleration',L,1)
-% title('Acceleration vs Time')
-% xlabel('Time (s)')
-% ylabel('Acceleration (m/s^2)')
-% axis([0 25 -200 400])
-% % legend('show')
-% grid minor
-% 
-% figure;
-% hold on
-% plot(x,height,'r',D,'Sustainer',L,1)
-% %plot(TimeOpenSust,HeightOpenSust,'r--',D,'OpenRocket Sustainer',L,1)
-% 
-% plot(x2,height2,'b',D,'Booster',L,1)
-% %plot(TimeOpenBoost,HeightOpenBoost,'r',D,'OpenRocket Booster',L,1)
-% 
-% title('Height vs Time')
-% xlabel('Time (s)')
-% ylabel('Height (m)')
-% legend('show')
-% grid minor
-% 
-% figure
-% plot(x,drag,'r-',D,'Sustainer',L,1)
-% hold on
-% plot(x2,drag2,'b-',D,'Booster',L,1)
-% title('F_D vs Time')
-% xlabel('Time (s)')
-% ylabel('Force of Drag (N)')
-% legend('show')
-% grid minor
-
-
-
+plot(TimeOpenSust,VelocityOpenSust,'b')
+plot(TimeOpenBoost,VelocityOpenBoost,'b')
+plot([23,23],[-150,500],'Color',[.5,0,.5])
+text(23.2,150,'APOGEE','Color',[.5,0,.5],'FontSize',12)
+text(23.6,23,'\leftarrow Common TeleMega Lag at Apogee','Color',[.5,0,.5],'FontSize',10)
+text(4.8,100,'\leftarrow Sustainer Ignition','Color',[.5,0,.5],'FontSize',12)
+xlabel('Time (s)','FontSize',22)
+set(gca,'fontsize',20)
+ylabel('Velocity (m/s)','FontSize',22)
+set(gca,'fontsize',20)
+lgd = legend('\color{black} Raw Launch Data','\color{blue} MATLAB Simulation Data');
+lgd.FontSize = 20;
+xlim([0,30])
+ylim([0,400])

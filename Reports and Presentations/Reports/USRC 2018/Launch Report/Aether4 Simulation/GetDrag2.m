@@ -4,7 +4,7 @@ function drag = GetDrag2 (v,h)
 % Competition Rocket, Carbon Fiber
 
 
-Seperation_Time = 3.9;
+Seperation_Time = 4.82;
 D = .0474;   % (m) Diameter of Nosecone
 
 
@@ -31,7 +31,7 @@ elseif Re > Rcrit
 end
 
 fb = l/D; % fineness ratio
-t = 0.003; % fin thickness
+t = 0.005; % fin thickness
 c = 0.06; % aerodynamic cord length
 finbase = 0.05;
 finheight = 0.035;
@@ -91,7 +91,7 @@ drag = Fdrag_sf + Fdrag_pd + Fdrag_bd;
 
 % ~ RECOVERY ~
 if v < 0
-    D = 0.50; % diameter of parachute (m)
+    D = 0.30; % diameter of parachute (m)
     k = 1.0;
     drag = -k * 0.5 * rho * v^2 * pi/4 * D^2;
 end

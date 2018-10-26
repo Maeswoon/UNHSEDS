@@ -79,91 +79,101 @@ for t = tseperation+dt:dt:tstop
     end
 end
 
-% Open Rocket Data
-Aether3opendata = 'SustainerOpenRocket.csv';
-Aether3opendataboost = 'BoosterOpenRocket.csv';
-g = linspace(0,4,20);
-TimeOpenSust    = xlsread(Aether3opendata,'A75:A532')-2.3;
-TimeOpenBoost   = xlsread(Aether3opendataboost,'A1:A190')-1;
-HeightOpenSust  = xlsread(Aether3opendata,'B75:B532')-140;
-HeightOpenBoost = xlsread(Aether3opendataboost,'B1:B190')-30;
-%TimeOpenSust2 = TimeOpenSust(end-20:end)+g;
-%TimeOpenSust = horzcat(TimeOpenSust(1:end-20) + TimeOpenSust2
+% % Open Rocket Data
+% Aether3opendata = 'SustainerOpenRocket.csv';
+% Aether3opendataboost = 'BoosterOpenRocket.csv';
+% g = linspace(0,4,20);
+% TimeOpenSust    = xlsread(Aether3opendata,'A75:A532')-2.3;
+% TimeOpenBoost   = xlsread(Aether3opendataboost,'A1:A190')-1;
+% HeightOpenSust  = xlsread(Aether3opendata,'B75:B532')-140;
+% HeightOpenBoost = xlsread(Aether3opendataboost,'B1:B190')-30;
+% %TimeOpenSust2 = TimeOpenSust(end-20:end)+g;
+% %TimeOpenSust = horzcat(TimeOpenSust(1:end-20) + TimeOpenSust2
 
 % Experimental Data
-Aether4boosterexperimental = 'Aether4 Flight Data.csv';
+CompetitionRocket_Experimental = 'USRC_TeleMega_Flight_Data.csv';
+TimeExperimental    = xlsread(CompetitionRocket_Experimental,'E10:E688');
+HeightExperimentalBoost  = xlsread(CompetitionRocket_Experimental,'M10:M688');
+% TimeExperimentalBoost = TimeExperimentalBoost(1:1021);
+% HeightExperimentalBoost = HeightExperimentalBoost(1:1021);
 
 
-TimeExperimentalBoost    = xlsread(Aether4boosterexperimental,'E66:E1284');
-HeightExperimentalBoost  = xlsread(Aether4boosterexperimental,'K66:K1284');
-TimeExperimentalBoost = TimeExperimentalBoost(1:1021);
-HeightExperimentalBoost = HeightExperimentalBoost(1:1021);
+figure(1)
+plot(TimeExperimental,HeightExperimentalBoost,'k')
+plot(x,height,'r')
+plot(x2,height2,'b')
 
 
-figure;
-subplot(3,1,1)
-hold on
-xpurp = x(1:230);
-heightpurp = height(1:230);
-x = x(231:end);
-height = height(231:end);
 
-plot(xpurp,heightpurp,'Color',[.5 0 .5],D,'Full Rocket',L,2)
-plot(x,height,'r',D,'Sustainer',L,1)
-plot(x2,height2,'b',D,'Booster',L,1)
-title('MATLAB Flight Model')
-% xlabel('Time (s)')
-ylabel('Height (m)','fontsize',12)
-axis([0 20 0 1200])
-legend('show')
-grid minor
 
-subplot(3,1,2)
-hold on
-velocitypurp = velocity(1:230);
-velocity = velocity(231:end);
 
-plot(xpurp,velocitypurp,'Color',[.5 0 .5],D,'Full Rocket',L,2)
 
-plot(x,velocity,'r',D,'Sustainer',L,1)
-plot(x2,velocity2,'b',D,'Booster',L,1)
-%title('MATLAB Flight Model')
-% xlabel('Time (s)')
-ylabel('Velocity (m/s)','fontsize',12)
-axis([0 20 -100 200])
+
+
+% figure;
+% subplot(3,1,1)
+% hold on
+% xpurp = x(1:230);
+% heightpurp = height(1:230);
+% x = x(231:end);
+% height = height(231:end);
+% 
+% plot(xpurp,heightpurp,'Color',[.5 0 .5],D,'Full Rocket',L,2)
+% plot(x,height,'r',D,'Sustainer',L,1)
+% plot(x2,height2,'b',D,'Booster',L,1)
+% title('MATLAB Flight Model')
+% % xlabel('Time (s)')
+% ylabel('Height (m)','fontsize',12)
+% axis([0 20 0 1200])
 % legend('show')
-grid minor
-
-subplot(3,1,3)
-hold on
-
-accelerationpurp = acceleration(1:230);
-acceleration = acceleration(231:end);
-
-plot(xpurp,accelerationpurp,'Color',[.5 0 .5],D,'Full Rocket',L,2)
-
-plot(x,acceleration,'r',D,'Sustainer Acceleration',L,1)
-plot(x2,acceleration2,'b',D,'Booster Acceleration',L,1)
-%title('Acceleration vs Time')
-xlabel('Time (s)','fontsize',13)
-ylabel('Acceleration (m/s^2)','fontsize',12)
-axis([0 20 -100 200])
-%  legend('show')
-grid minor
-
-figure;
-hold on
-plot(x,height,'r',D,'Sustainer: Matlab',L,1)
-plot(TimeOpenSust,HeightOpenSust,'r--',D,'Sustainer: OpenRocket',L,1)
-plot(x2,height2,'b',D,'Booster: Matlab',L,1)
-plot(TimeOpenBoost,HeightOpenBoost,'b--',D,'Booster: OpenRocket',L,1)
-plot(TimeExperimentalBoost,HeightExperimentalBoost,'k',D,'Booster: Experimental',L,1)
-
-title('Height vs Time')
-xlabel('Time (s)','fontsize',15)
-ylabel('Height (m)','fontsize',15)
-legend('show')
-grid minor
+% grid minor
+% 
+% subplot(3,1,2)
+% hold on
+% velocitypurp = velocity(1:230);
+% velocity = velocity(231:end);
+% 
+% plot(xpurp,velocitypurp,'Color',[.5 0 .5],D,'Full Rocket',L,2)
+% 
+% plot(x,velocity,'r',D,'Sustainer',L,1)
+% plot(x2,velocity2,'b',D,'Booster',L,1)
+% %title('MATLAB Flight Model')
+% % xlabel('Time (s)')
+% ylabel('Velocity (m/s)','fontsize',12)
+% axis([0 20 -100 200])
+% % legend('show')
+% grid minor
+% 
+% subplot(3,1,3)
+% hold on
+% 
+% accelerationpurp = acceleration(1:230);
+% acceleration = acceleration(231:end);
+% 
+% plot(xpurp,accelerationpurp,'Color',[.5 0 .5],D,'Full Rocket',L,2)
+% 
+% plot(x,acceleration,'r',D,'Sustainer Acceleration',L,1)
+% plot(x2,acceleration2,'b',D,'Booster Acceleration',L,1)
+% %title('Acceleration vs Time')
+% xlabel('Time (s)','fontsize',13)
+% ylabel('Acceleration (m/s^2)','fontsize',12)
+% axis([0 20 -100 200])
+% %  legend('show')
+% grid minor
+% 
+% figure;
+% hold on
+% plot(x,height,'r',D,'Sustainer: Matlab',L,1)
+% plot(TimeOpenSust,HeightOpenSust,'r--',D,'Sustainer: OpenRocket',L,1)
+% plot(x2,height2,'b',D,'Booster: Matlab',L,1)
+% plot(TimeOpenBoost,HeightOpenBoost,'b--',D,'Booster: OpenRocket',L,1)
+% plot(TimeExperimentalBoost,HeightExperimentalBoost,'k',D,'Booster: Experimental',L,1)
+% 
+% title('Height vs Time')
+% xlabel('Time (s)','fontsize',15)
+% ylabel('Height (m)','fontsize',15)
+% legend('show')
+% grid minor
 
 % figure
 % plot(x,drag,'r-',D,'Sustainer',L,1)

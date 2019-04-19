@@ -17,10 +17,10 @@ if v >= 0
     
     % FULL ROCKET
     
-    l = 1.25; % length of full rocket (m)
+    l = 3; % length of full rocket (m)
     
     % ~ SKIN FRICTION DRAG ~
-    D = .0574;   % (m) Diameter of Nosecone
+    D = .203;   % (m) Diameter of Nosecone
     r = D/2;
     Re = (v*l)/kv;
     Rs = 60e-6; % roughness
@@ -106,12 +106,12 @@ if v >= 0
     
 % ~ RECOVERY ~
 elseif v < 0
-    D = 0.30; % diameter of parachute (m)
+    D = 1.5; % diameter of parachute (m)
     k = 1.0;
     drag = -k * 0.5 * rho * v^2 * pi/4 * D^2;
     
-    if h < 90
-        D = 0.75;
+    if h < 200
+        D = 4;
         k = 1.0;
         drag = -k * 0.5 * rho * v^2 * pi/4 * D^2;
         

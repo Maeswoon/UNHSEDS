@@ -95,7 +95,7 @@ void loop()
   }
   else
   {
-    Serial.println("No reply, is nrf24_server running?");
+    Serial.println("No reply, is nrf24_server running? 1");
   }
   delay(400);
 
@@ -134,7 +134,7 @@ void loop()
   }
   else
   {
-    Serial.println("No reply, is nrf24_server running?");
+    Serial.println("No reply, is nrf24_server running? 2");
   }
   delay(400);
 }

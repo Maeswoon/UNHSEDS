@@ -1,5 +1,5 @@
 int pwmPin = 5;    // motor connected to digital pin 5
-int in1 = 3;
+int in1 = 4;
 int in2 = 6;
 
 const byte interruptPin = 2;
@@ -9,11 +9,11 @@ int count = 1;
 void setup() {
   // put your setup code here, to run once:
   pinMode(9, OUTPUT);
-  pinMode(10 , INPUT);
-  pinMode(11 , INPUT);
-  pinMode(3 , OUTPUT);
-  pinMode(6 , OUTPUT);
-  pinMode(5 , OUTPUT); 
+  pinMode(10, INPUT);
+  pinMode(11, INPUT);
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(5, OUTPUT); 
   Serial.begin(9600); 
   
   // prime the interrupt pins

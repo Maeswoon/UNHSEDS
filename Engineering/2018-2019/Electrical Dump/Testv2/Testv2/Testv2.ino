@@ -43,8 +43,8 @@ void loop() {
     analogWrite(pwmPin, 255);             //digitalWrite(pwmPin, HIGH);           //Speed
     Serial.print("Opening\n");
     delay(1300);                          //For how long
-    digitalWrite(in1, LOW);
-    digitalWrite(in2, LOW);
+    digitalWrite(in1, LOW);               //Stops  
+    digitalWrite(in2, LOW);               
     delay(10000);
     
     // FULLY OPEN
@@ -52,10 +52,12 @@ void loop() {
     digitalWrite(in1, HIGH);
     analogWrite(pwmPin, 255);
     delay(600);
-    digitalWrite(in1, LOW);
+    digitalWrite(in1, LOW);               //Fully Open
     digitalWrite(in2, LOW);
+    delay(60000);                         //Waiting for Close
 
     //FULLY CLOSING
+    
     digitalWrite(in2, HIGH);
     analogWrite(pwmPin, 255);
     delay(1900);

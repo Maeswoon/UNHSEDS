@@ -39,17 +39,17 @@ void loop() {
     digitalWrite(9, LOW);
 
     // HALF OPEN
-    digitalWrite(in1, HIGH);              //Direction --> Reverse
+    digitalWrite(in2, HIGH);              //Direction --> Reverse
     analogWrite(pwmPin, 255);             //digitalWrite(pwmPin, HIGH);           //Speed
     Serial.print("Opening\n");
-    delay(900);                          //For how long
+    delay(600);                          //For how long
     digitalWrite(in1, LOW);
     digitalWrite(in2, LOW);
     delay(5000);
     
     // FULLY OPEN
     Serial.println("Done Opening");                                       //Serial.print("Full Open\n");
-    digitalWrite(in1, HIGH);
+    digitalWrite(in2, HIGH);
     analogWrite(pwmPin, 255);
     delay(500);
     digitalWrite(in1, LOW);
@@ -58,9 +58,9 @@ void loop() {
     //delay(180000);
 
     //FULLY CLOSING
-    digitalWrite(in2, HIGH);
+    digitalWrite(in1, HIGH);
     analogWrite(pwmPin, 255);
-    delay(1400);
+    delay(1000);
     digitalWrite(in1, LOW);
     digitalWrite(in2, LOW);
     

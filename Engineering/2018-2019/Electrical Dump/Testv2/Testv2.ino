@@ -45,7 +45,7 @@ void loop() {
     delay(1300);                          //For how long
     digitalWrite(in1, LOW);
     digitalWrite(in2, LOW);
-    delay(10000);
+    delay(3000);
     
     // FULLY OPEN
     Serial.println("Done Opening");                                       //Serial.print("Full Open\n");
@@ -54,6 +54,7 @@ void loop() {
     delay(600);
     digitalWrite(in1, LOW);
     digitalWrite(in2, LOW);
+    delay(180000);
 
     //FULLY CLOSING
     digitalWrite(in2, HIGH);

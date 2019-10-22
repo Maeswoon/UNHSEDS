@@ -1,0 +1,76 @@
+
+    System Info
+                Status:   Solver is finished.
+                Product:   Flow Simulation 2018 SP5.0. Build: 4373
+                Computer name:   S172-1
+                User name:   User
+                Processors:   Intel(R) Core(TM) i7-4790S CPU @ 3.20GHz
+                Memory:   16284 MB / 134217727 MB
+                Operating system:   Windows 10 (or higher) (Version 10.0.17134)
+                CAD version:   SOLIDWORKS 2018 SP5.0
+                CPU speed:   3201 MHz
+
+    General Info
+                Model:   Current Combustion Chamber.SLDPRT
+                Project name:   Project(1)
+                Project path:   C:\Users\User\Desktop\UNHSEDS\Engineering\2018-2019\Engine Specifics\Current Engine Design\1
+                Units system:   SI (m-kg-s)
+                Analysis type:   Internal
+                Exclude cavities without flow conditions :   On
+                Coordinate system:   Global coordinate system
+                Reference axis:   X
+
+    Physical Features
+                Heat conduction in solids:   Off
+                Time dependent:   Off
+                Gravitational effects:   Off
+                Flow type:   Laminar and turbulent
+                Cavitation:   Off
+                High Mach number flow:   Off
+                Free surface:   Off
+                Default roughness:   0 micrometer
+                Default wall conditions:   Adiabatic wall
+
+    Computational Domain
+
+        Size
+                X min:   -0.041 m
+                X max:   0.041 m
+                Y min:   0.001 m
+                Y max:   0.291 m
+                Z min:   -0.041 m
+                Z max:   0.041 m
+
+    Calculation Mesh
+
+        Basic Mesh Dimensions
+                Number of cells in X:   6
+                Number of cells in Y:   24
+                Number of cells in Z:   6
+
+        Number Of Cells
+                Cells:   864
+                Fluid cells:   864
+                Irregular cells:   0
+                Trimmed cells:   0
+                Maximum refinement level:   0
+
+    Goals
+                
+                Name   	Unit   	Value   	Progress   	Criteria   	Delta   	Use in convergence 
+
+    General Info
+                Run at:   S172-1
+                Number of cores:   8
+                Iterations:   52
+                CPU time:   4 s
+
+        Log
+                Mesh generation started	0:   23:13:46 , Oct 18
+                Mesh generation normally finished	0:   23:13:47 , Oct 18
+                Preparing data for calculation	0:   23:13:47 , Oct 18
+                Calculation started	0:   23:13:48 , Oct 18
+                Calculation has converged since the following criteria are satisfied:	52:   23:13:51 , Oct 18
+                    Goals are converged	52:   
+                Calculation finished	52:   23:13:51 , Oct 18
+                Warnings:   A vortex crosses the pressure opening	Boundary Condition : Environment Pressure 1 ; Inlet flow/outlet flow=0.999993, 		, 

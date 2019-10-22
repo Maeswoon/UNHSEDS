@@ -1,0 +1,115 @@
+<Block caption="simple" number="17">
+<![CDATA[
+Windows 10 (or higher) (Version 10.0.17134)
+GenuineIntel, Stepping ID = 3, Model = 12, Family = 6, Extended model = 3, MMX SSE SSE2 Hyper-Threading Technology SSE3
+CPU Brand String: Intel(R) Core(TM) i7-4790S CPU @ 3.20GHz
+Cache Line Size = 64, L2 Associativity = 6, Cache Size = 256K
+Number of cores: 8, Processor type: 8664, Active processor mask: 255, Page size: 4096 bites
+Package 0 [ Group 0 [ 0 1 2 3 4 5 6 7 ] ]
+NUMA Node 0: Available Memory = 7.14 Gb. ProcessorGroup 0 [ 0 1 2 3 4 5 6 7 ]
+std::thread::hardware_concurrency = 8
+No NUMA support
+OpenMP enabled (spec=200203). max_threads = 8, num_procs = 8.
+
+]]>
+</Block>
+<Block caption="Vwr::LoadFlowField" number="0">
+<![CDATA[
+EXTERNAL=0   LAMTURB=1   CHT=0
+IT=6   NT=2   NZ=1
+U_DIM_EXT_MAX=8   US_DIM=0
+----------------------------------------------------------
+BCF --> BCF.GEOMSUBDOM (bridge arrays) (cpu_num=8):
+MESH (0):
+	Fluid Subdom Constructor: 1 subdom(s).
+	Solid Subdom Constructor: 1 subdom(s).
+	Net Asm Subdom Constructor: 0 subdom(s).
+	GEOMSUBDOM (0): gi=0 fluid av=864 cv=864 fa=2268 fw=592 V=1.511951e-03
+	GEOMSUBDOM (1): gi=1 solid av=512 cv=512 fa=1020 fw=1240 V=4.663436e-04
+	Setting nb of w-faces...OK.
+
+MESH (0) checking:
+	GEOMSUBDOM (0):fa_s=0.3288727597619485 fw_s=0.0849206812112935 fw_nb=5024
+	GEOMSUBDOM (1):fa_s=0.0676580354497533 fw_s=0.1942721273663022 fw_nb=7616
+MESH (0) checking: OK.
+----------------------------------------------------------
+Read cpt took 0.18 sec.
+
+===ThermodynamicsHolder:===
+Subdom 0 Incompressible liquid thermodynamics
+	substance 0 type=fwLiquid, guid=6D4EB34F944911D4B47100A024552746, name=Water
+===ThermodynamicsHolder:===
+MESH::Bricks: Total=864 Gas=352 Solid=0 Partial=512 Irregular=0
+CD X0= -0.04135755, X1= 0.04135755, Y0= 0.00147562570349, Y1= 0.290624374297, Z0= -0.04135755, Z1= 0.04135755
+Created TMP file C:\Users\User\AppData\Local\Temp\gdb2428.tmp
+Read cfld took 0.12 sec.
+Collecting Reference Parameters... OK
+Read fld took 0.02 sec.
+
+]]>
+<Block caption="simple" number="18">
+<![CDATA[
+85 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>
+</Block>
+<![CDATA[
+FS triangles count 432 
+trajectory 0, dir = reverse, Time = -409.369, Length = -0.0284435, PointCount = 23, TSR = 1
+trajectory 0, dir = fwrd, Time = 0.74491, Length = 5.94402e-05, PointCount = 24, TSR = 1
+trajectory 1, dir = reverse, Time = -1.0985, Length = -8.91552e-05, PointCount = 3, TSR = 1
+trajectory 1, dir = fwrd, Time = 354.782, Length = 0.0280634, PointCount = 27, TSR = 1
+trajectory 2, dir = reverse, Time = -0.806419, Length = -8.17475e-05, PointCount = 4, TSR = 1
+trajectory 2, dir = fwrd, Time = 610.309, Length = 0.0611421, PointCount = 34, TSR = 1
+trajectory 3, dir = reverse, Time = -0.431404, Length = -8.91663e-05, PointCount = 3, TSR = 1
+trajectory 3, dir = fwrd, Time = 346.047, Length = 0.0590692, PointCount = 24, TSR = 1
+trajectory 4, dir = reverse, Time = -201.939, Length = -0.0341238, PointCount = 22, TSR = 1
+trajectory 4, dir = fwrd, Time = 0.619273, Length = 0.000104001, PointCount = 25, TSR = 1
+trajectory 5, dir = reverse, Time = -504.88, Length = -0.0502328, PointCount = 26, TSR = 1
+trajectory 5, dir = fwrd, Time = 1.23582, Length = 0.000133708, PointCount = 28, TSR = 1
+trajectory 6, dir = reverse, Time = -1114.6, Length = -0.109012, PointCount = 36, TSR = 1
+trajectory 6, dir = fwrd, Time = 0.439693, Length = 4.45765e-05, PointCount = 38, TSR = 1
+trajectory 7, dir = reverse, Time = -760.93, Length = -0.101214, PointCount = 46, TSR = 1
+trajectory 7, dir = fwrd, Time = 1.06391, Length = 0.000141099, PointCount = 49, TSR = 1
+trajectory 8, dir = reverse, Time = -403.914, Length = -0.0892696, PointCount = 31, TSR = 1
+trajectory 8, dir = fwrd, Time = 0.482241, Length = 8.91476e-05, PointCount = 33, TSR = 1
+trajectory 9, dir = reverse, Time = -436.526, Length = -0.0836858, PointCount = 26, TSR = 1
+trajectory 9, dir = fwrd, Time = 0.596645, Length = 8.17227e-05, PointCount = 29, TSR = 1
+trajectory 10, dir = reverse, Time = -2.22531, Length = -0.000163441, PointCount = 4, TSR = 1
+trajectory 10, dir = fwrd, Time = 515.167, Length = 0.037545, PointCount = 49, TSR = 1
+trajectory 11, dir = reverse, Time = -2.82192, Length = -0.000252549, PointCount = 4, TSR = 1
+trajectory 11, dir = fwrd, Time = 1144.04, Length = 0.101352, PointCount = 50, TSR = 1
+trajectory 12, dir = reverse, Time = -7.47947, Length = -0.00119547, PointCount = 12, TSR = 1
+trajectory 12, dir = fwrd, Time = 17.8887, Length = 0.00289015, PointCount = 38, TSR = 1
+trajectory 13, dir = reverse, Time = -0.765885, Length = -3.71394e-05, PointCount = 3, TSR = 1
+trajectory 13, dir = fwrd, Time = 1621.8, Length = 0.0954309, PointCount = 40, TSR = 1
+trajectory 14, dir = reverse, Time = -0.800131, Length = -7.42504e-05, PointCount = 3, TSR = 1
+trajectory 14, dir = fwrd, Time = 567.652, Length = 0.0614513, PointCount = 30, TSR = 1
+trajectory 15, dir = reverse, Time = -1256.58, Length = -0.0570631, PointCount = 28, TSR = 1
+trajectory 15, dir = fwrd, Time = 3.71684, Length = 0.000163396, PointCount = 31, TSR = 1
+trajectory 16, dir = reverse, Time = -0.617644, Length = -4.45641e-05, PointCount = 3, TSR = 1
+trajectory 16, dir = fwrd, Time = 1041.94, Length = 0.0872331, PointCount = 30, TSR = 1
+trajectory 17, dir = reverse, Time = -1.99324, Length = -8.16962e-05, PointCount = 4, TSR = 1
+trajectory 17, dir = fwrd, Time = 1586.37, Length = 0.0593044, PointCount = 28, TSR = 1
+trajectory 18, dir = reverse, Time = -4.66509, Length = -8.91462e-05, PointCount = 3, TSR = 1
+trajectory 18, dir = fwrd, Time = 3600, Length = 0.0709087, PointCount = 55, TSR = 3
+trajectory 19, dir = reverse, Time = -178.725, Length = -0.00953627, PointCount = 64, TSR = 1
+trajectory 19, dir = fwrd, Time = 23.2304, Length = 0.0012254, PointCount = 76, TSR = 1
+
+]]>
+<Block caption="simple" number="19">
+<![CDATA[
+85 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>
+<Block caption="simple" number="20">
+<![CDATA[
+90 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>

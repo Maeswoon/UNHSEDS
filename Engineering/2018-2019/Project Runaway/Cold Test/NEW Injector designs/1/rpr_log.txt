@@ -1,0 +1,311 @@
+<Block caption="simple" number="13">
+<![CDATA[
+Windows 10 (or higher) (Version 10.0.17134)
+GenuineIntel, Stepping ID = 3, Model = 12, Family = 6, Extended model = 3, MMX SSE SSE2 Hyper-Threading Technology SSE3
+CPU Brand String: Intel(R) Core(TM) i7-4790S CPU @ 3.20GHz
+Cache Line Size = 64, L2 Associativity = 6, Cache Size = 256K
+Number of cores: 8, Processor type: 8664, Active processor mask: 255, Page size: 4096 bites
+Package 0 [ Group 0 [ 0 1 2 3 4 5 6 7 ] ]
+NUMA Node 0: Available Memory = 6.61 Gb. ProcessorGroup 0 [ 0 1 2 3 4 5 6 7 ]
+std::thread::hardware_concurrency = 8
+No NUMA support
+OpenMP enabled (spec=200203). max_threads = 8, num_procs = 8.
+
+]]>
+</Block>
+<Block caption="Vwr::LoadFlowField" number="0">
+<![CDATA[
+EXTERNAL=0   LAMTURB=1   CHT=0
+IT=6   NT=2   NZ=1
+U_DIM_EXT_MAX=8   US_DIM=0
+----------------------------------------------------------
+BCF --> BCF.GEOMSUBDOM (bridge arrays) (cpu_num=8):
+MESH (0):
+	Fluid Subdom Constructor: 1 subdom(s).
+	Solid Subdom Constructor: 1 subdom(s).
+	Net Asm Subdom Constructor: 0 subdom(s).
+	GEOMSUBDOM (0): gi=0 fluid av=1106 cv=1022 fa=2959 fw=734 V=7.068929e-08
+	GEOMSUBDOM (1): gi=1 solid av=29108 cv=29108 fa=83685 fw=7542 V=2.527439e-06
+	Setting nb of w-faces...OK.
+
+MESH (0) checking:
+	GEOMSUBDOM (0):fa_s=0.0004726393879176 fw_s=0.0000973062160567 fw_nb=6368
+	GEOMSUBDOM (1):fa_s=0.0164010715097544 fw_s=0.0014368391963402 fw_nb=33600
+MESH (0) checking: OK.
+----------------------------------------------------------
+Read cpt took 0.29 sec.
+
+===ThermodynamicsHolder:===
+Subdom 0 Incompressible liquid thermodynamics
+	substance 0 type=fwLiquid, guid=6D4EB345944911D4B47100A024552746, name=Methane
+===ThermodynamicsHolder:===
+MESH::Bricks: Total=29624 Gas=516 Solid=28518 Partial=590 Irregular=0
+CD X0= -0.01018032, X1= 0.01018032, Y0= 5.724525e-05, Y1= 0.00632450475, Z0= -0.01018032, Z1= 0.01018032
+Created TMP file C:\Users\User\AppData\Local\Temp\gdbA34E.tmp
+Read cfld took 0.13 sec.
+Collecting Reference Parameters... OK
+Read fld took 0.04 sec.
+
+]]>
+<Block caption="simple" number="14">
+<![CDATA[
+85 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>
+</Block>
+<Block caption="simple" number="15">
+<![CDATA[
+85 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>
+<Block caption="simple" number="16">
+<![CDATA[
+85 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>
+<Block caption="simple" number="17">
+<![CDATA[
+Windows 10 (or higher) (Version 10.0.17134)
+GenuineIntel, Stepping ID = 3, Model = 12, Family = 6, Extended model = 3, MMX SSE SSE2 Hyper-Threading Technology SSE3
+CPU Brand String: Intel(R) Core(TM) i7-4790S CPU @ 3.20GHz
+Cache Line Size = 64, L2 Associativity = 6, Cache Size = 256K
+Number of cores: 8, Processor type: 8664, Active processor mask: 255, Page size: 4096 bites
+Package 0 [ Group 0 [ 0 1 2 3 4 5 6 7 ] ]
+NUMA Node 0: Available Memory = 6.72 Gb. ProcessorGroup 0 [ 0 1 2 3 4 5 6 7 ]
+std::thread::hardware_concurrency = 8
+No NUMA support
+OpenMP enabled (spec=200203). max_threads = 8, num_procs = 8.
+
+]]>
+</Block>
+<Block caption="Vwr::LoadFlowField" number="1">
+<![CDATA[
+EXTERNAL=0   LAMTURB=1   CHT=0
+IT=6   NT=2   NZ=1
+U_DIM_EXT_MAX=8   US_DIM=0
+----------------------------------------------------------
+BCF --> BCF.GEOMSUBDOM (bridge arrays) (cpu_num=8):
+MESH (0):
+	Fluid Subdom Constructor: 1 subdom(s).
+	Solid Subdom Constructor: 1 subdom(s).
+	Net Asm Subdom Constructor: 0 subdom(s).
+	GEOMSUBDOM (0): gi=0 fluid av=1106 cv=1022 fa=2959 fw=734 V=7.068929e-08
+	GEOMSUBDOM (1): gi=1 solid av=29108 cv=29108 fa=83685 fw=7542 V=2.527439e-06
+	Setting nb of w-faces...OK.
+
+MESH (0) checking:
+	GEOMSUBDOM (0):fa_s=0.0004726393879176 fw_s=0.0000973062160567 fw_nb=6368
+	GEOMSUBDOM (1):fa_s=0.0164010715097544 fw_s=0.0014368391963402 fw_nb=33600
+MESH (0) checking: OK.
+----------------------------------------------------------
+Read cpt took 0.25 sec.
+
+===ThermodynamicsHolder:===
+Subdom 0 Incompressible liquid thermodynamics
+	substance 0 type=fwLiquid, guid=6D4EB345944911D4B47100A024552746, name=Methane
+===ThermodynamicsHolder:===
+MESH::Bricks: Total=29624 Gas=516 Solid=28518 Partial=590 Irregular=0
+CD X0= -0.01018032, X1= 0.01018032, Y0= 5.724525e-05, Y1= 0.00632450475, Z0= -0.01018032, Z1= 0.01018032
+Read cfld took 0.07 sec.
+Collecting Reference Parameters... OK
+Read fld took 0.05 sec.
+
+]]>
+<Block caption="simple" number="18">
+<![CDATA[
+85 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>
+</Block>
+<Block caption="simple" number="19">
+<![CDATA[
+85 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>
+<Block caption="simple" number="20">
+<![CDATA[
+85 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>
+<Block caption="simple" number="21">
+<![CDATA[
+Windows 10 (or higher) (Version 10.0.17134)
+GenuineIntel, Stepping ID = 3, Model = 12, Family = 6, Extended model = 3, MMX SSE SSE2 Hyper-Threading Technology SSE3
+CPU Brand String: Intel(R) Core(TM) i7-4790S CPU @ 3.20GHz
+Cache Line Size = 64, L2 Associativity = 6, Cache Size = 256K
+Number of cores: 8, Processor type: 8664, Active processor mask: 255, Page size: 4096 bites
+Package 0 [ Group 0 [ 0 1 2 3 4 5 6 7 ] ]
+NUMA Node 0: Available Memory = 6.68 Gb. ProcessorGroup 0 [ 0 1 2 3 4 5 6 7 ]
+std::thread::hardware_concurrency = 8
+No NUMA support
+OpenMP enabled (spec=200203). max_threads = 8, num_procs = 8.
+
+]]>
+</Block>
+<Block caption="Vwr::LoadFlowField" number="2">
+<![CDATA[
+EXTERNAL=0   LAMTURB=1   CHT=0
+IT=6   NT=2   NZ=1
+U_DIM_EXT_MAX=8   US_DIM=0
+----------------------------------------------------------
+BCF --> BCF.GEOMSUBDOM (bridge arrays) (cpu_num=8):
+MESH (0):
+	Fluid Subdom Constructor: 1 subdom(s).
+	Solid Subdom Constructor: 1 subdom(s).
+	Net Asm Subdom Constructor: 0 subdom(s).
+	GEOMSUBDOM (0): gi=0 fluid av=1106 cv=1022 fa=2959 fw=734 V=7.068929e-08
+	GEOMSUBDOM (1): gi=1 solid av=29108 cv=29108 fa=83685 fw=7542 V=2.527439e-06
+	Setting nb of w-faces...OK.
+
+MESH (0) checking:
+	GEOMSUBDOM (0):fa_s=0.0004726393879176 fw_s=0.0000973062160567 fw_nb=6368
+	GEOMSUBDOM (1):fa_s=0.0164010715097544 fw_s=0.0014368391963402 fw_nb=33600
+MESH (0) checking: OK.
+----------------------------------------------------------
+Read cpt took 0.23 sec.
+
+===ThermodynamicsHolder:===
+Subdom 0 Incompressible liquid thermodynamics
+	substance 0 type=fwLiquid, guid=6D4EB345944911D4B47100A024552746, name=Methane
+===ThermodynamicsHolder:===
+MESH::Bricks: Total=29624 Gas=516 Solid=28518 Partial=590 Irregular=0
+CD X0= -0.01018032, X1= 0.01018032, Y0= 5.724525e-05, Y1= 0.00632450475, Z0= -0.01018032, Z1= 0.01018032
+Read cfld took 0.07 sec.
+Collecting Reference Parameters... OK
+Read fld took 0.04 sec.
+
+]]>
+<Block caption="simple" number="22">
+<![CDATA[
+85 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>
+</Block>
+<![CDATA[
+FS triangles count 310 
+trajectory 0, dir = reverse, Time = -2.2976e-06, Length = -0.00208481, PointCount = 524, TSR = 1
+trajectory 0, dir = fwrd, Time = 4.65238e-06, Length = 0.0041696, PointCount = 1483, TSR = 1
+trajectory 1, dir = reverse, Time = -4.44801e-06, Length = -0.00401881, PointCount = 935, TSR = 1
+trajectory 1, dir = fwrd, Time = 2.5053e-06, Length = 0.00223567, PointCount = 1307, TSR = 1
+trajectory 2, dir = reverse, Time = -6.61728e-06, Length = -0.00595281, PointCount = 1130, TSR = 1
+trajectory 2, dir = fwrd, Time = 3.39131e-07, Length = 0.0003016, PointCount = 1174, TSR = 1
+trajectory 3, dir = reverse, Time = -5.7848e-06, Length = -0.00521224, PointCount = 1245, TSR = 1
+trajectory 3, dir = fwrd, Time = 1.17108e-06, Length = 0.00104246, PointCount = 1433, TSR = 1
+trajectory 4, dir = reverse, Time = -3.6261e-06, Length = -0.00328024, PointCount = 536, TSR = 1
+trajectory 4, dir = fwrd, Time = 3.33065e-06, Length = 0.00297417, PointCount = 897, TSR = 1
+trajectory 5, dir = reverse, Time = -2.30113e-06, Length = -0.00208481, PointCount = 524, TSR = 1
+trajectory 5, dir = fwrd, Time = 4.67376e-06, Length = 0.00416968, PointCount = 1467, TSR = 1
+trajectory 6, dir = reverse, Time = -4.45901e-06, Length = -0.00401871, PointCount = 859, TSR = 1
+trajectory 6, dir = fwrd, Time = 2.51826e-06, Length = 0.00223579, PointCount = 1186, TSR = 1
+trajectory 7, dir = reverse, Time = -6.63286e-06, Length = -0.00595294, PointCount = 1281, TSR = 1
+trajectory 7, dir = fwrd, Time = 3.40607e-07, Length = 0.000301746, PointCount = 1328, TSR = 1
+trajectory 8, dir = reverse, Time = -2.29829e-06, Length = -0.00208481, PointCount = 524, TSR = 1
+trajectory 8, dir = fwrd, Time = 4.65105e-06, Length = 0.00416971, PointCount = 1492, TSR = 1
+trajectory 9, dir = reverse, Time = -5.81292e-06, Length = -0.00521217, PointCount = 1225, TSR = 1
+trajectory 9, dir = fwrd, Time = 1.17734e-06, Length = 0.00104246, PointCount = 1409, TSR = 1
+trajectory 10, dir = reverse, Time = -3.62658e-06, Length = -0.00328021, PointCount = 534, TSR = 1
+trajectory 10, dir = fwrd, Time = 3.33142e-06, Length = 0.00297411, PointCount = 897, TSR = 1
+trajectory 11, dir = reverse, Time = -6.63968e-06, Length = -0.00595295, PointCount = 1333, TSR = 1
+trajectory 11, dir = fwrd, Time = 3.41259e-07, Length = 0.000301752, PointCount = 1382, TSR = 1
+trajectory 12, dir = reverse, Time = -2.30392e-06, Length = -0.00208481, PointCount = 524, TSR = 1
+trajectory 12, dir = fwrd, Time = 4.67422e-06, Length = 0.00416959, PointCount = 1475, TSR = 1
+trajectory 13, dir = reverse, Time = -4.49551e-06, Length = -0.00401894, PointCount = 872, TSR = 1
+trajectory 13, dir = fwrd, Time = 2.54736e-06, Length = 0.00223571, PointCount = 1202, TSR = 1
+trajectory 14, dir = reverse, Time = -6.60304e-06, Length = -0.00595283, PointCount = 1286, TSR = 1
+trajectory 14, dir = fwrd, Time = 3.37849e-07, Length = 0.000301696, PointCount = 1335, TSR = 1
+trajectory 15, dir = reverse, Time = -3.31869e-07, Length = -0.000301739, PointCount = 51, TSR = 1
+trajectory 15, dir = fwrd, Time = 6.64235e-06, Length = 0.00595295, PointCount = 751, TSR = 1
+trajectory 16, dir = reverse, Time = -3.31513e-07, Length = -0.00030159, PointCount = 54, TSR = 1
+trajectory 16, dir = fwrd, Time = 6.61712e-06, Length = 0.00595278, PointCount = 795, TSR = 1
+trajectory 17, dir = reverse, Time = -3.31695e-07, Length = -0.000301517, PointCount = 54, TSR = 1
+trajectory 17, dir = fwrd, Time = 6.64883e-06, Length = 0.00595292, PointCount = 777, TSR = 1
+trajectory 18, dir = reverse, Time = -3.31383e-07, Length = -0.000301521, PointCount = 46, TSR = 1
+trajectory 18, dir = fwrd, Time = 6.61642e-06, Length = 0.00595299, PointCount = 697, TSR = 1
+trajectory 19, dir = reverse, Time = -3.31513e-07, Length = -0.000301633, PointCount = 50, TSR = 1
+trajectory 19, dir = fwrd, Time = 6.61903e-06, Length = 0.00595291, PointCount = 767, TSR = 1
+
+]]>
+<Block caption="simple" number="23">
+<![CDATA[
+85 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>
+<Block caption="simple" number="24">
+<![CDATA[
+85 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>
+<Block caption="simple" number="25">
+<![CDATA[
+Windows 10 (or higher) (Version 10.0.17134)
+GenuineIntel, Stepping ID = 3, Model = 12, Family = 6, Extended model = 3, MMX SSE SSE2 Hyper-Threading Technology SSE3
+CPU Brand String: Intel(R) Core(TM) i7-4790S CPU @ 3.20GHz
+Cache Line Size = 64, L2 Associativity = 6, Cache Size = 256K
+Number of cores: 8, Processor type: 8664, Active processor mask: 255, Page size: 4096 bites
+Package 0 [ Group 0 [ 0 1 2 3 4 5 6 7 ] ]
+NUMA Node 0: Available Memory = 6.83 Gb. ProcessorGroup 0 [ 0 1 2 3 4 5 6 7 ]
+std::thread::hardware_concurrency = 8
+No NUMA support
+OpenMP enabled (spec=200203). max_threads = 8, num_procs = 8.
+
+]]>
+</Block>
+<Block caption="Vwr::LoadFlowField" number="3">
+<![CDATA[
+EXTERNAL=0   LAMTURB=1   CHT=0
+IT=6   NT=2   NZ=1
+U_DIM_EXT_MAX=8   US_DIM=0
+----------------------------------------------------------
+BCF --> BCF.GEOMSUBDOM (bridge arrays) (cpu_num=8):
+MESH (0):
+	Fluid Subdom Constructor: 1 subdom(s).
+	Solid Subdom Constructor: 1 subdom(s).
+	Net Asm Subdom Constructor: 0 subdom(s).
+	GEOMSUBDOM (0): gi=0 fluid av=1106 cv=1022 fa=2959 fw=734 V=7.068929e-08
+	GEOMSUBDOM (1): gi=1 solid av=29108 cv=29108 fa=83685 fw=7542 V=2.527439e-06
+	Setting nb of w-faces...OK.
+
+MESH (0) checking:
+	GEOMSUBDOM (0):fa_s=0.0004726393879176 fw_s=0.0000973062160567 fw_nb=6368
+	GEOMSUBDOM (1):fa_s=0.0164010715097544 fw_s=0.0014368391963402 fw_nb=33600
+MESH (0) checking: OK.
+----------------------------------------------------------
+Read cpt took 0.25 sec.
+
+===ThermodynamicsHolder:===
+Subdom 0 Incompressible liquid thermodynamics
+	substance 0 type=fwLiquid, guid=6D4EB345944911D4B47100A024552746, name=Methane
+===ThermodynamicsHolder:===
+MESH::Bricks: Total=29624 Gas=516 Solid=28518 Partial=590 Irregular=0
+CD X0= -0.01018032, X1= 0.01018032, Y0= 5.724525e-05, Y1= 0.00632450475, Z0= -0.01018032, Z1= 0.01018032
+Read cfld took 0.08 sec.
+Collecting Reference Parameters... OK
+Read fld took 0.04 sec.
+
+]]>
+<Block caption="simple" number="26">
+<![CDATA[
+85 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>
+</Block>

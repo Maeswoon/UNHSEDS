@@ -17,10 +17,10 @@ if v >= 0
     
     % FULL ROCKET
     
-    l = 3; % length of full rocket (m)
+    l = 2; % length of full rocket (m)
     
     % ~ SKIN FRICTION DRAG ~
-    D = .203;   % (m) Diameter of Nosecone
+    D = 0.1778;   % (m) Diameter of Nosecone
     r = D/2;
     Re = (v*l)/kv;
     Rs = 60e-6; % roughness
@@ -39,10 +39,10 @@ if v >= 0
     
     
     % SUSTAINER FINS
-    t_s = 0.003; % sust fin thickness
-    c_s = 0.056; % sust fin aerodynamic cord length
-    finbase_sust = 0.056;
-    finheight_sust = 0.126;
+    t_s = 0.00318; % sust fin thickness
+    c_s = 0.09; % sust fin aerodynamic cord length
+    finbase_sust = 0.152;
+    finheight_sust = 0.152;
     finarea_sfs = 0.5*finbase_sust*finheight_sust;
     fin_totalarea_sfs = finarea_sfs*6; % sust fin area
     % BODY TUBE
@@ -53,7 +53,7 @@ if v >= 0
     
     % Compressibility Effects
     a = 343; %m/s
-    M = v/a;
+    M = v/a; %MachNumber Equation
     if M < 0.9
         Cfc = CDsf*(1 - 0.1*M^2);
     elseif M >= 0.9
@@ -74,7 +74,7 @@ if v >= 0
     % Fin Pressure Drag
     
     % SUSTAINER FINS
-    LEAs = 61.2; % leading edge angle
+    LEAs = 78; % leading edge angle
     if M < 0.9
         CDpd_finss = ((1 - M^2)^(-0.417) - 1)*cosd(LEAs)^2;
     elseif M > 0.9 && M < 1
@@ -85,7 +85,7 @@ if v >= 0
     
     Fpd_finss = CDpd_finss*(1/2)*rho*v^2*(finbase_sust*t_s);
     
-    Fpd_fins_totals = Fpd_finss*3;
+    Fpd_fins_totals = Fpd_finss*4; % Using 4 fins
     
     Fdrag_pd = Fpd_nosecone + Fpd_fins_totals; % force of pressure drag
     
@@ -103,7 +103,7 @@ if v >= 0
     drag = Fdrag_sf + Fdrag_pd + Fdrag_bd; % total force of drag
     
     
-    
+% Don't have parachute data, need to change after!!!!!
 % ~ RECOVERY ~
 elseif v < 0
     D = 1.5; % diameter of parachute (m)

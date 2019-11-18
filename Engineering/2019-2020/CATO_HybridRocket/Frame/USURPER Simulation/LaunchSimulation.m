@@ -46,7 +46,7 @@ for t = tstart:dt:tstop
     end
 end
 
-figure(1)
+figure(1) 
 subplot(3,1,1)
 plot(x,height,'k','LineWidth',1.3)
 ylim([0,3250])

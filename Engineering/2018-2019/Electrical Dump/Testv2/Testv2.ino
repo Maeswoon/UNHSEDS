@@ -29,10 +29,14 @@ void setup() {
 void loop() {
   
   if (digitalRead(10) == LOW && digitalRead(11) == LOW) {
+    digitalWrite(9, LOW);
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, LOW);
+    analogWrite(pwmPin, 0);
     Serial.print("Waiting for go signal\n");
   }
   
-  else if (digitalRead(10) == HIGH && digitalRead(11) == LOW ) {
+  else if (digitalRead(10) == HIGH && digitalRead(11) == LOW && count == 1) {
     Serial.print("Igniting\n");
     digitalWrite(9, HIGH);                //Igniter 
     delay(3500);                          //Delay for burn
@@ -42,7 +46,7 @@ void loop() {
     digitalWrite(in1, HIGH);              //Direction --> Reverse
     analogWrite(pwmPin, 255);             //digitalWrite(pwmPin, HIGH);           //Speed
     Serial.print("Opening\n");
-    delay(1300);                          //For how long
+    delay(1100);                          //For how long
     digitalWrite(in1, LOW);
     digitalWrite(in2, LOW);
     delay(3000);
@@ -50,8 +54,8 @@ void loop() {
     // FULLY OPEN
     Serial.println("Done Opening");                                       //Serial.print("Full Open\n");
     digitalWrite(in1, HIGH);
-    analogWrite(pwmPin, 255);
-    delay(600);
+    analogWrite(pwmPin, 150);
+    delay(2700);
     digitalWrite(in1, LOW);
     digitalWrite(in2, LOW);
     delay(180000);
@@ -59,18 +63,14 @@ void loop() {
     //FULLY CLOSING
     digitalWrite(in2, HIGH);
     analogWrite(pwmPin, 255);
-    delay(1900);
+    delay(1750);
     digitalWrite(in1, LOW);
     digitalWrite(in2, LOW);
     
-    //delay(180000);
-    //digitalWrite(in1, LOW);
-    //digitalWrite(in2, HIGH);
     Serial.print("Closed\n");
-    //delay(1500);
-    //digitalWrite(in1, LOW);
-    //digitalWrite(in2, LOW);
     count++;
+    Serial.print(count);
+    
   }
 
   while (digitalRead(11) == HIGH) {

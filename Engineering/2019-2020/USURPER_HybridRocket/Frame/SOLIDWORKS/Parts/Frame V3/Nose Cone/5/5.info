@@ -1,0 +1,75 @@
+
+    System Info
+                Status:   Solver is finished.
+                Product:   Flow Simulation 2018 SP4.0. Build: 4264
+                Computer name:   S172-2
+                User name:   Student
+                Processors:   Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
+                Memory:   32621 MB / 134217727 MB
+                Operating system:   Windows 10 (or higher) (Version 10.0.18362)
+                CAD version:   SOLIDWORKS 2018 SP4.0
+                CPU speed:   3408 MHz
+
+    General Info
+                Model:   Von Karman Assembly.SLDASM
+                Project name:   Project(2)
+                Project path:   C:\Users\Student\Desktop\UNHSEDS\Engineering\2019-2020\USURPER_HybridRocket\Frame\SOLIDWORKS\Parts\Frame V3\Nose Cone\5
+                Units system:   SI (m-kg-s)
+                Analysis type:   External (not exclude internal spaces)
+                Exclude cavities without flow conditions :   Off
+                Coordinate system:   Global coordinate system
+                Reference axis:   X
+
+    Physical Features
+                Heat conduction in solids:   Off
+                Time dependent:   Off
+                Gravitational effects:   Off
+                Flow type:   Laminar and turbulent
+                High Mach number flow:   Off
+                Humidity:   Off
+                Free surface:   Off
+                Default roughness:   0 micrometer
+                Default wall conditions:   Adiabatic wall
+
+    Computational Domain
+
+        Size
+                X min:   -0.645 m
+                X max:   0.645 m
+                Y min:   -1.467 m
+                Y max:   0.556 m
+                Z min:   -0.645 m
+                Z max:   0.645 m
+
+    Calculation Mesh
+
+        Basic Mesh Dimensions
+                Number of cells in X:   32
+                Number of cells in Y:   50
+                Number of cells in Z:   32
+
+        Number Of Cells
+                Cells:   53625
+                Fluid cells:   53625
+                Irregular cells:   0
+                Trimmed cells:   0
+                Maximum refinement level:   1
+
+    Goals
+                
+                Name   	Unit   	Value   	Progress   	Criteria   	Delta   	Use in convergence 
+
+    General Info
+                Run at:   S172-2
+                Number of cores:   8
+                Iterations:   99
+                CPU time:   56 s
+
+        Log
+                Mesh generation started	0:   16:43:14 , Dec 07
+                Mesh generation normally finished	0:   16:43:18 , Dec 07
+                Preparing data for calculation	0:   16:43:18 , Dec 07
+                Calculation started	0:   16:43:19 , Dec 07
+                Calculation has converged since the following criteria are satisfied:	99:   16:44:14 , Dec 07
+                    Goals are converged	99:   
+                Calculation finished	99:   16:44:16 , Dec 07

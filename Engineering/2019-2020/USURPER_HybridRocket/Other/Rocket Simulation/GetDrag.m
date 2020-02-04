@@ -17,7 +17,7 @@ if v >= 0
     
     % FULL ROCKET
     
-    l = 3; % length of full rocket (m)
+    l = 2; % length of full rocket (m)
     
     % ~ SKIN FRICTION DRAG ~
     D = .203;   % (m) Diameter of Nosecone

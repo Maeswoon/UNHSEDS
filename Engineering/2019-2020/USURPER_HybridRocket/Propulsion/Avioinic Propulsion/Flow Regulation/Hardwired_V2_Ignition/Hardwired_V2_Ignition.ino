@@ -13,7 +13,7 @@ void setup() {
   pinMode(5, OUTPUT);
   pinMode(6, OUTPUT);
   pinMode(10, INPUT);
-  pinMode(13, INPUT);
+  pinMode(13, INPUT); 
   pinMode(11, INPUT);
    
   Serial.begin(9600); 
@@ -38,7 +38,7 @@ void loop() {
   while (digitalRead(10) == HIGH && digitalRead(13) == LOW && counter == 0 ) {
     digitalWrite(5, HIGH);           //Vent Solenoid Open
     Serial.print("Aborting Launch\n");
-    //delay(180000);
+    delay(3000);
     digitalWrite(5, LOW);
 
   }

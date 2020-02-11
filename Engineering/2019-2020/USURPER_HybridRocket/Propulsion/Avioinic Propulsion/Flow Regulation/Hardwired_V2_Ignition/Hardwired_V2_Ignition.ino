@@ -13,7 +13,7 @@ void setup() {
   pinMode(5, OUTPUT);
   pinMode(6, OUTPUT);
   pinMode(10, INPUT);
-  pinMode(13, INPUT);
+  pinMode(13, INPUT); 
   pinMode(11, INPUT);
    
   Serial.begin(9600); 

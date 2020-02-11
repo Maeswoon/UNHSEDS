@@ -38,7 +38,7 @@ void loop() {
   while (digitalRead(10) == HIGH && digitalRead(13) == LOW && counter == 0 ) {
     digitalWrite(5, HIGH);           //Vent Solenoid Open
     Serial.print("Aborting Launch\n");
-    //delay(180000);
+    delay(3000);
     digitalWrite(5, LOW);
 
   }

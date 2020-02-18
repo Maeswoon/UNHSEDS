@@ -7,7 +7,7 @@ Processing rconst for elements:  0 hr 0 min 0 sec
 Processing egroups:  0 hr 0 min 0 sec
 Transferring loads and boundary conditions:  0 hr 0 min 0 sec
 Generating body pairs to check contact:  0 hr 0 min 0 sec
-Generating contacts:  0 hr 0 min 1 sec
+Generating contacts:  0 hr 0 min 0 sec
 Number of Contacts: 0
 Transfer SL1 data:  0 hr 0 min 0 sec
 Generate more accurate contact data:  0 hr 0 min 0 sec

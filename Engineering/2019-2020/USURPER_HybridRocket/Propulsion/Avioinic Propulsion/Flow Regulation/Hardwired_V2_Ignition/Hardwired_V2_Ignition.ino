@@ -1,36 +1,49 @@
 int vent = 5;   // Vent solenoid digital pin 5
-int flow = 4;   // Flow solenoid digital pin 4
+int flow = 6;   // Flow solenoid digital pin 4
 int lswitch = 10; // Launch Switch to digital 10
-int button = 12; // Abort launch button to digital 12
+int button = 13; // Abort launch button to digital 12
 int igniter = 9; // Igniter on digital 9
+int bridge = 11;
 
-const byte interruptPin = 2;
+int counter = 0; // Counter to run ignition sequence once
+//const byte interruptPin = 2;
 
 void setup() {
   // put your setup code here, to run once:
-  pinMode(vent, OUTPUT);
-  pinMode(flow, OUTPUT);
-  pinMode(lswitch, INPUT);
-  pinMode(button, INPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(10, INPUT);
+  pinMode(13, INPUT); 
+  pinMode(11, INPUT);
    
   Serial.begin(9600); 
   
   // prime the interrupt pins
-  pinMode(interruptPin, INPUT_PULLUP);
-  digitalWrite(vent, LOW);
-  digitalWrite(flow, LOW);
-  digitalWrite(lswitch, LOW);
-  digitalWrite(button, LOW);
-  digitalWrite(igniter, LOW);
+  //pinMode(interruptPin, INPUT_PULLUP);
+  digitalWrite(5, LOW);
+  digitalWrite(6, LOW);
+  digitalWrite(9, LOW);
+  digitalWrite(10, LOW);
+  digitalWrite(13, LOW);
+  digitalWrite(11, LOW);
+  
 }
 
 void loop() {
   
-  if (digitalRead(lswitch) == LOW && digitalRead(button) == LOW) {
-    Serial.print("Waiting for go signal\n");
+  if (digitalRead(10) == LOW && digitalRead(13) == LOW) {
+    Serial.print("Waiting for ignition signal\n");
   }
   
-  else if (digitalRead(lswitch) == HIGH && digitalRead(button) == LOW ) {
+  while (digitalRead(10) == HIGH && digitalRead(13) == LOW && counter == 0 ) {
+    digitalWrite(5, HIGH);           //Vent Solenoid Open
+    Serial.print("Aborting Launch\n");
+    delay(3000);
+    digitalWrite(5, LOW);
+
+  }
+  
+  if (digitalRead(13) == HIGH && counter == 0) {
     Serial.print("Igniting\n");
     digitalWrite(igniter, HIGH);           //Ignite E-match 
     //delay(3500);                          //Delay for burn
@@ -38,21 +51,15 @@ void loop() {
     digitalWrite(igniter, LOW);
 
     // OPEN SOLENOID
-    digitalWrite(flow, HIGH);           //Flow Solenoid Open
+    digitalWrite(6, HIGH);           //Flow Solenoid Open
     Serial.print("Flow Open\n");
     //delay(180000);
     delay(5000);
     
     // CLOSE SOLENOID
-    digitalWrite(flow, LOW);            //Flow Solenoid Closed
+    digitalWrite(6, LOW);            //Flow Solenoid Closed
     Serial.print("Flow Closed\n");
-  }
-  
-  else if (digitalRead(button) == HIGH ) {
-    digitalWrite(vent, HIGH);           //Vent Solenoid Open
-    Serial.print("Aborting Launch\n");
-    //delay(180000);
-    delay(5000);
-    digitalWrite(vent, LOW);
+
+    counter++;
   }
   }

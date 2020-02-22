@@ -102,7 +102,7 @@ Cx        = 1.4;          % Opening force factor [Source: Knacke pg. 5-3]
 
 %% CO2 Cannister 
 % P1 = CoolProp.PropsSI('P', 'T', T1, 'Q', 1, wf);
-addpath('C:\Users\Student\OneDrive\College\Senior Year\Senior Design\ThermoTablesCoolProp_v6_1_0');
+addpath('../+CoolProp');
 close all; clear all; 
 
 wf = 'co2'; % c02, carbondioxide, CARBONDIOXIDE, R744

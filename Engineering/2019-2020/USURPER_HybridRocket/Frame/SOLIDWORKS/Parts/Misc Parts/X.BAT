@@ -10,3 +10,7 @@ C:\Users\Cees\Documents\SEDS\UNHSEDS\Engineering\2019-2020\USURPER_HybridRocket\
 C:\Users\Cees\Documents\SEDS\UNHSEDS\Engineering\2019-2020\USURPER_HybridRocket\Frame\SOLIDWORKS\Parts\Misc Parts\6_32 Minor Diameter-Static 1
 C:\Users\Cees\Documents\SEDS\UNHSEDS\Engineering\2019-2020\USURPER_HybridRocket\Frame\SOLIDWORKS\Parts\Misc Parts\6_32 Minor Diameter-Static 1
 C:\Users\Cees\Documents\SEDS\UNHSEDS\Engineering\2019-2020\USURPER_HybridRocket\Frame\SOLIDWORKS\Parts\Misc Parts\6_32 Minor Diameter-Static 1
+C:\Users\Dernas\Documents\UNHSEDS\Engineering\2019-2020\USURPER_HybridRocket\Frame\SOLIDWORKS\Parts\Misc Parts\LargeRecoveryPlateWireHole-Static 1
+C:\Users\Dernas\Documents\UNHSEDS\Engineering\2019-2020\USURPER_HybridRocket\Frame\SOLIDWORKS\Parts\Misc Parts\LargeRecoveryPlateWireHole-Static 1
+C:\Users\Dernas\Documents\UNHSEDS\Engineering\2019-2020\USURPER_HybridRocket\Frame\SOLIDWORKS\Parts\Misc Parts\LargeRecoveryPlateWireHole-Static 1
+C:\Users\Cees\Documents\SEDS\UNHSEDS\Engineering\2019-2020\USURPER_HybridRocket\Frame\SOLIDWORKS\Parts\Misc Parts\Recovery Interface Plate-Static 1

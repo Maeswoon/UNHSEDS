@@ -3,12 +3,12 @@ Standard solid mesh bolt head imprint and hard point processing:  0 hr 0 min 0 s
 Standard solid mesh total preparation including imprint:  0 hr 0 min 0 sec
 Standard surface meshing for Solid Mesh:  0 hr 0 min 0 sec
 Standard volume meshing for Solid Mesh:  0 hr 0 min 1 sec
-Standard surface meshing for Solid Mesh:  0 hr 0 min 1 sec
+Standard surface meshing for Solid Mesh:  0 hr 0 min 0 sec
 Standard volume meshing for Solid Mesh:  0 hr 0 min 1 sec
 Standard solid mesh arranging data:  0 hr 0 min 0 sec
-Standard solid mesh total:  0 hr 0 min 3 sec
+Standard solid mesh total:  0 hr 0 min 2 sec
 Beam mesh:  0 hr 0 min 0 sec
-Preparing to transfer data:  0 hr 0 min 4 sec
+Preparing to transfer data:  0 hr 0 min 2 sec
 Processing material properties:  0 hr 0 min 0 sec
 Processing element groups:  0 hr 0 min 0 sec
 Processing drop test gap nodes:  0 hr 0 min 0 sec

@@ -5,7 +5,7 @@ Processing drop test gap nodes:  0 hr 0 min 0 sec
 Updating thickness for shell regions:  0 hr 0 min 0 sec
 Processing rconst for elements:  0 hr 0 min 0 sec
 Processing egroups:  0 hr 0 min 0 sec
-Transferring loads and boundary conditions:  0 hr 0 min 0 sec
+Transferring loads and boundary conditions:  0 hr 0 min 1 sec
 Generating body pairs to check contact:  0 hr 0 min 0 sec
 Generating contacts:  0 hr 0 min 0 sec
 Number of Contacts: 0

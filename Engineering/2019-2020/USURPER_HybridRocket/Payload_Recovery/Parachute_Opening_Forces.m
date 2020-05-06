@@ -31,7 +31,7 @@ cd_drogue = 1.6;          % [Source: Fruity Chutes]
 So        = pi*(12^2);    % Nominal Area in square inches
 So        = So/1550.0031; % Convert to square meters
 Do        = 24/39.37;     % Nominal Diamter in meters 
-n         = 4;            % inflation curve exponent. [Knacke: pg. 5-43]
+n         = 10;            % inflation curve exponent. [Knacke: pg. 5-43]
 k         = 0.85;         % [Knacke: pg. 5-43]
 Cx        = 1.7;          % Opening force factor [Source: Knacke pg. 5-3]
 
@@ -85,7 +85,7 @@ m_apogee = m_rocket - m_fuel;
 m_apogee = m_apogee/2.205;  % kg
 
 h_launchsite = 1401; % MAMSL, [Source: https://en.wikipedia.org/wiki/Spaceport_America]
-h_agl        = 229;  % meters, this is the target height [750 ft]
+h_agl        = 365;  % meters, this is the target height [750 ft]
 h_deploy     = h_launchsite + h_agl; 
 
 launch_temp = 34;                   % degrees C [Source: https://www.currentresults.com/Weather/New-Mexico/temperature-june.php]
@@ -96,26 +96,40 @@ cd_main   = 2.2;          % [Source: Fruity Chutes]
 So        = pi*(38^2);    % Nominal Area in square inches
 So        = So/1550.0031; % Convert to square meters
 Do        = 96/39.37;     % Nominal Diamter in meters 
-n         = 4;            % inflation curve exponent. [Knacke: pg. 5-43]
+n         = 10;            % inflation curve exponent. [Knacke: pg. 5-43]
 k         = 0.85;         % [Knacke: pg. 5-43]
 Cx        = 1.4;          % Opening force factor [Source: Knacke pg. 5-3]
 
-%% CO2 Cannister 
-% P1 = CoolProp.PropsSI('P', 'T', T1, 'Q', 1, wf);
-addpath('../+CoolProp');
-close all; clear all; 
+v_freefall = 26.98; % m/s 
+Do_Imp     = Do*(39.37/12); % feet
+v_ff_Imp  = v_freefall*3.281;
+t_inf     = (n*Do_Imp)/(v_ff_Imp^k);
+% t_inf     = 2;
 
-wf = 'co2'; % c02, carbondioxide, CARBONDIOXIDE, R744
+% Atmospheric Density calculation for apogee. Values interpolated from Fox
+% and McDonald's Introduction to Fluid Mechanics Table A.3
+rho_sl     = 1.225; % kg/m^3
+rho_sg     = interp1([1500 2000], [0.8638 0.8217], h_deploy);
+rho_deploy = rho_sg*rho_sl;
 
-recov_bay       = 0.00295;      % meters cubed, volume of the recovery bay
-T1              = 40;           % degrees C, Temperature outside
-T1              = T1 + 273.15
-vol_co2         = 4.24425e-5;   % cubic meters, volume of co2 cannister
-mass_co2        = 45/1000;      % kg, mass of the co2 in cannister
-v1              = vol_co2/mass_co2;     % cubic meters/kg, specific volume of co2 cannister 
-v2              = recov_bay/mass_co2;   % cubic meters/kg, specific volume after expansion 
-P1              = CoolProp.PropsSI('P', 'Q', 0, 'T', T1, 'R744');
+% Equation: (1/2)*(V^2)*Fluid_Density. Dynamic Pressure in Pascals at start
+% of inflation [Source: Fox and McDonald's Introduction to Fluid Mechanics 
+% pg. 245]
+q1          = (1/2)*(v_freefall^2)*rho_deploy; % Dynamic Pressure 
 
+% At this point everything has been calculated in order to figure out the
+% peak force except X1 the force reduction factor for inflation
+% deceleration. This is function of a ballistic parameter A and the
+% n which is equal to two for solid cloth conical chutes [Source: Knacke pg. 5-58]. 
+
+A_ballistic = (2*m_apogee)/((cd_main*So)*rho_deploy*v_freefall*t_inf);
+
+X1          = .2; 
+
+Fmax = q1*(cd_main*So)*Cx*X1;
+disp(['Peak Main Force: ', num2str(Fmax, 4), ' N'])
+Fmax = Fmax/4.448;
+disp(['Peak Main Force: ', num2str(Fmax, 4), ' lbf'])
 
 
 

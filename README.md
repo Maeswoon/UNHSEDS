@@ -10,5 +10,6 @@ Please contact RossThyne at rossthyne@gmail.com to join!
 
 Let's get to work,
 
-Ross Thyne
+Ross Thyne,
+
 President

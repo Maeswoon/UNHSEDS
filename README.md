@@ -6,9 +6,9 @@ Every September and February, UNH SEDS will train members on the software needed
 Because of GitHub's limitation, we are keeping large files like videos, pictures and other large PDF's 
 on One Drive that can be shared to you. 
 
-Please contact Charlie Nitschelm at cjn1012@wildcats.unh.edu to join! 
+Please contact RossThyne at rossthyne@gmail.com to join! 
 
 Let's get to work,
 
-Charlie Nitschelm
-Founder
+Ross Thyne
+President

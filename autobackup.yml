@@ -21,6 +21,6 @@ jobs:
           git config user.email github-actions@github.com
           # Rebase takes any changes from master and applies them to this branch
           # If there's no changes, nothing happens
-          git rebase master
+          git rebase backup_test
           git push
 

@@ -1,0 +1,26 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    # Currently set to run every 15 mins while I test
+    - cron:  '*/15 * * * *'
+
+jobs:
+  backup:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+      # Check out repository under $GITHUB_WORKSPACE, so job can access it
+      - uses: actions/checkout@v2
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          # Rebase takes any changes from master and applies them to this branch
+          # If there's no changes, nothing happens
+          git rebase master
+          git push
+

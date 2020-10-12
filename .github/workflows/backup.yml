@@ -6,6 +6,7 @@ on:
     # * is a special character in YAML so you have to quote this string
     # Currently set to run every 30 mins while I test
     - cron:  '*/30 * * * *'
+  workflow_dispatch:
 
 jobs:
   backup:

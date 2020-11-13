@@ -1,0 +1,88 @@
+
+    System Info
+                Status:   Solver is finished.
+                Product:   Flow Simulation 2020 4.0. Build: 4995
+                Computer name:   S172-2
+                User name:   Student
+                Processors:   Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
+                Memory:   32621 MB / 23083 MB
+                Operating system:   Windows 10 (or higher) (Version 10.0.18362)
+                CAD version:   SOLIDWORKS 2020 SP4.0
+                CPU speed:   3408 MHz
+
+    General Info
+                Model:   Banshee V1 Assembly w Glass Insert.SLDASM
+                Project name:   Swirl Injection
+                Project path:   C:\Users\Student\Desktop\UNHSEDS\Engineering\2020-2021\UNAMED_Rocket2021\Propulsion\Banshee V1\2
+                Units system:   NMM (mm-g-s)
+                Analysis type:   Internal
+                Exclude cavities without flow conditions :   On
+                Coordinate system:   Global coordinate system
+                Reference axis:   X
+
+    Physical Features
+                Heat conduction in solids:   Off
+                Time dependent:   Off
+                Gravitational effects:   On
+                Flow type:   Laminar and turbulent
+                High Mach number flow:   Off
+                Humidity:   Off
+                Free surface:   Off
+                Default roughness:   3.2 micrometer
+
+        Gravitational Settings
+                X component:   0 mm/s^2
+                Y component:   0 mm/s^2
+                Z component:   -9810 mm/s^2
+                Default wall conditions:   Adiabatic wall
+
+    Computational Domain
+
+        Size
+                X min:   124 mm
+                X max:   229 mm
+                Y min:   -80 mm
+                Y max:   486 mm
+                Z min:   323 mm
+                Z max:   417 mm
+                X size:   105 mm
+                Y size:   566 mm
+                Z size:   94 mm
+
+    Calculation Mesh
+
+        Basic Mesh Dimensions
+                Number of cells in X:   10
+                Number of cells in Y:   52
+                Number of cells in Z:   8
+
+        Number Of Cells
+                Cells:   14624
+                Fluid cells:   14624
+                Irregular cells:   0
+                Trimmed cells:   0
+                Maximum refinement level:   2
+
+    Goals
+                
+                Name   	Unit   	Value   	Progress   	Criteria   	Delta   	Use in convergence 
+
+    General Info
+                Run at:   S172-2
+                Number of cores:   8
+                Iterations:   197
+                CPU time:   0 s
+
+        Log
+                Mesh generation started	0:   19:21:09 , Nov 12
+                Mesh generation normally finished	0:   19:21:11 , Nov 12
+                Preparing data for calculation	0:   19:21:11 , Nov 12
+                Calculation started	0:   19:21:13 , Nov 12
+                Calculation has converged since the following criteria are satisfied:	197:   19:22:03 , Nov 12
+                    Goals are converged	197:   
+                Calculation finished	197:   19:22:04 , Nov 12
+                Preparing data for calculation	0:   19:23:33 , Nov 12
+                Calculation finished	197:   19:23:33 , Nov 12
+                Preparing data for calculation	0:   19:28:58 , Nov 12
+                Calculation finished	197:   19:28:59 , Nov 12
+                Warnings:   A vortex crosses the pressure opening	Boundary Condition : Environment Pressure 2 ; Inlet flow/outlet flow=0.0756749, 		Boundary Condition : Static Pressure 3 ; Inlet flow/outlet flow=2.88215, 		, 

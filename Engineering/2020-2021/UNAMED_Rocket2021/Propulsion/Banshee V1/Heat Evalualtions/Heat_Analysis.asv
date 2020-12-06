@@ -20,15 +20,9 @@ QdotL=(2*pi*(Tin-Tout))/((log(R2/R1)/kI)+(log(R3/R2)/kC));
 %% Conductivity through diminishing fuel grain and insulator
 
 Timelength=linspace(1,10,10);
-Length=.31;
 
-R0=linspace(.04,.07,10); %Fuel grain starting inner diameter.
-QdotL2sum=0;
+R0=.04; %Fuel grain starting inner diameter.
 
 for i = 1:length(Timelength)
-    QdotL2(i) = (2*pi*(Tin-Tout))/((log(R1/R0(i))/kI)+(log(R2/R1)/kC));
-    QdotL2sum=QdotL2sum+QdotL2(i);
+    QdotL2(i) = abs(V2(i) - Cal2(i));
 end
-
-Qtot=QdotL2sum*Length;
-

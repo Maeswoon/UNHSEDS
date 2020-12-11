@@ -1,0 +1,103 @@
+
+    System Info
+                Status:   Solver is finished.
+                Product:   Flow Simulation 2020 3.0. Build: 4921
+                Computer name:   LAPTOP-BDL3F0ON
+                User name:   grace
+                Processors:   Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
+                Memory:   15920 MB / 5158 MB
+                Operating system:   Windows 10 (or higher) (Version 10.0.19041)
+                CAD version:   SOLIDWORKS 2020 SP3.0
+                CPU speed:   2208 MHz
+
+    General Info
+                Model:   Active Frame V2 SIM.SLDASM
+                Project name:   Flow Around Frame
+                Project path:   C:\Users\grace\OneDrive\Desktop\SEDS GitHub\Engineering\2020-2021\UNAMED_Rocket2021\Frame\Active Frame V2\SIMULATIONS\1
+                Units system:   FPS (ft-lb-s)
+                Analysis type:   External (not exclude internal spaces)
+                Exclude cavities without flow conditions :   Off
+                Coordinate system:   Global coordinate system
+                Reference axis:   X
+
+    Physical Features
+                Heat conduction in solids:   Off
+                Time dependent:   Off
+                Gravitational effects:   On
+                Flow type:   Laminar and turbulent
+                High Mach number flow:   Off
+                Humidity:   Off
+                Free surface:   Off
+                Default roughness:   0 microinch
+
+        Gravitational Settings
+                X component:   0 ft/s^2
+                Y component:   0 ft/s^2
+                Z component:   -32.19 ft/s^2
+                Default wall conditions:   Adiabatic wall
+
+    Computational Domain
+
+        Size
+                X min:   -23.193 ft
+                X max:   23.193 ft
+                Y min:   -22.172 ft
+                Y max:   31.203 ft
+                Z min:   -0.062 ft
+                Z max:   0.061 ft
+                X size:   46.386 ft
+                Y size:   53.375 ft
+                Z size:   0.123 ft
+
+    Calculation Mesh
+
+        Basic Mesh Dimensions
+                Number of cells in X:   58
+                Number of cells in Y:   36
+                Number of cells in Z:   1
+
+        Number Of Cells
+                Cells:   3878
+                Fluid cells:   3878
+                Irregular cells:   0
+                Trimmed cells:   0
+                Maximum refinement level:   3
+
+    Goals
+
+        Global Goals
+
+            GG Force (Y) 1
+                Type:   Global Goal
+                Goal type:   Force (Y)
+                Coordinate system:   Global coordinate system
+                Use in convergence :   On
+
+        Equation Goals
+
+            Equation Goal 1
+                Type:   Equation Goal
+                Formula:   GG Force (Y) 1*(2/(0.0765*(1000^2)*.2971))
+                Dimensionality:   Force
+                Use in convergence :   On
+
+    Goals
+                
+                Name              	Unit   	Value        	Progress   	Criteria         	Delta            	Use in convergence 
+                GG Force (Y) 1    	lbf    	-3.821e-15   	100        	9.44715089e-17   	7.23034503e-17   	On                 
+                Equation Goal 1   	lbf    	-3.362e-19   	100        	8.31317189e-21   	6.36245803e-21   	On                 
+
+    General Info
+                Run at:   LAPTOP-BDL3F0ON
+                Number of cores:   12
+                Iterations:   76
+                CPU time:   0 s
+
+        Log
+                Mesh generation started	0:   22:58:44 , Dec 03
+                Mesh generation normally finished	0:   22:58:45 , Dec 03
+                Preparing data for calculation	0:   22:58:46 , Dec 03
+                Calculation started	0:   22:58:47 , Dec 03
+                Calculation has converged since the following criteria are satisfied:	76:   22:59:04 , Dec 03
+                    Goals are converged	76:   
+                Calculation finished	76:   22:59:05 , Dec 03

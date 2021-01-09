@@ -5,7 +5,7 @@
                 Computer name:   LAPTOP-BDL3F0ON
                 User name:   grace
                 Processors:   Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
-                Memory:   15920 MB / 5217 MB
+                Memory:   15920 MB / 3371 MB
                 Operating system:   Windows 10 (or higher) (Version 10.0.19041)
                 CAD version:   SOLIDWORKS 2020 SP3.0
                 CPU speed:   2208 MHz
@@ -39,26 +39,26 @@
     Computational Domain
 
         Size
-                X min:   -2.151 ft
-                X max:   2.151 ft
-                Y min:   -1.956 ft
-                Y max:   10.564 ft
-                Z min:   -2.151 ft
-                Z max:   2.151 ft
-                X size:   4.302 ft
-                Y size:   12.520 ft
-                Z size:   4.302 ft
+                X min:   -2.115 ft
+                X max:   2.115 ft
+                Y min:   -3.021 ft
+                Y max:   10.595 ft
+                Z min:   -2.115 ft
+                Z max:   2.115 ft
+                X size:   4.229 ft
+                Y size:   13.616 ft
+                Z size:   4.229 ft
 
     Calculation Mesh
 
         Basic Mesh Dimensions
                 Number of cells in X:   32
-                Number of cells in Y:   96
+                Number of cells in Y:   103
                 Number of cells in Z:   32
 
         Number Of Cells
-                Cells:   97622
-                Fluid cells:   97622
+                Cells:   104578
+                Fluid cells:   104578
                 Irregular cells:   0
                 Trimmed cells:   0
                 Maximum refinement level:   1
@@ -83,21 +83,21 @@
 
     Goals
                 
-                Name              	Unit   	Value      	Progress   	Criteria        	Delta            	Use in convergence 
-                GG Force (Y) 1    	lbf    	-120.588   	100        	7.53200345      	1.48346288       	On                 
-                Equation Goal 1   	lbf    	-0.011     	100        	0.00066279072   	0.000130539695   	On                 
+                Name              	Unit   	Value      	Progress   	Criteria         	Delta            	Use in convergence 
+                GG Force (Y) 1    	lbf    	-113.029   	100        	7.0402561        	0.749518437      	On                 
+                Equation Goal 1   	lbf    	-0.010     	100        	0.000619518623   	6.59550766e-05   	On                 
 
     General Info
                 Run at:   LAPTOP-BDL3F0ON
                 Number of cores:   12
-                Iterations:   93
+                Iterations:   95
                 CPU time:   0 s
 
         Log
-                Mesh generation started	0:   23:37:52 , Dec 08
-                Mesh generation normally finished	0:   23:37:56 , Dec 08
-                Preparing data for calculation	0:   23:37:56 , Dec 08
-                Calculation started	0:   23:38:06 , Dec 08
-                Calculation has converged since the following criteria are satisfied:	93:   23:41:10 , Dec 08
-                    Goals are converged	93:   
-                Calculation finished	93:   23:41:16 , Dec 08
+                Mesh generation started	0:   10:34:38 , Dec 18
+                Mesh generation normally finished	0:   10:34:41 , Dec 18
+                Preparing data for calculation	0:   10:34:41 , Dec 18
+                Calculation started	0:   10:34:48 , Dec 18
+                Calculation has converged since the following criteria are satisfied:	95:   10:37:21 , Dec 18
+                    Goals are converged	95:   
+                Calculation finished	95:   10:37:26 , Dec 18

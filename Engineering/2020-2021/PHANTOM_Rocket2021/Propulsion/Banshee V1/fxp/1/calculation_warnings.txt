@@ -1,0 +1,11 @@
+2020-Nov-12 19:32:51
+Computer name:	S172-2
+Number of cores used in calculation:	8
+Configuration name:	Simplify_1
+Project name:	Project 1
+
+Warnings on last iteration: 
+1. A vortex crosses the pressure opening :
+	Boundary Condition : Outlet ; Inlet flow/outlet flow=0.318943
+2. Invalid goals :
+	Goal name: SG Mass Flow Rate 1

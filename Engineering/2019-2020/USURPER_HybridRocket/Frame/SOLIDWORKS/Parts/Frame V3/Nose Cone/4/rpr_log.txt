@@ -1,0 +1,152 @@
+<Block caption="simple" number="11">
+<![CDATA[
+Windows 10 (or higher) (Version 10.0.18362)
+GenuineIntel, Stepping ID = 3, Model = 14, Family = 6, Extended model = 5, MMX SSE SSE2 Hyper-Threading Technology SSE3
+CPU Brand String: Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
+Cache Line Size = 64, L2 Associativity = 6, Cache Size = 256K
+Number of cores: 8, Processor type: 8664, Active processor mask: 255, Page size: 4096 bites
+Package 0 [ Group 0 [ 0 1 2 3 4 5 6 7 ] ]
+NUMA Node 0: Available Memory = 21.13 Gb. ProcessorGroup 0 [ 0 1 2 3 4 5 6 7 ]
+std::thread::hardware_concurrency = 8
+No NUMA support
+OpenMP enabled (spec=200203). max_threads = 8, num_procs = 8.
+
+]]>
+</Block>
+<Block caption="Vwr::LoadFlowField" number="0">
+<![CDATA[
+EXTERNAL=1   LAMTURB=1   CHT=0
+IT=6   NT=2   NZ=1
+U_DIM_EXT_MAX=8   US_DIM=0
+----------------------------------------------------------
+BCF --> BCF.GEOMSUBDOM (bridge arrays) (cpu_num=8):
+MESH (0):
+	Fluid Subdom Constructor: 1 subdom(s).
+	Solid Subdom Constructor: 1 subdom(s).
+	Net Asm Subdom Constructor: 0 subdom(s).
+	GEOMSUBDOM (0): gi=0 fluid av=53625 cv=53474 fa=156448 fw=11546 V=3.360058e+00
+	GEOMSUBDOM (1): gi=1 solid av=1193 cv=1193 fa=2608 fw=3098 V=6.848565e-04
+	Setting nb of w-faces...OK.
+
+MESH (0) checking:
+	GEOMSUBDOM (0):fa_s=243.6461425266446099 fw_s=14.1971148402526364 fw_nb=96998
+	GEOMSUBDOM (1):fa_s=0.1184649466931499 fw_s=0.4452276363923066 fw_nb=29438
+MESH (0) checking: OK.
+----------------------------------------------------------
+Read cpt took 0.26 sec.
+
+===ThermodynamicsHolder:===
+Subdom 0 Ideal gas thermodynamics
+	substance 0 type=fwGas, guid=2B966F4A9A9F11D4A50048A0E8000000, name=Air
+===ThermodynamicsHolder:===
+MESH::Bricks: Total=52824 Gas=51633 Solid=0 Partial=1191 Irregular=0
+CD X0= -0.644524999869, X1= 0.644524999869, Y0= -1.46684999981, Y1= 0.555683533089, Z0= -0.644524999869, Z1= 0.644524999869
+Created TMP file C:\Users\Student\AppData\Local\Temp\gdb4B92.tmp
+Read cfld took 0.41 sec.
+Collecting Reference Parameters... OK
+Read fld took 0.16 sec.
+
+]]>
+<Block caption="simple" number="12">
+<![CDATA[
+90 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>
+</Block>
+<Block caption="simple" number="3">
+<![CDATA[
+Windows 10 (or higher) (Version 10.0.18362)
+GenuineIntel, Stepping ID = 3, Model = 14, Family = 6, Extended model = 5, MMX SSE SSE2 Hyper-Threading Technology SSE3
+CPU Brand String: Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
+Cache Line Size = 64, L2 Associativity = 6, Cache Size = 256K
+Number of cores: 8, Processor type: 8664, Active processor mask: 255, Page size: 4096 bites
+Package 0 [ Group 0 [ 0 1 2 3 4 5 6 7 ] ]
+NUMA Node 0: Available Memory = 21.56 Gb. ProcessorGroup 0 [ 0 1 2 3 4 5 6 7 ]
+std::thread::hardware_concurrency = 8
+No NUMA support
+OpenMP enabled (spec=200203). max_threads = 8, num_procs = 8.
+
+]]>
+</Block>
+<Block caption="simple" number="4">
+<![CDATA[
+90 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>
+<Block caption="simple" number="5">
+<![CDATA[
+90 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>
+<Block caption="simple" number="3">
+<![CDATA[
+Windows 10 (or higher) (Version 10.0.18362)
+GenuineIntel, Stepping ID = 3, Model = 12, Family = 6, Extended model = 3, MMX SSE SSE2 Hyper-Threading Technology SSE3
+CPU Brand String: Intel(R) Core(TM) i7-4790S CPU @ 3.20GHz
+Cache Line Size = 64, L2 Associativity = 6, Cache Size = 256K
+Number of cores: 8, Processor type: 8664, Active processor mask: 255, Page size: 4096 bites
+Package 0 [ Group 0 [ 0 1 2 3 4 5 6 7 ] ]
+NUMA Node 0: Available Memory = 10.69 Gb. ProcessorGroup 0 [ 0 1 2 3 4 5 6 7 ]
+std::thread::hardware_concurrency = 8
+No NUMA support
+OpenMP enabled (spec=200203). max_threads = 8, num_procs = 8.
+
+]]>
+</Block>
+<Block caption="simple" number="4">
+<![CDATA[
+90 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>
+<Block caption="simple" number="3">
+<![CDATA[
+Windows 10 (or higher) (Version 10.0.18362)
+GenuineIntel, Stepping ID = 3, Model = 12, Family = 6, Extended model = 3, MMX SSE SSE2 Hyper-Threading Technology SSE3
+CPU Brand String: Intel(R) Core(TM) i7-4790S CPU @ 3.20GHz
+Cache Line Size = 64, L2 Associativity = 6, Cache Size = 256K
+Number of cores: 8, Processor type: 8664, Active processor mask: 255, Page size: 4096 bites
+Package 0 [ Group 0 [ 0 1 2 3 4 5 6 7 ] ]
+NUMA Node 0: Available Memory = 10.77 Gb. ProcessorGroup 0 [ 0 1 2 3 4 5 6 7 ]
+std::thread::hardware_concurrency = 8
+No NUMA support
+OpenMP enabled (spec=200203). max_threads = 8, num_procs = 8.
+
+]]>
+</Block>
+<Block caption="simple" number="4">
+<![CDATA[
+90 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>
+<Block caption="simple" number="3">
+<![CDATA[
+Windows 10 (or higher) (Version 10.0.18362)
+GenuineIntel, Stepping ID = 3, Model = 12, Family = 6, Extended model = 3, MMX SSE SSE2 Hyper-Threading Technology SSE3
+CPU Brand String: Intel(R) Core(TM) i7-4790S CPU @ 3.20GHz
+Cache Line Size = 64, L2 Associativity = 6, Cache Size = 256K
+Number of cores: 8, Processor type: 8664, Active processor mask: 255, Page size: 4096 bites
+Package 0 [ Group 0 [ 0 1 2 3 4 5 6 7 ] ]
+NUMA Node 0: Available Memory = 10.80 Gb. ProcessorGroup 0 [ 0 1 2 3 4 5 6 7 ]
+std::thread::hardware_concurrency = 8
+No NUMA support
+OpenMP enabled (spec=200203). max_threads = 8, num_procs = 8.
+
+]]>
+</Block>
+<Block caption="simple" number="4">
+<![CDATA[
+90 parameter(s) in list of scalar parameters
+4 parameter(s) in list of vector parameters
+
+]]>
+</Block>

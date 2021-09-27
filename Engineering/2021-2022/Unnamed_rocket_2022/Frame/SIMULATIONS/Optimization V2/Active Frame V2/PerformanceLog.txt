@@ -1,0 +1,2 @@
+Number of Contacts: 41
+Number of contact data: 103230

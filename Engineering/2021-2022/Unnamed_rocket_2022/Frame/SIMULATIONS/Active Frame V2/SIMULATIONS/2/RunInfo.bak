@@ -1,0 +1,29 @@
+﻿absolute path:C:\Users\grace\OneDrive\Desktop\SEDS GitHub\Engineering\2020-2021\UNAMED_Rocket2021\Frame\Active Frame V2\SIMULATIONS\2
+init:1
+run_capture:0
+run_solver:1
+new_calc:1
+close_monitor:0
+run_convert:0
+isOK:1
+ForceNewCalc:0
+run_capture_prestate:0
+StartFldName:C:\Users\grace\OneDrive\Desktop\SEDS GitHub\Engineering\2020-2021\UNAMED_Rocket2021\Frame\Active Frame V2\SIMULATIONS\2\2.fld
+NewCalcStartCptName:
+TransTimeMoments:
+TransFldNames:
+CurSelTranFld:0
+Trans:0
+UsePrevRes:0
+ForcetoRunCPT:0
+ComputerName:
+port:63114
+ProcessResults:1
+LoadLastResult:1
+ProcessorsToUse:0
+LoadBaseFLDFile:0
+BaseFLDFile:
+id:{4065C365-1C9B-43D6-AA47-6DB29E794A7E}
+calculation_state:15
+ForceContinue:0
+SolverProcessId:20788

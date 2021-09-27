@@ -1,0 +1,7 @@
+2020-Dec-03 23:06:07
+Computer name:	LAPTOP-BDL3F0ON
+Number of cores used in calculation:	12
+Configuration name:	Default
+Project name:	Frame Flow Attempt 2
+
+Warnings on last iteration: 

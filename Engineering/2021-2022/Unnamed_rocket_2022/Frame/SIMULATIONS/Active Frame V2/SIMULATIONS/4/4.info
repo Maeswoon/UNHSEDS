@@ -1,0 +1,103 @@
+
+    System Info
+                Status:   Solver is finished.
+                Product:   Flow Simulation 2020 3.0. Build: 4921
+                Computer name:   LAPTOP-BDL3F0ON
+                User name:   grace
+                Processors:   Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
+                Memory:   15920 MB / 5890 MB
+                Operating system:   Windows 10 (or higher) (Version 10.0.19041)
+                CAD version:   SOLIDWORKS 2020 SP3.0
+                CPU speed:   2208 MHz
+
+    General Info
+                Model:   Active Frame V2 SIM.SLDASM
+                Project name:   Frame Flow 4
+                Project path:   C:\Users\grace\OneDrive\Desktop\SEDS GitHub\Engineering\2020-2021\UNAMED_Rocket2021\Frame\Active Frame V2\SIMULATIONS\4
+                Units system:   FPS (ft-lb-s)
+                Analysis type:   External (exclude internal spaces)
+                Exclude cavities without flow conditions :   On
+                Coordinate system:   Global coordinate system
+                Reference axis:   X
+
+    Physical Features
+                Heat conduction in solids:   Off
+                Time dependent:   Off
+                Gravitational effects:   On
+                Flow type:   Laminar and turbulent
+                High Mach number flow:   Off
+                Humidity:   Off
+                Free surface:   Off
+                Default roughness:   0 microinch
+
+        Gravitational Settings
+                X component:   0 ft/s^2
+                Y component:   0 ft/s^2
+                Z component:   -32.19 ft/s^2
+                Default wall conditions:   Adiabatic wall
+
+    Computational Domain
+
+        Size
+                X min:   -2.152 ft
+                X max:   2.152 ft
+                Y min:   -2.361 ft
+                Y max:   10.162 ft
+                Z min:   -2.153 ft
+                Z max:   2.152 ft
+                X size:   4.305 ft
+                Y size:   12.524 ft
+                Z size:   4.305 ft
+
+    Calculation Mesh
+
+        Basic Mesh Dimensions
+                Number of cells in X:   32
+                Number of cells in Y:   96
+                Number of cells in Z:   32
+
+        Number Of Cells
+                Cells:   98472
+                Fluid cells:   98472
+                Irregular cells:   0
+                Trimmed cells:   0
+                Maximum refinement level:   1
+
+    Goals
+
+        Global Goals
+
+            GG Force (Y) 1
+                Type:   Global Goal
+                Goal type:   Force (Y)
+                Coordinate system:   Global coordinate system
+                Use in convergence :   On
+
+        Equation Goals
+
+            Equation Goal 1
+                Type:   Equation Goal
+                Formula:   GG Force (Y) 1*2/(0.765*(1000^2)*0.2971)
+                Dimensionality:   Force
+                Use in convergence :   On
+
+    Goals
+                
+                Name              	Unit   	Value        	Progress   	Criteria         	Delta            	Use in convergence 
+                GG Force (Y) 1    	lbf    	-107.931     	100        	8.28185616       	2.76561528       	On                 
+                Equation Goal 1   	lbf    	-9.498e-04   	100        	7.28775211e-05   	2.43364751e-05   	On                 
+
+    General Info
+                Run at:   LAPTOP-BDL3F0ON
+                Number of cores:   12
+                Iterations:   93
+                CPU time:   0 s
+
+        Log
+                Preparing data for calculation	0:   23:59:59 , Dec 03
+                Calculation started	0:   00:00:04 , Dec 04
+                Calculation has converged since the following criteria are satisfied:	93:   00:02:07 , Dec 04
+                    Goals are converged	93:   
+                Calculation finished	93:   00:02:09 , Dec 04
+                Preparing data for calculation	0:   00:03:47 , Dec 04
+                Calculation finished	93:   00:03:48 , Dec 04

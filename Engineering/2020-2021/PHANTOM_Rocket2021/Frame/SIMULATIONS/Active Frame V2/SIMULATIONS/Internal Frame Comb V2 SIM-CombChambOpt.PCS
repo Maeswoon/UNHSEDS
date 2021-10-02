@@ -1,6 +1,0 @@
-Job:C:\Users\grace\OneDrive\Desktop\SEDS GitHub\Engineering\2020-2021\PHANTOM_Rocket2021\Frame\SIMULATIONS\Active Frame V2\SIMULATIONS\Internal Frame Comb V2 SIM-CombChambOpt	at:Thu Feb  4 21:00:19 2021
-
-******PCGLSS Error******
-Status:2
-PCGLSS0087:Negative or zero pivot -1.480653e-08 at row 21559. Preconditioner failed to factorVersion:8.0:PCGLSS0087:Source File:arrayfactorblocked.c:Line:322
-******PCGLSS Error******

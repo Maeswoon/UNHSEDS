@@ -1,0 +1,10 @@
+2020-Nov-12 19:18:09
+Computer name:	S172-2
+Number of cores used in calculation:	8
+Configuration name:	Simplify_1
+Project name:	Swirl Injection
+
+Warnings on last iteration: 
+1. A vortex crosses the pressure opening :
+	Boundary Condition : Environment Pressure 2 ; Inlet flow/outlet flow=0.247451
+	Boundary Condition : Static Pressure 3 ; Inlet flow/outlet flow=2.34436

@@ -1,7 +1,0 @@
-import Cython
-import CoolProp
-
-aa = input("Hello")
-fluid = "CarbonDioxide"
-InternalEnergy = CoolProp.PropsSI("U", "T", 322.15, "D", 1064)
-print(InternalEnergy)

@@ -1,0 +1,90 @@
+
+    System Info
+                Status:   Solver is finished.
+                Product:   Flow Simulation 2020 4.0. Build: 4995
+                Computer name:   S172-2
+                User name:   Student
+                Processors:   Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
+                Memory:   32621 MB / 22239 MB
+                Operating system:   Windows 10 (or higher) (Version 10.0.18362)
+                CAD version:   SOLIDWORKS 2020 SP4.0
+                CPU speed:   3408 MHz
+
+    General Info
+                Model:   Banshee V1 Assembly w injectioncylinder.SLDASM
+                Project name:   Project 1
+                Project path:   C:\Users\Student\Desktop\UNHSEDS\Engineering\2020-2021\UNAMED_Rocket2021\Propulsion\Banshee V1\fxp\1
+                Units system:   SI (m-kg-s)
+                Analysis type:   Internal
+                Exclude cavities without flow conditions :   Off
+                Coordinate system:   Global coordinate system
+                Reference axis:   X
+
+    Physical Features
+                Heat conduction in solids:   Off
+                Time dependent:   Off
+                Gravitational effects:   Off
+                Flow type:   Laminar and turbulent
+                High Mach number flow:   Off
+                Free surface:   Off
+                Default roughness:   0 micrometer
+                Default wall conditions:   Adiabatic wall
+
+    Computational Domain
+
+        Size
+                X min:   0.140 m
+                X max:   0.212 m
+                Y min:   -0.089 m
+                Y max:   0.486 m
+                Z min:   0.301 m
+                Z max:   0.439 m
+                X size:   0.073 m
+                Y size:   0.575 m
+                Z size:   0.137 m
+
+    Calculation Mesh
+
+        Basic Mesh Dimensions
+                Number of cells in X:   8
+                Number of cells in Y:   36
+                Number of cells in Z:   8
+
+        Number Of Cells
+                Cells:   6076
+                Fluid cells:   6076
+                Irregular cells:   0
+                Trimmed cells:   0
+                Maximum refinement level:   1
+
+    Goals
+
+        Surface Goals
+
+            SG Mass Flow Rate 1
+                Type:   Surface Goal
+                Goal type:   Mass Flow Rate
+                Faces:   Face<1>@Oxidizer Plate - Copy-1
+                Coordinate system:   Global coordinate system
+                Use in convergence :   On
+
+    Goals
+                
+                Name                  	Unit   	Value   	Progress   	Criteria   	Delta   	Use in convergence 
+                SG Mass Flow Rate 1   	kg/s   	0       	1000       	1e-08      	0       	On                 
+
+    General Info
+                Run at:   S172-2
+                Number of cores:   8
+                Iterations:   45
+                CPU time:   0 s
+
+        Log
+                Mesh generation started	0:   19:32:44 , Nov 12
+                Mesh generation normally finished	0:   19:32:44 , Nov 12
+                Preparing data for calculation	0:   19:32:45 , Nov 12
+                Calculation started	0:   19:32:45 , Nov 12
+                Calculation has converged since the following criteria are satisfied:	45:   19:32:51 , Nov 12
+                    Max. travel is reached	45:   
+                Calculation finished	45:   19:32:53 , Nov 12
+                Warnings:   A vortex crosses the pressure opening	Boundary Condition : Outlet ; Inlet flow/outlet flow=0.318943, 		, Invalid goals	Goal name: SG Mass Flow Rate 1, 		, 

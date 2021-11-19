@@ -1,0 +1,6 @@
+Use the DWG file
+10% speed
+max power
+500 hz
+run twice
+clean edges w/ paper towel

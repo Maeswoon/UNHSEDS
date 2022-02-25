@@ -1,0 +1,8 @@
+[StartTime]
+Nozzle_Assm_Thermal_Test-Thermal 1.MFC=
+[SolverState]
+Nozzle_Assm_Thermal_Test-Thermal 1.MFC=2
+[ShowMin]
+Nozzle_Assm_Thermal_Test-Thermal 1.MFC=yes
+[StudyType]
+Nozzle_Assm_Thermal_Test-Thermal 1.MFC=-1

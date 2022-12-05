@@ -1,0 +1,8 @@
+[StartTime]
+Insulation-Thermal 1.MFC=
+[SolverState]
+Insulation-Thermal 1.MFC=2
+[ShowMin]
+Insulation-Thermal 1.MFC=yes
+[StudyType]
+Insulation-Thermal 1.MFC=-1

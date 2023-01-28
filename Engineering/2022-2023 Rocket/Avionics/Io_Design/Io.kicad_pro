@@ -331,7 +331,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "Io.kicad_pro",
+    "filename": "io.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -363,7 +363,7 @@
     "last_paths": {
       "gencad": "",
       "idf": "",
-      "netlist": "Io.net",
+      "netlist": "",
       "specctra_dsn": "",
       "step": "",
       "vrml": ""
@@ -391,7 +391,16 @@
     "meta": {
       "version": 1
     },
-    "net_format_name": "KiCad",
+    "net_format_name": "",
+    "ngspice": {
+      "fix_include_paths": true,
+      "fix_passive_vals": false,
+      "meta": {
+        "version": 0
+      },
+      "model_mode": 0,
+      "workbook_filename": ""
+    },
     "page_layout_descr_file": "",
     "plot_directory": "",
     "spice_adjust_passive_values": false,

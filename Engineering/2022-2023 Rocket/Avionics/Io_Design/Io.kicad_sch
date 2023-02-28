@@ -4867,6 +4867,11 @@
     (effects (font (size 1.9 1.9) italic) (justify left bottom))
     (uuid 8b1dc230-62ff-4b28-8126-b8ebf095e2b9)
   )
+  (text "No battery drain data has been collected. \n\nFor each device, we will be plugging in the device to a fully-charged battery, attaching voltmeter leads to the battery connections or wires, and then measuring the time for the battery voltage to dip below acceptable levels (generally the battery's nominal voltage to prevent full discharge + battery damage). Low-resolution video data will be recorded for the test to provide timestamps for expected battery voltages - this will allow us to provide battery life estimates on our SRAD flight computer.\n"
+    (at -33.02 0 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 8cf15b21-cc35-4878-8bb0-29b7178cfee7)
+  )
   (text "PERIPHERALS" (at 111.76 171.45 0)
     (effects (font (size 3.81 3.81) (thickness 0.254) bold) (justify left bottom))
     (uuid 92ee8fe7-4d18-44ed-be55-ef9426ead95f)
@@ -5997,7 +6002,7 @@
     (uuid 3d8c9830-3767-492e-962f-52b62edeef1e)
     (property "Reference" "L1" (id 0) (at 76.2 41.91 90))
     (property "Value" "6.8uH" (id 1) (at 76.2 44.45 90))
-    (property "Footprint" "Inductor_SMD:L_0805_2012Metric" (id 2) (at 76.2 46.99 0)
+    (property "Footprint" "Inductor_SMD:L_Bourns_SRR1260" (id 2) (at 76.2 46.99 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 76.2 46.99 0)
@@ -8104,7 +8109,7 @@
       (reference "J8") (unit 1) (value "0732511151") (footprint "Connector_Coaxial:SMA_Molex_73251-1153_EdgeMount_Horizontal")
     )
     (path "/3d8c9830-3767-492e-962f-52b62edeef1e"
-      (reference "L1") (unit 1) (value "6.8uH") (footprint "Inductor_SMD:L_0805_2012Metric")
+      (reference "L1") (unit 1) (value "6.8uH") (footprint "Inductor_SMD:L_Bourns_SRR1260")
     )
     (path "/5d393dfc-be03-4118-b95f-9038fa31eed2"
       (reference "Q1") (unit 1) (value "DMG2301L") (footprint "Package_TO_SOT_SMD:SOT-23")

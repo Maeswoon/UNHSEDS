@@ -62,14 +62,39 @@
       35,
       36
     ],
-    "visible_layers": "ffdffff_ffffffff",
+    "visible_layers": "0009000_ffffffff",
     "zone_display_mode": 0
   },
   "meta": {
-    "filename": "Io.kicad_prl",
+    "filename": "io.kicad_prl",
     "version": 3
   },
   "project": {
-    "files": []
+    "files": [
+      {
+        "name": "io.kicad_pcb",
+        "open": false,
+        "window": {
+          "display": 0,
+          "maximized": true,
+          "pos_x": -8,
+          "pos_y": -8,
+          "size_x": 1936,
+          "size_y": 1056
+        }
+      },
+      {
+        "name": "io.kicad_sch",
+        "open": false,
+        "window": {
+          "display": 0,
+          "maximized": false,
+          "pos_x": -16,
+          "pos_y": -16,
+          "size_x": 1936,
+          "size_y": 1056
+        }
+      }
+    ]
   }
 }

@@ -33,9 +33,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.762,
-          "height": 1.524,
-          "width": 1.524
+          "drill": 0.0,
+          "height": 2.5,
+          "width": 1.2
         },
         "silk_line_width": 0.12,
         "silk_text_italic": false,
@@ -124,7 +124,9 @@
       "track_widths": [
         0.0,
         0.3,
-        0.5
+        0.5,
+        0.8,
+        1.6
       ],
       "via_dimensions": [
         {
@@ -355,7 +357,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "Io.kicad_pro",
+    "filename": "io.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -386,10 +388,14 @@
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
-        "name": "ARM/5V",
+        "name": "High Current",
         "nets": [
           "+5V",
-          "ARM"
+          "ARM",
+          "PYRO1_SW",
+          "PYRO2_SW",
+          "PYRO3_SW",
+          "PYRO4_SW"
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",

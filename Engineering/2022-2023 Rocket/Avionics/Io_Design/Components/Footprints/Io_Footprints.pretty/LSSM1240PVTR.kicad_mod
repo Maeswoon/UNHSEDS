@@ -52,9 +52,9 @@
   (fp_line (start 4.75 -1.75) (end -4.75 -1.75) (layer "F.Fab") (width 0.2) (tstamp f5564be2-aaeb-453f-9364-3192cead08bf))
   (pad "" np_thru_hole circle (at 3.4 0) (size 0.9 0.9) (drill 0.9) (layers *.Cu *.Mask) (tstamp 125c121d-c8c9-4732-a9ff-6066396c9ef7))
   (pad "" np_thru_hole circle (at -3.4 0) (size 0.9 0.9) (drill 0.9) (layers *.Cu *.Mask) (tstamp e911f166-f11b-44ef-9957-f5c7c39783d3))
-  (pad "A1" smd rect (at -2.5 -2.75) (size 1.2 2.5) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp fa6e73ab-e1c2-4609-9daa-ada3c7a659f3))
-  (pad "B1" smd rect (at 0 -2.75) (size 1.2 2.5) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp 74d2628d-cd25-48a1-a9b9-e2021853437d))
-  (pad "C1" smd rect (at 2.5 -2.75) (size 1.2 2.5) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp 6481fe4f-150e-4d69-a855-b746872685b6))
+  (pad "1" smd rect (at -2.5 -2.75) (size 1.2 2.5) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp fa6e73ab-e1c2-4609-9daa-ada3c7a659f3))
+  (pad "2" smd rect (at 0 -2.75) (size 1.2 2.5) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp 74d2628d-cd25-48a1-a9b9-e2021853437d))
+  (pad "3" smd rect (at 2.5 -2.75) (size 1.2 2.5) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp 6481fe4f-150e-4d69-a855-b746872685b6))
   (model "LSSM12-40-P-V-T_R.stp"
     (offset (xyz 0 0 0))
     (scale (xyz 1 1 1))

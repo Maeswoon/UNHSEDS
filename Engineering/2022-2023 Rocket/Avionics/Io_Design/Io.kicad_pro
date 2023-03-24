@@ -33,9 +33,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.0,
-          "height": 0.4,
-          "width": 0.46
+          "drill": 0.762,
+          "height": 1.524,
+          "width": 1.524
         },
         "silk_line_width": 0.12,
         "silk_text_italic": false,
@@ -108,7 +108,7 @@
         "allow_blind_buried_vias": true,
         "allow_microvias": false,
         "max_error": 0.005,
-        "min_clearance": 0.15,
+        "min_clearance": 0.0,
         "min_copper_edge_clearance": 0.5,
         "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.5,
@@ -117,16 +117,14 @@
         "min_silk_clearance": 0.0,
         "min_through_hole_diameter": 0.3,
         "min_track_width": 0.09,
-        "min_via_annular_width": 0.19999999999999998,
+        "min_via_annular_width": 0.13,
         "min_via_diameter": 0.5,
         "use_height_for_length_calcs": true
       },
       "track_widths": [
         0.0,
-        0.15,
-        0.5,
-        0.8,
-        1.6
+        0.3,
+        0.5
       ],
       "via_dimensions": [
         {
@@ -357,7 +355,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "io.kicad_pro",
+    "filename": "Io.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -365,7 +363,7 @@
       {
         "bus_width": 12.0,
         "clearance": 0.2,
-        "diff_pair_gap": 0.169,
+        "diff_pair_gap": 0.16,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.15,
         "line_style": 0,
@@ -388,14 +386,10 @@
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
-        "name": "High Current",
+        "name": "ARM/5V",
         "nets": [
           "+5V",
-          "ARM",
-          "PYRO1_SW",
-          "PYRO2_SW",
-          "PYRO3_SW",
-          "PYRO4_SW"
+          "ARM"
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",

@@ -1,17 +1,33 @@
-"Source:","/home/mason/UNHSEDS/Engineering/2022-2023 Rocket/Avionics/Io_Design/Io.kicad_sch"
-"Date:","Tue 29 Nov 2022 09:59:16 PM EST"
-"Tool:","Eeschema 6.0.9-8da3e8f707~117~ubuntu22.04.1"
-"Generator:","/usr/share/kicad/plugins/bom_csv_grouped_by_value.py"
-"Component Count:","1"
-
-"Individual Components:"
-
-"Item","Qty","Reference(s)","Value","LibPart","Footprint","Datasheet"
-"","","MCU1","ATSAM4S16BA-MUR","ATSAM4S16BA-MUR:ATSAM4S16BA-MUR","Footprints:ATSAM4S16BA-MUR",""
-
-
-
-"Collated Components:"
-
-"Item","Qty","Reference(s)","Value","LibPart","Footprint","Datasheet"
-"1","1","MCU1","ATSAM4S16BA-MUR","ATSAM4S16BA-MUR:ATSAM4S16BA-MUR","Footprints:ATSAM4S16BA-MUR",""
+"Id";"Designator";"Package";"Quantity";"Designation";"Supplier and ref";
+1;"C22,C13,C15,C26,C3,C14,C10,C25,C20,C23,C11,C21,C24,C19";"C_0402_1005Metric";14;"100n";;;
+2;"SW1";"LSSM1240PVTR";1;"LSSM12-40-P-V-T/R";;;
+3;"Y1";"Crystal_SMD_2016-4Pin_2.0x1.6mm";1;"ECS-400-10-37B2-CKM-TR";;;
+4;"C16";"C_0402_1005Metric";1;"10n";;;
+5;"R12,R1,R8,R14,R10,R2,R3,R5,R4,R6";"R_0402_1005Metric";10;"30.1k";;;
+6;"J2";"TerminalBlock_TE_282834-8_1x08_P2.54mm_Horizontal";1;"TB002-500-08BE";;;
+7;"J1,J3";"PinHeader_1x04_P2.54mm_Vertical";2;"PH1-04-UA";;;
+8;"C7,C6";"C_0603_1608Metric";2;"22u";;;
+9;"U4";"LGA-14_3x2.5mm_P0.5mm_LayoutBorder3x4y";1;"LSM6DSO32TR";;;
+10;"R11,R13,R7,R9";"R_0603_1608Metric";4;"60k";;;
+11;"C1,C2,C8,C4";"C_0603_1608Metric";4;"10u";;;
+12;"R16,R18";"R_0402_1005Metric";2;"1.5k";;;
+13;"L1";"L_Bourns_SRR1260";1;"6.8uH";;;
+14;"Q4,Q2,Q5,Q3";"SOT-23";4;"DMG2302U";;;
+15;"D1";"D_SOD-123F";1;"MBR1020VL";;;
+16;"IC1";"TSOT-23-6";1;"AP63300WU-7";;;
+17;"U1";"TO-252-3_TabPin2";1;"LD39150DT33";;;
+18;"IC2";"BMP390";1;"BMP390";;;
+19;"U3";"SOT-23-6";1;"USBLC6-2SC6";;;
+20;"C5";"C_0402_1005Metric";1;"47p";;;
+21;"FB1";"L_0201_0603Metric";1;"120R";;;
+22;"R15";"R_0805_2012Metric";1;"158k";;;
+23;"Q1";"SOT-23";1;"DMG2301L";;;
+24;"J5,J4";"TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal";2;"TB002-500-02BE";;;
+25;"U2";"LQFP-64_10x10mm_P0.5mm";1;"STM32L486RGT7";;;
+26;"J7";"KMMXBSMT35SB30TR";1;"KMMX-BSMT35S-B30TR";;;
+27;"C12,C9";"C_0402_1005Metric";2;"10p";;;
+28;"C17,C18";"C_0402_1005Metric";2;"1u";;;
+29;"R17";"R_0402_1005Metric";1;"10k";;;
+30;"J8";"SMA_Molex_73251-1153_EdgeMount_Horizontal";1;"0732511151";;;
+31;"D2";"LED_0603_1608Metric";1;"LTST-C190KRKT";;;
+32;"J6";"MEM2075-00-140-01-A";1;"MEM2075-00-140-01-A";;;

@@ -1,0 +1,16 @@
+[StartTime]
+Injector Segment-Static 1.MFC=6s
+[SolverState]
+Injector Segment-Static 1.MFC=2
+[MainFrame]
+Injector Segment-Static 1.MFC=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPMECAAAAAHEBAAAAAELDAAAAAKBCAAAAA
+[ShowMin]
+Injector Segment-Static 1.MFC=No
+[SolverType]
+Injector Segment-Static 1.MFC=Linear Analysis
+[StudyType]
+Injector Segment-Static 1.MFC=0
+[StudyName]
+Injector Segment-Static 1.MFC=Static 1
+[Solver]
+Injector Segment-Static 1.MFC=Sparse

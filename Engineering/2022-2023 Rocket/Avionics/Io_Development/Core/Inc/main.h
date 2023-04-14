@@ -57,6 +57,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define TEST_OUTPUT_Pin GPIO_PIN_1
+#define TEST_OUTPUT_GPIO_Port GPIOC
 #define PYRO1_DET_Pin GPIO_PIN_0
 #define PYRO1_DET_GPIO_Port GPIOA
 #define PYRO2_DET_Pin GPIO_PIN_1
@@ -77,6 +79,14 @@ void Error_Handler(void);
 #define PYRO4_GPIO_Port GPIOB
 #define SDMMC1_DET_Pin GPIO_PIN_7
 #define SDMMC1_DET_GPIO_Port GPIOC
+#define RF_DIO0_Pin GPIO_PIN_8
+#define RF_DIO0_GPIO_Port GPIOA
+#define RF_DIO1_Pin GPIO_PIN_9
+#define RF_DIO1_GPIO_Port GPIOA
+#define RF_DIO5_Pin GPIO_PIN_10
+#define RF_DIO5_GPIO_Port GPIOA
+#define USB_OTG_FS_DP_Pin GPIO_PIN_12
+#define USB_OTG_FS_DP_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 

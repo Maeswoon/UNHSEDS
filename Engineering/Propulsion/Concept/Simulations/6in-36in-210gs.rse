@@ -1,0 +1,13 @@
+<engine-database>
+  <engine-list>
+    <engine mfg="UNH SEDS" code="D6L36" type="Hybrid" dia="152.4" len="1828." initWt="27070." propWt="10774.">
+      <data>
+        <eng-data cg="762." f="0." m="27070." t="0."/>
+        <eng-data cg="762." f="5084." m="27070." t="0.04"/>
+        <eng-data cg="762." f="4500." m="24500." t="1.0"/>
+        <eng-data cg="822." f="1500." m="16290." t="4"/>
+        <eng-data cg="822." f="0." m="16290." t="4.01"/>
+      </data>
+    </engine>
+  </engine-list>
+</engine-database>

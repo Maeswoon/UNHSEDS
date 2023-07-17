@@ -32,7 +32,7 @@ m_dot_f = rho_f * r_dot * L * pi * d_port * 1000;
 OF = m_dot_ox / m_dot_f;
 m_dot = m_dot_ox + m_dot_f;
 % Throat area A_t is constant for given chamber pressure
-A_t = (m_dot / P_c) * sqrt(R * T_c / gamma) * power(gamma_p, -1 * gamma_exp);
+A_t = (m_dot / P_c) * sqrt(R * T_c / gamma) * power(gamma_p, 1 * gamma_exp);
 
 %%% NOZZLE EQUATIONS %%%
 mach_factor = @(exit_mach) 1 + gamma_m * power(exit_mach, 2);

@@ -3,10 +3,9 @@
     <engine mfg="UNH SEDS" code="D5L36" type="Hybrid" dia="127." len="1828." initWt="21679." propWt="8061.">
       <data>
         <eng-data cg="707." f="0." m="23713." t="0."/>
-        <eng-data cg="707." f="4855." m="23713." t="0.04"/>
-        <eng-data cg="707." f="4200." m="23713." t="1.0"/>
-        <eng-data cg="753." f="1200." m="15320." t="3.3"/>
-        <eng-data cg="753." f="0." m="15320." t="3.31"/>
+        <eng-data cg="707." f="5730." m="23713." t="0.2"/>
+        <eng-data cg="753." f="4600." m="15320." t="2.2"/>
+        <eng-data cg="753." f="0." m="15320." t="2.21"/>
       </data>
     </engine>
   </engine-list>
